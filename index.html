@@ -334,12 +334,15 @@
 											</script>
 
 											<div class="scan_app">
-											<div id="deviceready">
+											<div id="deviceready" style="display:none;">
 												<p>Connecting to Device</p>
 												<p>Device is Ready</p>
 											</div>
-											<p><a href="#" id="scan">SCAN</a></p>
-											<p><a href="#" id="encode">ENCODE</a></p>
+											<p>
+												<a href="#" id="scan">
+													<md-icon class="labelfile" id="labelfile" style="width: 48px; height: 48px;" md-svg-icon="img/icons/barcode.svg"></md-icon>
+												</a>
+											</p>
 											<p id="info"></p>
 											</div>
 
@@ -655,11 +658,12 @@
 	</md-content>
 
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="barcodescanner.js"></script>
+        <script type="text/javascript" src="barcodescanner.js"></script>\
+		<!--
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             scan_app.initialize();
         </script>
-
+		-->
 </body>
 </html>
