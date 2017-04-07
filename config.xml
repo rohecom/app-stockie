@@ -13,7 +13,7 @@
         Rohecom Team
     </author>
 
-    <access origin="http://api.unishoponline.nl:6879/v1" />
+    <access origin="https://api.unishoponline.nl:6879/v1" />
 
     <plugin name="phonegap-plugin-barcodescanner"/>
 
