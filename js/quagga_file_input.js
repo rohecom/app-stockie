@@ -1,7 +1,7 @@
 $(function() {
 		var App = {
 				init: function() {
-						App.attachListeners();
+						/*App.attachListeners();*/
 				},
 				config: {
 						reader: "ean",

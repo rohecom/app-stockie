@@ -860,25 +860,18 @@ UniApp.controller('unishopController',
 
 	this.newBarcodeScanner = function () {
 		var scanner = cordova.plugins.barcodeScanner;
-		alert('newBarcodeScanner');
-		alert(scanner);
 
-        scanner.scan(function (result) {
-            alert("We got a barcode\n" + 
-            "Result: " + result.text + "\n" + 
-            "Format: " + result.format + "\n" + 
-            "Cancelled: " + result.cancelled);  
+		scanner.scan(function (result) {
+		alert("We got a barcode\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);  
 
-           console.log("Scanner result: \n" +
-                "text: " + result.text + "\n" +
-                "format: " + result.format + "\n" +
-                "cancelled: " + result.cancelled + "\n");
+		console.log("Scanner result: \n" + "text: " + result.text + "\n" + "format: " + result.format + "\n" + "cancelled: " + result.cancelled + "\n");
+		console.log(result);
 
-			console.log(result);
-        }, function (error) {
+		appScope.unishop.barcodeDetected(result.text);
+		}, function (error) {
 			alert("Scanning failed: ", error);
-            console.log("Scanning failed: ", error); 
-        });
+			console.log("Scanning failed: ", error); 
+		});
 	}
 
 	this.barcodeProcessed = function(boxes,box) {
