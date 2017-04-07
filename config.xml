@@ -13,9 +13,20 @@
         Rohecom Team
     </author>
 
-    <access origin="*"/>
-
     <plugin name="phonegap-plugin-barcodescanner"/>
+
+
+    <gap:plugin name="cordova-plugin-device" source="npm"/>
+    <gap:plugin name="cordova-plugin-file" source="npm"/>
+    <gap:plugin name="cordova-plugin-media" source="npm"/>
+    <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
+    <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+    <gap:plugin name="cordova-plugin-x-socialsharing" source="npm"/>
+    <gap:plugin name="cordova-plugin-admobpro" source="npm" spec="2.9.6"/>
+
+    <allow-navigation href="*"/>
+    <allow-intent href="*"/>
+    <access origin="*"/>
 
     <preference name="phonegap-version" value="cli-6.5.0" />
     <preference name="orientation"      value="default" />
@@ -52,7 +63,7 @@
     <gap:splash src="res/screen/ios/Splash-750x1334.png"     gap:platform="ios"     width="750" height="1334" />
     <gap:splash src="res/screen/ios/Splash-2208x1242.png"     gap:platform="ios"     width="1242" height="2208" />
     <gap:splash src="res/screen/ios/Splash-1242x2208.png"     gap:platform="ios"     width="2208" height="1242" />
-    <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+
 
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 
