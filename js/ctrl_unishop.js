@@ -858,6 +858,12 @@ UniApp.controller('unishopController',
 		$scope.$apply();
 	}
 
+	this.newBarcodeScanner = function () {
+		var scanner = cordova.plugins.barcodeScanner;
+		alert('newBarcodeScanner');
+		alert(scanner);
+	}
+
 	this.barcodeProcessed = function(boxes,box) {
 		// er is een barcode foto behandeld. boxes is een array met areas. box is een optionele area van de gedetecteerde barcode
 

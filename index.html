@@ -322,6 +322,7 @@
 												var appScope = angular.element(document.getElementById('appController')).scope();
 												$("#labelfile").click(function() {
 													appScope.unishop.resetFoutResponse();
+													appScope.unishop.newBarcodeScanner();
 													$("#fileBarcode").trigger('click');
 												});
 											})
