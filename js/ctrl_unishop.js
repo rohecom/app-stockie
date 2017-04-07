@@ -867,7 +867,7 @@ UniApp.controller('unishopController',
 			console.log("Scanner result: \n" + "text: " + result.text + "\n" + "format: " + result.format + "\n" + "cancelled: " + result.cancelled + "\n");
 			console.log(result);
 
-			$scope.zoekArt = code;
+			$scope.zoekArt = result.text;
 			this.handleZoekArt();
 		}, function (error) {
 			alert("Scanning failed: ", error);
