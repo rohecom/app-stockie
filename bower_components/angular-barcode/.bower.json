@@ -1,0 +1,31 @@
+{
+  "name": "angular-barcode",
+  "version": "0.0.4",
+  "main": [
+    "./dist/angular-barcode.min.js"
+  ],
+  "description": "Barcode generator for AngularJS apps",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ryanmc2033/angular-barcode.git"
+  },
+  "dependencies": {
+    "angular": "~1.x"
+  },
+  "ignore": [
+    "node_modules",
+    "components",
+    "lib"
+  ],
+  "homepage": "https://github.com/justechn/angular-barcode",
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.4",
+    "commit": "ef26ff843471b68da26a6117f3d5beb35c093c55"
+  },
+  "_source": "https://github.com/justechn/angular-barcode.git",
+  "_target": "^0.0.4",
+  "_originalSource": "angular-barcode",
+  "_direct": true
+}

@@ -1,0 +1,30 @@
+{
+  "name": "angular-pull-to-refresh",
+  "version": "0.3.0",
+  "description": "angular-pull-to-refresh",
+  "keywords": [
+    "angular"
+  ],
+  "homepage": "https://github.com/mgcrea/angular-pull-to-refresh",
+  "bugs": "https://github.com/mgcrea/angular-pull-to-refresh/issues",
+  "author": {
+    "name": "Olivier Louvignes",
+    "email": "olivier@mg-crea.com",
+    "url": "https://github.com/mgcrea"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgcrea/angular-pull-to-refresh.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "~1.2.0",
+    "angular-mocks": "~1.2.0",
+    "jquery": "~2.0.3"
+  }
+}
