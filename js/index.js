@@ -19,7 +19,6 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        alert('initialize');
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -54,6 +53,7 @@ var app = {
 
     scan: function() {
         console.log('scanning');
+        alert('scanning');
         
         var scanner = cordova.plugins.barcodeScanner;
 
