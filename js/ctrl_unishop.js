@@ -862,7 +862,7 @@ UniApp.controller('unishopController',
 		var scanner = cordova.plugins.barcodeScanner;
 
 		scanner.scan(function (result) {
-			alert("We got a barcode\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);  
+			alert("We got a barcode bro\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);  
 
 			console.log("Scanner result: \n" + "text: " + result.text + "\n" + "format: " + result.format + "\n" + "cancelled: " + result.cancelled + "\n");
 			console.log(result);
@@ -870,8 +870,8 @@ UniApp.controller('unishopController',
 			$scope.zoekArt = result.text;
 			this.handleZoekArt();
 		}, function (error) {
-			alert("Scanning failed: ", error);
-			console.log("Scanning failed: ", error); 
+			alert("Scanning failed bro: ", error);
+			console.log("Scanning failed bro: ", error); 
 		});
 	}
 
