@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "nl.rohecom.stockie"
-        version   = "2.0.0">
+        version   = "2.0.1">
     <name>Stockie</name>
     <description>Stockie</description>
 
@@ -28,7 +28,7 @@
     <preference name="fullscreen"       value="true" />
     <preference name="webviewbounce"    value="false" />
 
-    <icon src="img/icons/appicon.png" />
+    <icon src="www/img/icons/appicon.png" />
 
     <gap:splash src="res/screen/android/screen-ldpi-portrait.png"   gap:platform="android" gap:density="ldpi" />
     <gap:splash src="res/screen/android/screen-mdpi-portrait.png"   gap:platform="android" gap:density="mdpi" />
