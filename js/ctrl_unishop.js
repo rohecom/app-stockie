@@ -23,9 +23,7 @@ UniApp.directive('myEnter', function () {
 
 UniApp.directive('focusMe', function ($timeout) {
 	return {
-
 		link: function (scope, element, attrs) {
-
 			$timeout(function () {
 				element[0].focus();
 			}, 750);
@@ -42,7 +40,6 @@ UniApp.directive('focusOn', function () {
 });
 
 UniApp.config(function ($httpProvider, $mdThemingProvider) {
-
 	$mdThemingProvider.theme('default')
 		.primaryPalette('blue')
 		.accentPalette('orange');
@@ -64,8 +61,6 @@ UniApp.controller('unishopController',
 		$location,
 		$cookies
 	) {
-
-
 		this.barcodeOptions = {
 			format: "ean13",
 			textmargin: 0,
@@ -73,7 +68,6 @@ UniApp.controller('unishopController',
 			height: 30,
 			displayValue: true
 		}
-
 
 		function zoekJSONNaam(obj, ANaam) {
 			for (var i = 0; i < obj.length; i++) {
@@ -88,13 +82,12 @@ UniApp.controller('unishopController',
 				$mdSidenav(navID)
 					.toggle()
 					.then(function () {
-						//$log.debug("toggle " + navID + " is done");
+						// $log.debug("toggle " + navID + " is done");
 					});
 			}
 		}
 
 		function updateCookies() {
-
 			// schrijf cookies; cookies zijn 1 maand geldig
 			var now = new Date();
 			var expireDate = new Date(now.getFullYear(), now.getMonth() + 1, now.getDate());
@@ -127,9 +120,9 @@ UniApp.controller('unishopController',
 			return $mdSidenav('menuLinks').isOpen();
 		};
 
-		//$scope.API_URL = 'http://delphi-ontwikke:6879/v1';
+		// $scope.API_URL = 'http://delphi-ontwikke:6879/v1';
 		$scope.API_URL = 'http://api.unishoponline.nl:6879/v1';
-		//$scope.API_URL = 'https://api.unishoponline.nl:6880/v1';
+		// $scope.API_URL = 'https://api.unishoponline.nl:6880/v1';
 
 		// add public and generic declarations 
 		$scope.mainTitle = 'Voorraad';
@@ -197,10 +190,8 @@ UniApp.controller('unishopController',
 		}
 
 		this.logResponseCode = function () {
-
 			if ($location.search().responsecode) {
-				//alert($location.search().responsecode);
-
+				// alert($location.search().responsecode);
 				var AUrl = $scope.API_URL + '/logtext/' + encodeURI('responsecode=' + $location.search().responsecode);
 
 				var req = {
@@ -219,7 +210,7 @@ UniApp.controller('unishopController',
 					},
 					params:
 					{
-						//'callback': 'JSON_CALLBACK',
+						// 'callback': 'JSON_CALLBACK',
 						'dataset': $scope.dataset,
 						'username': $scope.inlognaam,
 						'password': $scope.wachtwoord
@@ -227,13 +218,11 @@ UniApp.controller('unishopController',
 				};
 				var AHttp = $http(req);
 			}
-
 		}
 
 
 		if ($scope.wachtwoord != '') {
 			$scope.inlogValideren = true;
-
 			// valideer de user via de API
 			var AUrl = $scope.API_URL + '/auth/validateuserlogin';
 
@@ -259,8 +248,7 @@ UniApp.controller('unishopController',
 				if (appScope) {
 					appScope.unishop.logResponseCode();
 				}
-			}
-			);
+			});
 
 			AHttp.error(function (response) {
 				$scope.wachtwoord = '';
@@ -275,11 +263,10 @@ UniApp.controller('unishopController',
 		};
 
 		this.wijzigWachtwoord = function () {
-
 			$mdSidenav('menuLinks').close()
-				.then(function () {
-					//$log.debug("menuLinks is gesloten");
-				});
+			.then(function () {
+				// $log.debug("menuLinks is gesloten");
+			});
 
 			$scope.wachtwoord_old = '';
 			$scope.wachtwoord_new = '';
@@ -293,7 +280,6 @@ UniApp.controller('unishopController',
 		}
 
 		this.handleWijzigWachtwoord = function () {
-
 			if ($scope.wachtwoord_old == '') {
 				$scope.showAlert('Vul uw huidige wachtwoord in.', '');
 				return false;
@@ -336,7 +322,6 @@ UniApp.controller('unishopController',
 				$scope.wachtwoord = response.details.password;  // encoded versie van het wachtwoord
 				updateCookies();
 				$scope.showAlert('Wachtwoord is gewijzigd', '');
-
 			});
 
 			AHttp.error(function (response) {
@@ -349,7 +334,6 @@ UniApp.controller('unishopController',
 						}
 					}
 				}
-
 				$scope.showAlert(errortext, errortextSub);
 			});
 
@@ -390,7 +374,6 @@ UniApp.controller('unishopController',
 				data: { usercode: $scope.gebruikersID, username: $scope.inlognaam, password: $scope.wachtwoord }
 			};
 
-
 			var AHttp = $http(req);
 
 			AHttp.success(function (response) {
@@ -405,7 +388,7 @@ UniApp.controller('unishopController',
 				$scope.wachtwoord = response.details.password;  // encoded versie van het wachtwoord
 				updateCookies();
 
-				//$scope.showAlert('Inloggen geslaagd', 'Welkom ' + JSON.stringify(response.details));
+				// $scope.showAlert('Inloggen geslaagd', 'Welkom ' + JSON.stringify(response.details));
 				var appScope = angular.element(document.getElementById('appController')).scope();
 				if (appScope) {
 					appScope.unishop.logResponseCode();
@@ -422,7 +405,6 @@ UniApp.controller('unishopController',
 						}
 					}
 				}
-
 				$scope.showAlert(errortext, errortextSub);
 			});
 
@@ -430,14 +412,13 @@ UniApp.controller('unishopController',
 		};
 
 		this.Uitloggen = function () {
-
 			$mdSidenav('menuLinks').close()
-				.then(function () {
-					//$log.debug("menuLinks is gesloten");
-				});
+			.then(function () {
+				// $log.debug("menuLinks is gesloten");
+			});
 
 			$scope.ingelogd = false;
-			//$scope.gebruikersID     = '';
+			// $scope.gebruikersID     = '';
 			$scope.inlognaam = '';
 			$scope.wachtwoord = '';
 			$scope.dataset = '';
@@ -449,7 +430,6 @@ UniApp.controller('unishopController',
 		};
 
 		this.handleClusterArt = function (prod) {
-
 			var AUrl = $scope.API_URL + '/products/clustered/' + encodeURI(prod.ProductNr.replace('/', '//')) + '/' + encodeURI(prod.SuCodeAlt);
 
 			var req = {
@@ -468,7 +448,7 @@ UniApp.controller('unishopController',
 				},
 				params:
 				{
-					//'callback': 'JSON_CALLBACK',
+					// 'callback': 'JSON_CALLBACK',
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
@@ -478,11 +458,10 @@ UniApp.controller('unishopController',
 			$scope.isBusy = true;
 			$scope.clusterArtResultaten = [];
 
-			$http.post(req.url, req.data, req).then
-				(
+			$http.post(req.url, req.data, req)
+			.then(
 				// success
 				function (response) {
-
 					$scope.isBusy = false;
 
 					$scope.clusterArtResultaten = [];
@@ -507,8 +486,7 @@ UniApp.controller('unishopController',
 
 					$scope.isBusy = false;
 					$scope.showAlert(errortext, errortextSub);
-				}
-				);
+				});
 
 			return true;
 		};
@@ -522,7 +500,6 @@ UniApp.controller('unishopController',
 				else {
 					return 'nee';
 				}
-
 			}
 			else {
 				return attr.Value;
@@ -530,7 +507,6 @@ UniApp.controller('unishopController',
 		}
 
 		this.handleAttribuutArt = function (prod) {
-
 			var AUrl = $scope.API_URL + '/products/attributes/' + encodeURI(prod.ProductNr.replace('/', '//')) + '/' + encodeURI(prod.SuCodeAlt);
 
 			var req = {
@@ -663,7 +639,6 @@ UniApp.controller('unishopController',
 		}
 
 		this.toonProd = function (prod) {
-
 			//alert(prod.Name);
 			$scope.zoekArtSelected = prod;
 			if (prod.ClusterSize > 1) {
@@ -869,29 +844,26 @@ UniApp.controller('unishopController',
 
 			scanner.scan(function (result) {
 				/* alert("We got a barcode bro\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);   */
-				console.log("Scanner result: \n" + "text: " + result.text + "\n" + "format: " + result.format + "\n" + "cancelled: " + result.cancelled + "\n");
-				console.log(result);
+				/* console.log("Scanner result: \n" + "text: " + result.text + "\n" + "format: " + result.format + "\n" + "cancelled: " + result.cancelled + "\n"); */
+				/* console.log(result); */
 
 				$scope.zoekArt = result.text;
-				// this.handleZoekArt();
 				$scope.$broadcast('newBarcodeFound');
-
-				this.barcodeDetected(result.text);
+				/* this.barcodeDetected(result.text); */
 			}, function (error) {
 				alert("Scanning failed bro: ", error);
 				console.log("Scanning failed bro: ", error);
 			},
-				{
-					showTorchButton: true,
-					torchOn: true,
-					prompt: "Plaats een barcode binnen het scangebied",
-					orientation: "landscape"
-				});
+			{
+				showTorchButton: true,
+				torchOn: true,
+				prompt: "Plaats een barcode binnen het scangebied",
+				orientation: "landscape"
+			});
 		}
 
 		this.barcodeProcessed = function (boxes, box) {
 			// er is een barcode foto behandeld. boxes is een array met areas. box is een optionele area van de gedetecteerde barcode
-
 			$scope.zoekArt = '';
 			$scope.zoekArtResultaten = [];
 
@@ -920,22 +892,18 @@ UniApp.controller('unishopController',
 	})
 
 UniApp.controller('MenuLinksCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-
 	this.close = function () {
 		$mdSidenav('menuLinks').close()
-			.then(function () {
-				//$log.debug("menuLinks is gesloten");
-			});
+		.then(function () {
+			// $log.debug("menuLinks is gesloten");
+		});
 	};
-
-})
+});
 
 UniApp.controller('PullToRefreshCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-
 	this.onPullReload = function () {
 		var appScope = angular.element(document.getElementById('appController')).scope();
 		appScope.unishop.onPullReload();
 	};
-
-})
+});
 
