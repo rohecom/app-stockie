@@ -671,6 +671,8 @@ UniApp.controller('unishopController',
 
 	this.handleZoekArt = function() {
 
+		alert('in handleZoekArt with zoekArt ' + $scope.zoekArt);
+
 		if ($scope.zoekArt == '') {
 			$scope.showAlert('Zoek artikel', 'Geen zoekterm opgegeven.');
 			return false;
@@ -871,6 +873,12 @@ UniApp.controller('unishopController',
 		}, function (error) {
 			alert("Scanning failed bro: ", error);
 			console.log("Scanning failed bro: ", error); 
+		},
+		{
+			showTorchButton: true,
+          	torchOn: true,
+			prompt: "Plaats een barcode binnen het scangebied",
+			orientation: "landscape"
 		});
 	}
 
