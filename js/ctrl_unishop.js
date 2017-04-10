@@ -33,6 +33,14 @@ UniApp.directive('focusMe', function($timeout) {
 	};
 });
 
+UniApp.directive('focusOn', function () {
+   return function(scope, elem, attr) {
+      scope.$on(attr.focusOn, function(e) {
+          elem[0].focus();
+      });
+   };
+});
+
 UniApp.config(function ($httpProvider, $mdThemingProvider) {
 
 	$mdThemingProvider.theme('default')
@@ -870,6 +878,8 @@ UniApp.controller('unishopController',
 
 			$scope.zoekArt = result.text;
 			// this.handleZoekArt();
+			$scope.$broadcast('newBarcodeFound');
+			
 			this.barcodeDetected(result.text);
 		}, function (error) {
 			alert("Scanning failed bro: ", error);

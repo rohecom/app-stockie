@@ -305,7 +305,7 @@
 
 										<md-input-container id="zoekTekstContainer" class="md-block login" flex style="width:60%;">
 											<label>Artikelnummer / omschrijving</label>
-											<input id="zoekTekst" ng-model="zoekArt"	my-enter="unishop.handleZoekArt()" focus-me="true">
+											<input id="zoekTekst" ng-model="zoekArt"	my-enter="unishop.handleZoekArt()" focus-me="true" focus-on="newBarcodeFound">
 											<script type="text/javascript">
 												function resetZoekArt() {
 													var appScope = angular.element(document.getElementById('appController')).scope();
