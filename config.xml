@@ -28,8 +28,7 @@
     <preference name="fullscreen"       value="true" />
     <preference name="webviewbounce"    value="false" />
 
-    <icon src="www/img/icons/appicon.png" />
-    <preference name="prerendered-icon" value="false" />
+    <icon src="www/img/appicon.png" />
 
     <gap:splash src="res/screen/android/screen-ldpi-portrait.png"   gap:platform="android" gap:density="ldpi" />
     <gap:splash src="res/screen/android/screen-mdpi-portrait.png"   gap:platform="android" gap:density="mdpi" />
