@@ -18,6 +18,17 @@
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm"/>
     <gap:plugin name="cordova-plugin-admobpro" source="npm" spec="2.9.6"/>
 
+
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.CameraLauncher" />
+    </feature>
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>    
+    <feature name="Camera">
+        <param name="blackberry-package" value="org.apache.cordova.camera.Camera" />
+    </feature>
+
     <allow-navigation href="*"/>
     <allow-intent href="*"/>
     <access origin="*"/>
