@@ -13,6 +13,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700' rel='stylesheet' type='text/css'>
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
 
 	<link rel="apple-touch-icon" sizes="152x152" href="img/appicon.png">
 
@@ -91,9 +92,12 @@
 	<script src="bower_components/angular-pull-to-refresh/dist/angular-pull-to-refresh.min.js"></script>
 	<script src="bower_components/moment/moment.js"></script>	
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>	
+	<!--
 	<script src="bower_components/quagga/dist/quagga.min.js"></script>	
+	-->
 	<script src="bower_components/JsBarcode/dist/JsBarcode.all.min.js"></script>
 	<script src="bower_components/angular-barcode/dist/angular-barcode.min.js"></script>
+	
 	<script src="js/generic.js?v=1"></script>
 	<script src="js/ctrl_unishop.js?v=1"></script>
 
@@ -164,7 +168,7 @@
 
 		<div id="appController" ng-controller="unishopController as unishop">
 
-			<script src="js/quagga_file_input.js"></script>
+			<!--<script src="js/quagga_file_input.js"></script>-->
 
 			<md-content ng-show="!unishop.isMobilePlatform()">
 				<div layout="column" layout-align="center center">
@@ -301,7 +305,7 @@
 
 										<md-input-container id="zoekTekstContainer" class="md-block login" flex style="width:60%;">
 											<label>Artikelnummer / omschrijving</label>
-											<input id="zoekTekst" ng-model="zoekArt"	my-enter="unishop.handleZoekArt()" focus-me="true">
+											<input id="zoekTekst" ng-model="zoekArt"	my-enter="unishop.handleZoekArt()" focus-me="true" focus-on="newBarcodeFound">
 											<script type="text/javascript">
 												function resetZoekArt() {
 													var appScope = angular.element(document.getElementById('appController')).scope();
@@ -313,18 +317,36 @@
 											</svg>
 										</md-input-container>
 										<div>
-											<button class="button zoekbutton" ng-click="unishop.handleZoekArt()">start zoeken</button>
+											<button id="start_zoeken" class="button zoekbutton" ng-click="unishop.handleZoekArt()">start zoeken</button>
 										</div>
 										<div class="controls">
 											<script>
 											$(function() {
 												var appScope = angular.element(document.getElementById('appController')).scope();
-												$("#labelfile").click(function() {
+												$("#scan").click(function() {
 													appScope.unishop.resetFoutResponse();
-													$("#fileBarcode").trigger('click');
+													appScope.unishop.newBarcodeScanner();
+													/* $("#fileBarcode").trigger('click'); */
+													/* $("#labelfile").trigger('click'); */
+													/* $("#scan").trigger('click'); */
 												});
 											})
 											</script>
+
+											<div class="scan_app">
+											<div id="deviceready" style="display:none;">
+												<p>Connecting to Device</p>
+												<p>Device is Ready</p>
+											</div>
+											<p>
+												<a href="#" id="scan">
+													<md-icon class="labelfile" id="labelfile" style="width: 48px; height: 48px;" md-svg-icon="img/icons/barcode.svg"></md-icon>
+												</a>
+											</p>
+											<p id="info"></p>
+											</div>
+
+											<!--
 											<fieldset class="input-group">
 												<input type="file" accept="image/*;capture=camera" id="fileBarcode" name="fileBarcode" style="display:none;"/>
 												<center>
@@ -332,6 +354,7 @@
 													<span class="xsmall rood">{{foutResponse}}</span>
 												</center>
 											</fieldset>
+											-->
 										</div>
 
 									</md-content>
@@ -634,5 +657,13 @@
 
 	</md-content>
 
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="barcodescanner.js"></script>\
+		<!--
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            scan_app.initialize();
+        </script>
+		-->
 </body>
 </html>
