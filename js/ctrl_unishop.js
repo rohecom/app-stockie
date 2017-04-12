@@ -855,6 +855,7 @@ UniApp.controller('unishopController',
 					$scope.zoekArt = result.text;
 					/* $scope.$broadcast('newBarcodeFound'); */
 					/* this.barcodeDetected(result.text); */
+					scanner = null;
 				}, function (error) {
 					alert("Scanning failed bro: ", JSON.stringify(error));
 					scanner = null;
@@ -867,7 +868,7 @@ UniApp.controller('unishopController',
 					orientation: "landscape"
 				});
 
-			});
+			}, false);
 
 		}
 
