@@ -840,28 +840,35 @@ UniApp.controller('unishopController',
 		}
 
 		this.newBarcodeScanner = function () {
-			alert('start!');
-			var scanner = cordova.plugins.barcodeScanner;
 
-			scanner.scan(function (result) {
-				alert("We got a barcode bro\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);
-				/* console.log("Scanner result: \n" + "text: " + result.text + "\n" + "format: " + result.format + "\n" + "cancelled: " + result.cancelled + "\n"); */
-				/* console.log(result); */
 
-				$scope.zoekArt = result.text;
-				/* $scope.$broadcast('newBarcodeFound'); */
-				/* this.barcodeDetected(result.text); */
-			}, function (error) {
-				alert("Scanning failed bro: ", JSON.stringify(error));
-				scanner = null;
-				/* console.log("Scanning failed bro: ", error); */
-			},
-			{
-				showTorchButton: true,
-				torchOn: true,
-				prompt: "Plaats een barcode binnen het scangebied",
-				orientation: "landscape"
+			document.addEventListener("deviceready", function () {
+
+				alert('start!');
+				var scanner = cordova.plugins.barcodeScanner;
+
+				scanner.scan(function (result) {
+					alert("We got a barcode bro\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);
+					/* console.log("Scanner result: \n" + "text: " + result.text + "\n" + "format: " + result.format + "\n" + "cancelled: " + result.cancelled + "\n"); */
+					/* console.log(result); */
+
+					$scope.zoekArt = result.text;
+					/* $scope.$broadcast('newBarcodeFound'); */
+					/* this.barcodeDetected(result.text); */
+				}, function (error) {
+					alert("Scanning failed bro: ", JSON.stringify(error));
+					scanner = null;
+					/* console.log("Scanning failed bro: ", error); */
+				},
+				{
+					showTorchButton: true,
+					torchOn: true,
+					prompt: "Plaats een barcode binnen het scangebied",
+					orientation: "landscape"
+				});
+
 			});
+
 		}
 
 		this.barcodeProcessed = function (boxes, box) {
