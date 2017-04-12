@@ -854,6 +854,7 @@ UniApp.controller('unishopController',
 					/* console.log(result); */
 
 					$scope.zoekArt = result.text;
+					$scope.$apply();
 					/* $scope.$broadcast('newBarcodeFound'); */
 					/* this.barcodeDetected(result.text); */
 				}, function (error) {
