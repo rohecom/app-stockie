@@ -3,8 +3,8 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "nl.rohecom.stockie"
         version   = "3.0.0">
-    <name>Stockie</name>
-    <description>Stockie</description>
+    <name>Stockie (3.0.0)</name>
+    <description>Stockie (3.0.0)</description>
 
     <author href="https://rohecom.nl" email="webdevelopment@rohecom.nl">Rohecom Team</author>
 
