@@ -29,8 +29,9 @@
     <preference name="phonegap-version" value="cli-6.5.0" />
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
+    <!--
     <preference name="fullscreen"       value="true" />
-    <preference name="webviewbounce"    value="false" />
+    <preference name="webviewbounce"    value="false" />-->
 
     <icon src="www/img/appicon.png" />
 
