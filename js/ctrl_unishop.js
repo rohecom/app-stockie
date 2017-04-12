@@ -851,8 +851,9 @@ UniApp.controller('unishopController',
 				$scope.$broadcast('newBarcodeFound');
 				/* this.barcodeDetected(result.text); */
 			}, function (error) {
-				alert("Scanning failed bro: ", error);
-				console.log("Scanning failed bro: ", error);
+				alert("Scanning failed bro: ", JSON.stringify(error));
+				scanner = null;
+				/* console.log("Scanning failed bro: ", error); */
 			},
 			{
 				showTorchButton: true,
