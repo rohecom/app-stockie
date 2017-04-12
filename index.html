@@ -1,28 +1,18 @@
 <!doctype html>
-
 <html lang="en" manifest="unishop.manifest" ng-app="unishopModule">
 <head>
 	<title>UniShop Voorraad</title>
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />	
-
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
 	<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700' rel='stylesheet' type='text/css'>
 	<meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; img-src 'self' data: *; style-src 'self' 'unsafe-inline' *">
-
 	<link rel="apple-touch-icon" sizes="152x152" href="img/appicon.png">
-
 	<!-- iPad retina portrait startup image -->
-	<link href="img/startup1536x2008.png"
-		media="(device-width: 768px) and (device-height: 1024px)
-				 and (-webkit-device-pixel-ratio: 2)
-				 and (orientation: portrait)"
-		rel="apple-touch-startup-image">
+	<link href="img/startup1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" rel="apple-touch-startup-image">
 	<!-- iPad retina landscape startup image -->
 	<link href="img/startup1496x2048.png"
 		media="(device-width: 768px) and (device-height: 1024px)
@@ -168,8 +158,6 @@
 
 		<div id="appController" ng-controller="unishopController as unishop">
 
-			<!--<script src="js/quagga_file_input.js"></script>-->
-
 			<md-content ng-show="!unishop.isMobilePlatform()">
 				<div layout="column" layout-align="center center">
 					<span class="alertText">Deze app is bedoeld om op een mobiel apparaat uit te voeren</span>
@@ -195,15 +183,15 @@
 						<div style="height: 60px;">&nbsp;</div>
 						<md-input-container class="md-block login" flex-gt-sm>
 						<label class="login">Uw Unishop gebruikers ID</label>
-						<input class="login" ng-model="gebruikersID" my-enter="unishop.handleLogin()" value="3105630006583">
+						<input class="login" ng-model="gebruikersID" my-enter="unishop.handleLogin()">
 						</md-input-container>
 						<md-input-container class="md-block login" flex-gt-sm>
 						<label class="login">Uw inlognaam</label>
-						<input class="login" ng-model="inlognaam"	my-enter="unishop.handleLogin()" value="rohecom">
+						<input class="login" ng-model="inlognaam"	my-enter="unishop.handleLogin()">
 						</md-input-container>
 						<md-input-container class="md-block login" flex-gt-sm>
 						<label class="login">Uw wachtwoord</label>
-						<input class="login" type="password" ng-model="wachtwoord" my-enter="unishop.handleLogin()" value="r0hecom38">
+						<input class="login" type="password" ng-model="wachtwoord" my-enter="unishop.handleLogin()">
 						</md-input-container>
 
 						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()"><span class="login">Inloggen</span></md-button>
@@ -326,9 +314,6 @@
 												$("#scan").click(function() {
 													appScope.unishop.resetFoutResponse();
 													appScope.unishop.newBarcodeScanner();
-													/* $("#fileBarcode").trigger('click'); */
-													/* $("#labelfile").trigger('click'); */
-													/* $("#scan").trigger('click'); */
 												});
 											})
 											</script>
@@ -341,20 +326,7 @@
 															 md-svg-icon="img/icons/barcode.svg">
 													</md-icon>
 												</a>
-												<button ng-click="unishop.newBarcodeScanner()" class="button zoekbutton">scan</button>
 											</p>
-											<p id="info"></p>
-											</div>
-
-											<!--
-											<fieldset class="input-group">
-												<input type="file" accept="image/*;capture=camera" id="fileBarcode" name="fileBarcode" style="display:none;"/>
-												<center>
-													<md-icon class="labelfile" id="labelfile" style="width:48px; height:48px;" md-svg-icon="img/icons/barcode.svg"></md-icon><br/>
-													<span class="xsmall rood">{{foutResponse}}</span>
-												</center>
-											</fieldset>
-											-->
 										</div>
 
 									</md-content>

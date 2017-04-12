@@ -2,9 +2,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "nl.rohecom.stockie"
-        version   = "3.0.1">
-    <name>Stockie (3.0.1)</name>
-    <description>Stockie (3.0.1)</description>
+        version   = "3.0.2">
+    <name>Stockie (3.0.2)</name>
+    <description>Stockie (3.0.2)</description>
 
     <author href="https://rohecom.nl" email="webdevelopment@rohecom.nl">Rohecom Team</author>
 
@@ -29,9 +29,9 @@
     <preference name="phonegap-version" value="cli-6.5.0" />
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
-    <!--
+    
     <preference name="fullscreen"       value="true" />
-    <preference name="webviewbounce"    value="false" />-->
+    <preference name="webviewbounce"    value="false" />
 
     <icon src="www/img/appicon.png" />
 

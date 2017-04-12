@@ -840,35 +840,23 @@ UniApp.controller('unishopController',
 		}
 
 		this.newBarcodeScanner = function () {
-
 			var scanner = null;
-
 			document.addEventListener("deviceready", function () {
-
 				var scanner = cordova.plugins.barcodeScanner;
-
 				scanner.scan(function (result) {
-					/* alert("We got a barcode bro\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled); */
-					/* console.log("Scanner result: \n" + "text: " + result.text + "\n" + "format: " + result.format + "\n" + "cancelled: " + result.cancelled + "\n"); */
-					/* console.log(result); */
-
 					$scope.zoekArt = result.text;
 					$scope.$apply();
-					/* $scope.$broadcast('newBarcodeFound'); */
+					$scope.$broadcast('newBarcodeFound');
+					this.handleZoekArt();
 					/* this.barcodeDetected(result.text); */
-				}, function (error) {
-					/* alert("Scanning failed bro: ", error); */
-					/* console.log("Scanning failed bro: ", error); */
-				},
+				}, function (error) {},
 				{
 					showTorchButton: true,
 					torchOn: true,
 					prompt: "Plaats een barcode binnen het scangebied",
 					orientation: "landscape"
 				});
-
 			}, false);
-
 		}
 
 		this.barcodeProcessed = function (boxes, box) {
