@@ -841,6 +841,7 @@ UniApp.controller('unishopController',
 
 		this.newBarcodeScanner = function () {
 
+			var scanner = null;
 
 			document.addEventListener("deviceready", function () {
 
@@ -855,10 +856,8 @@ UniApp.controller('unishopController',
 					$scope.zoekArt = result.text;
 					/* $scope.$broadcast('newBarcodeFound'); */
 					/* this.barcodeDetected(result.text); */
-					scanner = null;
 				}, function (error) {
 					alert("Scanning failed bro: ", error);
-					scanner = null;
 					/* console.log("Scanning failed bro: ", error); */
 				},
 				{
