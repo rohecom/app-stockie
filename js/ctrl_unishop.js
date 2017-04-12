@@ -840,6 +840,7 @@ UniApp.controller('unishopController',
 		}
 
 		this.newBarcodeScanner = function () {
+			alert('start!');
 			var scanner = cordova.plugins.barcodeScanner;
 
 			scanner.scan(function (result) {
@@ -848,7 +849,7 @@ UniApp.controller('unishopController',
 				/* console.log(result); */
 
 				$scope.zoekArt = result.text;
-				$scope.$broadcast('newBarcodeFound');
+				/* $scope.$broadcast('newBarcodeFound'); */
 				/* this.barcodeDetected(result.text); */
 			}, function (error) {
 				alert("Scanning failed bro: ", JSON.stringify(error));
