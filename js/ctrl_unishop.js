@@ -857,7 +857,7 @@ UniApp.controller('unishopController',
 					/* this.barcodeDetected(result.text); */
 					scanner = null;
 				}, function (error) {
-					alert("Scanning failed bro: ", JSON.stringify(error));
+					alert("Scanning failed bro: ", error);
 					scanner = null;
 					/* console.log("Scanning failed bro: ", error); */
 				},
