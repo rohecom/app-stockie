@@ -866,11 +866,11 @@ UniApp.controller('unishopController',
 				var scanner = cordova.plugins.barcodeScanner;
 				scanner.scan(function (result) {
 					$scope.zoekArt = result.text;
-					$scope.$apply();
-					$scope.$broadcast('newBarcodeFound');
-					this.handleZoekArt();
+					//$scope.$apply();
+					//$scope.$broadcast('newBarcodeFound');
+					//this.handleZoekArt();
 					alert('calling test');
-					self.test();
+					//self.test();
 					/* this.barcodeDetected(result.text); */
 				}, function (error) {},
 				{
