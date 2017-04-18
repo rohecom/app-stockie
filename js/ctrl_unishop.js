@@ -850,7 +850,6 @@ UniApp.controller('unishopController',
 		}
 
 		this.handleZoekArtWrapper = function () {
-			alert('in test met zoeken: ' + $scope.zoekArt);
 			this.handleZoekArt();
 		}
 
