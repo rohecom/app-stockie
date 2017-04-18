@@ -39,6 +39,14 @@ UniApp.directive('focusOn', function () {
 	};
 });
 
+UniApp.directive('clickOn', function () {
+	return function (scope, elem, attr) {
+		scope.$on(attr.clickOn, function (e) {
+			elem[0].click();
+		});
+	};
+});
+
 UniApp.config(function ($httpProvider, $mdThemingProvider) {
 	$mdThemingProvider.theme('default')
 		.primaryPalette('blue')
