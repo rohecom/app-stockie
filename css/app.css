@@ -306,11 +306,12 @@ fieldset {
 	background-color: #2196F3;
 	border: none;
 	color: white;
-	padding: 7px 24px;
+	/* padding: 7px 24px; */
+	padding: 16px 49px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 14px;
+	font-size: 18px;
 	border-radius: 4px;
 }
 
