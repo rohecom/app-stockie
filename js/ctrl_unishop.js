@@ -47,6 +47,17 @@ UniApp.directive('clickOn', function () {
 	};
 });
 
+app.directive("touchstartClick", [function () {
+    return function (scope, elem, attrs) {
+        elem.bind("touchstart click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            scope.$apply(attrs["ngMobileClick"]);
+        });		
+    }
+}]);
+
 UniApp.config(function ($httpProvider, $mdThemingProvider) {
 	$mdThemingProvider.theme('default')
 		.primaryPalette('blue')
@@ -723,7 +734,7 @@ UniApp.controller('unishopController',
 					if ($scope.zoekArtResultaten.length == 0) {
 						$scope.foutResponse = 'niets gevonden...probeer een nieuwe zoekopdracht';
 						// todo: hier alertje niets gevonden
-						$scope.showAlert('Niets gevonden...probeer een nieuwe zoekopdracht', '');
+						$scope.showAlert('Niets gevonden.', 'Probeer een nieuwe zoekopdracht');
 						window.setTimeout(function () {
 							$scope.foutResponse = '';
 							$scope.$apply();
