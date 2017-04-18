@@ -858,6 +858,12 @@ UniApp.controller('unishopController',
 					$scope.$apply();
 					$scope.$broadcast('newBarcodeFound');
 					this.handleZoekArt();
+
+					var appScope = angular.element(document.getElementById('appController')).scope();
+					if (appScope) {
+						appScope.unishop.handleZoekArt();
+					}
+
 					/* this.barcodeDetected(result.text); */
 				}, function (error) {},
 				{
