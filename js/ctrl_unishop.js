@@ -875,6 +875,11 @@ UniApp.controller('unishopController',
 					orientation: "landscape"
 				});
 			}, false);
+
+			if (appScope) {
+				alert('appScope: ' + appScope + ' - zoekArt: ' + $scope.zoekArt);
+				appScope.unishop.handleZoekArt();
+			}			
 		}
 
 		this.barcodeProcessed = function (boxes, box) {
