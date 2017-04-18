@@ -154,15 +154,15 @@ UniApp.controller('unishopController',
 		$scope.ingelogd = false;
 		$scope.inlogValideren = false;
 		$scope.wijzigWachtwoord = false;
-		$scope.gebruikersID = '';
+		$scope.gebruikersID = '3105630006583';
 		if ($cookies.get('unishopGebruikersID') != null) {
 			$scope.gebruikersID = $cookies.get('unishopGebruikersID');
 		};
-		$scope.inlognaam = '';
+		$scope.inlognaam = 'rohecom';
 		if ($cookies.get('unishopUserName') != null) {
 			$scope.inlognaam = $cookies.get('unishopUserName');
 		};
-		$scope.wachtwoord = '';
+		$scope.wachtwoord = 'r0hecom38';
 		if ($cookies.get('unishopPassword') != null) {
 			$scope.wachtwoord = $cookies.get('unishopPassword');
 		};
