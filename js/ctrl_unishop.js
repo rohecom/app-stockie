@@ -860,7 +860,9 @@ UniApp.controller('unishopController',
 					this.handleZoekArt();
 
 					var appScope = angular.element(document.getElementById('appController')).scope();
+
 					if (appScope) {
+						alert('appScope: ' + appScope + ' - zoekArt: ' + $scope.zoekArt);
 						appScope.unishop.handleZoekArt();
 					}
 
