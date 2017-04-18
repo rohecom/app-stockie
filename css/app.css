@@ -318,6 +318,7 @@ fieldset {
 .zoekbutton {
 	position: relative;
 	top: -25px;
+	cursor: pointer;
 }
 
 .transformable {
