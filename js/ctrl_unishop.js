@@ -365,6 +365,8 @@ UniApp.controller('unishopController',
 				return false;
 			}
 
+			// todo: busy spinner
+			$scope.isBusy = true;
 			$scope.ingelogd = false;
 			$scope.dataset = '';
 			$scope.bedrijfsnaam = 'Unishop Management Info';
@@ -386,6 +388,7 @@ UniApp.controller('unishopController',
 
 			AHttp.success(function (response) {
 
+				$scope.isBusy = false;
 				$scope.ingelogd = true;
 				$scope.dataset = response.details.dataset;
 				$scope.bedrijfsnaam = response.details.bedrijfsnaam;

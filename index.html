@@ -194,7 +194,10 @@
 						<input class="login" type="password" ng-model="wachtwoord" my-enter="unishop.handleLogin()">
 						</md-input-container>
 
-						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()"><span class="login">Inloggen</span></md-button>
+						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()">
+							<span class="login" ng-show="(!isBusy)">Inloggen</span>
+							<span class="login" ng-show="(isBusy)">Bezig met inloggen, ogenblik...</span>
+						</md-button>
 						<div style="height: 60px;">&nbsp;</div>
 						<div class="inlogFooter">&copy;&nbsp;Rohecom B.V.</div>
 					</div>
@@ -308,7 +311,7 @@
 											<a href id="start_zoeken" 
 													class="button zoekbutton" 
 													ng-click="unishop.handleZoekArt()" 
-													click-on="newBarcodeFound">start zoeken (v 3.1.9)
+													click-on="newBarcodeFound">start zoeken
 											</a>
 										</div>
 										<div class="controls">
