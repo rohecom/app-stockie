@@ -194,7 +194,7 @@
 						<input class="login" type="password" ng-model="wachtwoord" my-enter="unishop.handleLogin()">
 						</md-input-container>
 
-						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()">
+						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()" ng-disabled="(isBusy)">
 							<span class="login" ng-show="(!isBusy)">Inloggen</span>
 							<span class="login" ng-show="(isBusy)">Bezig met inloggen, ogenblik...</span>
 						</md-button>

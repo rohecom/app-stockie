@@ -407,6 +407,7 @@ UniApp.controller('unishopController',
 			});
 
 			AHttp.error(function (response) {
+				$scope.isBusy = false;
 				var errortext = 'Controleer uw gegevens en probeer het nogmaals.';
 				var errortextSub = '';
 				if (response != null) {
@@ -428,9 +429,10 @@ UniApp.controller('unishopController',
 				// $log.debug("menuLinks is gesloten");
 			});
 
+			$scope.isBusy = false;
 			$scope.ingelogd = false;
-			// $scope.gebruikersID     = '';
-			$scope.inlognaam = '';
+			$scope.gebruikersID = '3105630006583';
+			$scope.inlognaam = 'rohecom';
 			$scope.wachtwoord = '';
 			$scope.dataset = '';
 			$scope.bedrijfsnaam = 'Unishopbedrijf';
