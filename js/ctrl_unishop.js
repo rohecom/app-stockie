@@ -840,7 +840,7 @@ UniApp.controller('unishopController',
 			$scope.activePage = 'pageItem';
 			$mdSidenav('menuLinks').close()
 				.then(function () {
-					//$log.debug("menuLinks is gesloten");
+					// $log.debug("menuLinks is gesloten");
 				});
 		}
 
@@ -849,16 +849,9 @@ UniApp.controller('unishopController',
 			$scope.$apply();
 		}
 
-		this.test = function () {
+		this.handleZoekArtWrapper = function () {
 			alert('in test met zoeken: ' + $scope.zoekArt);
 			this.handleZoekArt();
-			//var appScope = angular.element(document.getElementById('appController')).scope();
-			/*
-			if (appScope) {
-				alert('appScope: ' + appScope + ' - zoekArt: ' + $scope.zoekArt);
-				appScope.unishop.handleZoekArt();
-			}
-			*/
 		}
 
 		this.newBarcodeScanner = function () {
@@ -868,12 +861,7 @@ UniApp.controller('unishopController',
 				var scanner = cordova.plugins.barcodeScanner;
 				scanner.scan(function (result) {
 					$scope.zoekArt = result.text;
-					//$scope.$apply();
-					//$scope.$broadcast('newBarcodeFound');
-					//this.handleZoekArt();
-					alert('calling test');
-					self.test();
-					/* this.barcodeDetected(result.text); */
+					self.handleZoekArtWrapper();
 				}, function (error) {},
 				{
 					showTorchButton: true,
