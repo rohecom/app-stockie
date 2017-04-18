@@ -849,6 +849,16 @@ UniApp.controller('unishopController',
 			$scope.$apply();
 		}
 
+		this.test = function () {
+			alert('in test');
+			var appScope = angular.element(document.getElementById('appController')).scope();
+
+			if (appScope) {
+				alert('appScope: ' + appScope + ' - zoekArt: ' + $scope.zoekArt);
+				appScope.unishop.handleZoekArt();
+			}
+		}
+
 		this.newBarcodeScanner = function () {
 			var scanner = null;
 			document.addEventListener("deviceready", function () {
@@ -858,14 +868,8 @@ UniApp.controller('unishopController',
 					$scope.$apply();
 					$scope.$broadcast('newBarcodeFound');
 					this.handleZoekArt();
-
-					var appScope = angular.element(document.getElementById('appController')).scope();
-
-					if (appScope) {
-						alert('appScope: ' + appScope + ' - zoekArt: ' + $scope.zoekArt);
-						appScope.unishop.handleZoekArt();
-					}
-
+					alert('calling test');
+					this.test();
 					/* this.barcodeDetected(result.text); */
 				}, function (error) {},
 				{
@@ -875,11 +879,6 @@ UniApp.controller('unishopController',
 					orientation: "landscape"
 				});
 			}, false);
-
-			if (appScope) {
-				alert('appScope: ' + appScope + ' - zoekArt: ' + $scope.zoekArt);
-				appScope.unishop.handleZoekArt();
-			}			
 		}
 
 		this.barcodeProcessed = function (boxes, box) {
