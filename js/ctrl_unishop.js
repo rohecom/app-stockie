@@ -851,12 +851,13 @@ UniApp.controller('unishopController',
 
 		this.test = function () {
 			alert('in test');
-			var appScope = angular.element(document.getElementById('appController')).scope();
-
+			//var appScope = angular.element(document.getElementById('appController')).scope();
+			/*
 			if (appScope) {
 				alert('appScope: ' + appScope + ' - zoekArt: ' + $scope.zoekArt);
 				appScope.unishop.handleZoekArt();
 			}
+			*/
 		}
 
 		this.newBarcodeScanner = function () {
@@ -870,7 +871,7 @@ UniApp.controller('unishopController',
 					//$scope.$broadcast('newBarcodeFound');
 					//this.handleZoekArt();
 					alert('calling test');
-					//self.test();
+					self.test();
 					/* this.barcodeDetected(result.text); */
 				}, function (error) {},
 				{
