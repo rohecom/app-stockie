@@ -16,7 +16,7 @@ th {
 	.md-theme-light .md-toolbar-tools {
 		height: 68px;
 		max-height: 68px;
-		padding-top: 12px;
+		/* padding-top: 12px; */
 	}
 }
 

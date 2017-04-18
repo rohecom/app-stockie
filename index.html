@@ -87,7 +87,7 @@
 	-->
 	<script src="bower_components/JsBarcode/dist/JsBarcode.all.min.js"></script>
 	<script src="bower_components/angular-barcode/dist/angular-barcode.min.js"></script>
-	
+	<script src="js/fastclick.min.js"></script>
 	<script src="js/generic.js?v=1"></script>
 	<script src="js/ctrl_unishop.js?v=1"></script>
 
@@ -641,5 +641,12 @@
             scan_app.initialize();
         </script>
 		-->
+		<script>
+		if ('addEventListener' in document) {
+			document.addEventListener('DOMContentLoaded', function() {
+				FastClick.attach(document.body);
+			}, false);
+		}			
+		</script>
 </body>
 </html>
