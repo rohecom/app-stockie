@@ -722,6 +722,8 @@ UniApp.controller('unishopController',
 
 					if ($scope.zoekArtResultaten.length == 0) {
 						$scope.foutResponse = 'niets gevonden...probeer een nieuwe zoekopdracht';
+						// todo: hier alertje niets gevonden
+						$scope.showAlert('Niets gevonden...probeer een nieuwe zoekopdracht', '');
 						window.setTimeout(function () {
 							$scope.foutResponse = '';
 							$scope.$apply();
