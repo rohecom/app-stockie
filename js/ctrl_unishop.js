@@ -850,7 +850,8 @@ UniApp.controller('unishopController',
 		}
 
 		this.test = function () {
-			alert('in test');
+			alert('in test met zoeken: ' + $scope.zoekArt);
+			this.handleZoekArt();
 			//var appScope = angular.element(document.getElementById('appController')).scope();
 			/*
 			if (appScope) {
