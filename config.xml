@@ -2,9 +2,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "nl.rohecom.stockie"
-        version   = "3.0.8">
-    <name>Stockie (3.0.8)</name>
-    <description>Stockie (3.0.8)</description>
+        version   = "3.0.9">
+    <name>Stockie (3.0.9)</name>
+    <description>Stockie (3.0.9)</description>
 
     <author href="https://rohecom.nl" email="webdevelopment@rohecom.nl">Rohecom Team</author>
 
