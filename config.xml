@@ -54,8 +54,8 @@
 
     <!-- iPhone 6 -->
     <splash src="www/img/ios-750.png" platform="ios" width="750" height="1334" />
-    <splash src="www/img/ios-1242" platform="ios" width="1242" height="2208" />
-    <splash src="www/img/ios-2208" platform="ios" width="2208" height="1242" />
+    <splash src="www/img/ios-1242.png" platform="ios" width="1242" height="2208" />
+    <splash src="www/img/ios-2208.png" platform="ios" width="2208" height="1242" />
 
     <!-- iPad -->
     <splash src="www/img/ios-768.png" platform="ios" width="768" height="1024" />

@@ -65,10 +65,4 @@ fieldset { border-style: none; }
 .alertText { font-size: 16pt; font-weight: 600; padding: 30px; }
 @media only screen and (max-width: 959px) and (min-width: 0) and (orientation: portrait) { .md-theme-light .md-toolbar-tools { height: 68px; max-height: 68px; /* padding-top: 12px; */ } }
 
-md-list-item.md-2-line .md-list-item-text h3, 
-md-list-item.md-2-line > .md-no-style .md-list-item-text h3, 
-md-list-item.md-3-line .md-list-item-text h3, 
-md-list-item.md-3-line > .md-no-style .md-list-item-text h3 {
-    font-size: 16px;
-    font-weight: 600 !important;
-}
+
