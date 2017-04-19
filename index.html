@@ -347,7 +347,7 @@
 											<md-list-item class="md-3-line" ng-repeat="prod in zoekArtResultaten" ng-click="unishop.toonProd(prod)" style="background-color: {{(($index % 2 != 0) ? '' : '#fafafa')}};">
 												<img ng-src="{{API_URL + '/products/MediaContent/' + prod.ProductNr.replace('/', '//') + '/' + prod.SuCodeAlt + '/60' + '?dataset=' + dataset + '&username=' + inlognaam + '&password=' + wachtwoord}}" class="md-avatar" alt="{{prod.ProductNr}}" />
 												<div class="md-list-item-text" layout="column">
-													<h3>{{prod.Name.substring(0,15)}}<!--<span ng-show="prod.Name.length>22">...</span>--></h3>
+													<h3>{{prod.Name.substring(0,22)}}<span ng-show="prod.Name.length>22">...</span></h3>
 													<h4>{{prod.ProductNr}}</h4>
 													<p ng-show="((prod.Size + prod.color) != '')">
 														<span ng-show="(prod.Color != '')">Kleur: <strong>{{prod.Color}}</strong></span> <span ng-show="(prod.Size != '')">Maat: <strong>{{prod.Size}}</strong></span>
