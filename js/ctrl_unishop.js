@@ -7,6 +7,12 @@ var UniApp = angular.module('unishopModule', [
 	'barcode'
 ]);
 
+UniApp.filter('trustAsHtml', ['$sce', function ($sce) {
+  return function(htmlCode){
+    return $sce.trustAsHtml(htmlCode);
+  }
+}]);
+
 UniApp.directive('myEnter', function () {
 	return function (scope, element, attrs) {
 		element.bind("keydown keypress", function (event) {
@@ -67,7 +73,8 @@ UniApp.controller('unishopController',
 		$http,
 		$mdDialog,
 		$location,
-		$cookies
+		$cookies,
+		$sce
 	) {
 		this.barcodeOptions = {
 			format: "ean13",

@@ -463,15 +463,15 @@
 														<div flex>
 															<div layout="row">
 																<div class="staticRowCaption">Opmerking</div>
-																<div class="staticRowData" flex ng-if="(!expandRemark)" ng-click="unishop.toggleExpandRemark()" >
-																	{{zoekArtSelected.Remark.substring(0,94)}}
+																<div class="staticRowData" flex ng-if="(!expandRemark)" ng-click="unishop.toggleExpandRemark()" ng-bind-html="zoekArtSelected.Remark.substring(0,94) | trustAsHtml">
+																	
 																	<span ng-show="zoekArtSelected.Remark.length>94">
 																	...													
 																	</span>
 																	<img src="img/icons/arrow-right.svg" style="width: 12px; height: 12px;" ng-show="zoekArtSelected.Remark.length > 75">
 																</div>
-																<div class="staticRowData" flex ng-if="(expandRemark)" ng-click="unishop.toggleExpandRemark()">
-																	{{zoekArtSelected.Remark}}
+																<div class="staticRowData" flex ng-if="(expandRemark)" ng-click="unishop.toggleExpandRemark()" ng-bind-html="zoekArtSelected.Remark | trustAsHtml">
+																	
 																</div>
 															</div>
 														</div>
