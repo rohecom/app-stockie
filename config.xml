@@ -3,8 +3,8 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "nl.rohecom.stockie"
         version   = "3.2.2">
-    <name>Stockie (3.2.2)</name>
-    <description>Stockie (3.2.2)</description>
+    <name>UniShop App</name>
+    <description>UniShop App</description>
 
     <author href="https://rohecom.nl" email="webdevelopment@rohecom.nl">Rohecom Team</author>
 
@@ -34,13 +34,22 @@
     <preference name="webviewbounce"    value="false" />
 
     <icon src="www/img/appicon.png" />
+    <icon src="www/img/icon-ios-180.png" platform="ios" width="180" height="180" />
+
+    <!-- iPhone / iPod Touch  -->
+    <icon src="www/img/icon-ios-60.png"  platform="ios" width="60" height="60" />
+    <icon src="www/img/icon-ios-120.png" platform="ios" width="120" height="120" />
+
+    <!-- iPad -->
+    <icon src="www/img/icon-ios-76.png"  platform="ios" width="76" height="76" />
+    <icon src="www/img/icon-ios-152.png" platform="ios" width="152" height="152" />
+    <icon src="www/img/icon-ios-167.png" platform="ios" width="167" height="167" />
+
 
     <gap:splash src="www/img/startup640x1096.png"   gap:platform="android" gap:density="ldpi" />
     <gap:splash src="www/img/startup750x1294.png"   gap:platform="android" gap:density="mdpi" />
     <gap:splash src="www/img/startup768x1004.png"   gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="www/img/startup640x1096.png"   gap:platform="ios"     width="640" height="1096" />
-    <gap:splash src="www/img/startup750x1294.png"   gap:platform="ios"     width="750" height="1294" />
-    <gap:splash src="www/img/startup768x1004.png"   gap:platform="ios"     width="786" height="1004" />
+
     <gap:splash src="www/img/startup768x1004.png"   gap:platform="blackberry" />
     <gap:splash src="www/img/startup768x1004.png"   gap:platform="winphone" />
 </widget>

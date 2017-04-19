@@ -250,7 +250,7 @@ UniApp.controller('unishopController',
 				$scope.ingelogd = true;
 				$scope.inlogValideren = false;
 				// schrijf cookies weer weg zodat de expire period bijgewerkt wordt
-				updateCookies();
+				// updateCookies();
 				// standaard actie hier:
 				var appScope = angular.element(document.getElementById('appController')).scope();
 				if (appScope) {
@@ -328,7 +328,7 @@ UniApp.controller('unishopController',
 			AHttp.success(function (response) {
 
 				$scope.wachtwoord = response.details.password;  // encoded versie van het wachtwoord
-				updateCookies();
+				// updateCookies();
 				$scope.showAlert('Wachtwoord is gewijzigd', '');
 			});
 
@@ -397,7 +397,7 @@ UniApp.controller('unishopController',
 				$scope.gebruikersID = response.details.usercode;
 				$scope.inlognaam = response.details.username;
 				$scope.wachtwoord = response.details.password;  // encoded versie van het wachtwoord
-				updateCookies();
+				// updateCookies();
 
 				// $scope.showAlert('Inloggen geslaagd', 'Welkom ' + JSON.stringify(response.details));
 				var appScope = angular.element(document.getElementById('appController')).scope();
@@ -439,7 +439,7 @@ UniApp.controller('unishopController',
 			$scope.gebruikersnaam = '';
 			$scope.dealertype = -1;   // -1 = onbekend, 0 = motordealer, 1 = mobiele recreatie, 2 = watersport 3 = transportlogistiek
 
-			updateCookies();
+			// updateCookies();
 		};
 
 		this.handleClusterArt = function (prod) {
@@ -776,7 +776,7 @@ UniApp.controller('unishopController',
 
 		this.toggleExpandAttributen = function () {
 			$scope.expandAttributen = !$scope.expandAttributen;
-			updateCookies();
+			// updateCookies();
 		}
 
 		this.toggleExpandRemark = function () {
