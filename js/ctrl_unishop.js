@@ -150,15 +150,15 @@ UniApp.controller('unishopController',
 		$scope.ingelogd = false;
 		$scope.inlogValideren = false;
 		$scope.wijzigWachtwoord = false;
-		$scope.gebruikersID = '3105630006583';
+		$scope.gebruikersID = '';
 		if ($cookies.get('unishopGebruikersID') != null) {
 			$scope.gebruikersID = $cookies.get('unishopGebruikersID');
 		};
-		$scope.inlognaam = 'rohecom';
+		$scope.inlognaam = '';
 		if ($cookies.get('unishopUserName') != null) {
 			$scope.inlognaam = $cookies.get('unishopUserName');
 		};
-		$scope.wachtwoord = 'r0hecom38';
+		$scope.wachtwoord = '';
 		if ($cookies.get('unishopPassword') != null) {
 			$scope.wachtwoord = $cookies.get('unishopPassword');
 		};
@@ -438,8 +438,8 @@ UniApp.controller('unishopController',
 
 			$scope.isBusy = false;
 			$scope.ingelogd = false;
-			$scope.gebruikersID = '3105630006583';
-			$scope.inlognaam = 'rohecom';
+			$scope.gebruikersID = '';
+			$scope.inlognaam = '';
 			$scope.wachtwoord = '';
 			$scope.dataset = '';
 			$scope.bedrijfsnaam = 'Unishopbedrijf';
