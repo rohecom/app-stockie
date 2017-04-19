@@ -70,12 +70,5 @@ md-list-item.md-2-line > .md-no-style .md-list-item-text h3,
 md-list-item.md-3-line .md-list-item-text h3, 
 md-list-item.md-3-line > .md-no-style .md-list-item-text h3 {
     font-size: 16px;
-    font-weight: 500 !important;
-}
-md-list-item.md-2-line .md-list-item-text p, 
-md-list-item.md-2-line > .md-no-style .md-list-item-text p, 
-md-list-item.md-3-line .md-list-item-text p, 
-md-list-item.md-3-line > .md-no-style .md-list-item-text p {
-    font-size: 14px;
     font-weight: 600 !important;
 }
