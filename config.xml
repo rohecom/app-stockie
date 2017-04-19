@@ -45,6 +45,25 @@
     <icon src="www/img/icon-ios-152.png" platform="ios" width="152" height="152" />
     <icon src="www/img/icon-ios-167.png" platform="ios" width="167" height="167" />
 
+    <!-- iPhone and iPod touch -->
+    <splash src="www/img/ios-320.png" platform="ios" width="320" height="480" />
+    <splash src="www/img/ios-640.png" platform="ios" width="640" height="960" />
+
+    <!-- iPhone 5 / iPod Touch (5th Generation) -->
+    <splash src="www/img/ios-1136.png" platform="ios" width="640" height="1136" />
+
+    <!-- iPhone 6 -->
+    <splash src="www/img/ios-750.png" platform="ios" width="750" height="1334" />
+    <splash src="www/img/ios-1242" platform="ios" width="1242" height="2208" />
+    <splash src="www/img/ios-2208" platform="ios" width="2208" height="1242" />
+
+    <!-- iPad -->
+    <splash src="www/img/ios-768.png" platform="ios" width="768" height="1024" />
+    <splash src="www/img/ios-1024.png" platform="ios" width="1024" height="768" />
+
+    <!-- Retina iPad -->
+    <splash src="www/img/ios-1536.png" platform="ios" width="1536" height="2048" />
+    <splash src="www/img/ios-2048.png" platform="ios" width="2048" height="1536" />
 
     <gap:splash src="www/img/startup640x1096.png"   gap:platform="android" gap:density="ldpi" />
     <gap:splash src="www/img/startup750x1294.png"   gap:platform="android" gap:density="mdpi" />
