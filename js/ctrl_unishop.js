@@ -182,7 +182,7 @@ UniApp.controller('unishopController',
 		//if ($cookies.get('unishopGebruikersID') != null) {
 		//	$scope.gebruikersID = $cookies.get('unishopGebruikersID');
 		//};
-		if (localStorageService.get('unishopGebruikersID') != null) {
+		if (localStorageService.get('unishopGebruikersID')) {
 			$scope.gebruikersID = localStorageService.get('unishopGebruikersID');
 		};
 		
@@ -190,14 +190,14 @@ UniApp.controller('unishopController',
 		//if ($cookies.get('unishopUserName') != null) {
 		//	$scope.inlognaam = $cookies.get('unishopUserName');
 		//};
-		if (localStorageService.get('unishopUserName') != null) {
+		if (localStorageService.get('unishopUserName')) {
 			$scope.gebruikersID = localStorageService.get('unishopUserName');
 		};		
 		$scope.wachtwoord = '';
 		//if ($cookies.get('unishopPassword') != null) {
 		//	$scope.wachtwoord = $cookies.get('unishopPassword');
 		//};
-		if (localStorageService.get('unishopPassword') != null) {
+		if (localStorageService.get('unishopPassword')) {
 			$scope.gebruikersID = localStorageService.get('unishopPassword');
 		};		
 		$scope.wachtwoord_old = '';
@@ -217,7 +217,7 @@ UniApp.controller('unishopController',
 		//if ($cookies.get('expandAttributen') != null) {
 		//	$scope.expandAttributen = ($cookies.get('expandAttributen') == 1);
 		//};
-		if (localStorageService.get('expandAttributen') != null) {
+		if (localStorageService.get('expandAttributen')) {
 			$scope.expandAttributen = (localStorageService.get('expandAttributen') == 1);
 		};		
 		$scope.expandRemark = false;
@@ -227,28 +227,28 @@ UniApp.controller('unishopController',
 		//if ($cookies.get('unishopDataset') != null) {
 		//	$scope.dataset = $cookies.get('unishopDataset');
 		//};
-		if (localStorageService.get('unishopDataset') != null) {
+		if (localStorageService.get('unishopDataset')) {
 			$scope.gebruikersID = localStorageService.get('unishopDataset');
 		};		
 		$scope.bedrijfsnaam = '';
 		//if ($cookies.get('unishopCompanyName') != null) {
 		//	$scope.bedrijfsnaam = $cookies.get('unishopCompanyName');
 		//};
-		if (localStorageService.get('unishopCompanyName') != null) {
+		if (localStorageService.get('unishopCompanyName')) {
 			$scope.gebruikersID = localStorageService.get('unishopCompanyName');
 		};			
 		$scope.gebruikersnaam = '';
 		//if ($cookies.get('unishopFullName') != null) {
 		//	$scope.gebruikersnaam = $cookies.get('unishopFullName');
 		//};
-		if (localStorageService.get('unishopFullName') != null) {
+		if (localStorageService.get('unishopFullName')) {
 			$scope.gebruikersID = localStorageService.get('unishopFullName');
 		};		
 		$scope.dealertype = -1;   // -1 = onbekend, 0 = motordealer, 1 = mobiele recreatie, 2 = watersport 3 = transportlogistiek
 		//if ($cookies.get('unishopDealerType') != null) {
 		//	$scope.dealertype = $cookies.get('unishopDealerType');
 		//};
-		if (localStorageService.get('unishopDealerType') != null) {
+		if (localStorageService.get('unishopDealerType')) {
 			$scope.gebruikersID = localStorageService.get('unishopDealerType');
 		};
 		// add public more declarations below
