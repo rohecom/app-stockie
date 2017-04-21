@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" manifest="unishop.manifest" ng-app="unishopModule">
+<html lang="nl" manifest="unishop.manifest" ng-app="unishopModule">
 <head>
 	<title>UniShop Voorraad</title>
 	<meta charset="utf-8">
@@ -11,8 +11,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700' rel='stylesheet' type='text/css'>
 	<meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; img-src 'self' data: *; style-src 'self' 'unsafe-inline' *">
 	<link rel="apple-touch-icon" sizes="152x152" href="img/appicon.png">
-	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
-	<link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"/>
 	<link rel="stylesheet" href="bower_components/angular-pull-to-refresh/dist/angular-pull-to-refresh.min.css">
 	<link rel="stylesheet" href="css/app.css">
 	<script src="bower_components/angular/angular.min.js"></script>
@@ -23,37 +22,22 @@
 	<script src="bower_components/angular-i18n/angular-locale_nl-nl.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.min.js"></script>
 	<script src="bower_components/angular-pull-to-refresh/dist/angular-pull-to-refresh.min.js"></script>
-	<script src="bower_components/moment/moment.js"></script>	
+	<script src="bower_components/moment/min/moment.min.js"></script>	
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
-	<!--
-	<script src="bower_components/JsBarcode/dist/JsBarcode.all.min.js"></script>
-	<script src="bower_components/angular-barcode/dist/angular-barcode.min.js"></script>
-	-->
-	<script src="js/generic.js?v=1"></script>
-	<script src="js/ctrl_unishop.js?v=1"></script>
+	<script src="js/generic.js?v=2"></script>
+	<script src="js/ctrl_unishop.js?v=2"></script>
 </head>
 <body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl">
-
 	<md-content id="mainContent" pull-to-refresh="pullCtrl.onPullReload()">
-
 		<div id="appController" ng-controller="unishopController as unishop">
-
 			<md-content ng-show="!unishop.isMobilePlatform()">
 				<div layout="column" layout-align="center center">
 					<span class="alertText">Deze app is bedoeld om op een mobiel apparaat uit te voeren</span>
 				</div>
 			</md-content>
-
 			<md-content ng-show="unishop.isMobilePlatform()">
-
-				<md-content 
-					md-component-id="pageLogin" 
-					md-theme="login"
-					ng-show="(!unishop.isLoginHidden()) && (isLoaded) && (!inlogValideren)" 
-					layout="row" 
-					layout-align="center end" 
-					style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
+				<md-content md-component-id="pageLogin" md-theme="login" ng-show="(!unishop.isLoginHidden()) && (isLoaded) && (!inlogValideren)" layout="row" layout-align="center end" style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
 					<div layout-gt-sm="column" id="inloggen">
 						<div class="inlogTitel wit">UniShop Voorraad</div>
 						<div style="height: 60px;">&nbsp;</div>
@@ -69,7 +53,6 @@
 							<label class="login">Uw wachtwoord</label>
 							<input class="login" type="password" ng-model="wachtwoord" my-enter="unishop.handleLogin()">
 						</md-input-container>
-
 						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()" ng-disabled="(isBusy)">
 							<span class="login" ng-show="(!isBusy)">Inloggen</span>
 							<span class="login" ng-show="(isBusy)">Bezig met inloggen, ogenblik...</span>
@@ -77,16 +60,9 @@
 						<div style="height: 60px;">&nbsp;</div>
 						<div class="inlogFooter">&copy;&nbsp;Rohecom B.V.</div>
 					</div>
-
 				</md-content>
 
-				<md-content 
-					md-component-id="pageWijzigWachtwoord" 
-					md-theme="login"
-					ng-show="(wijzigWachtwoord)" 
-					layout="row" 
-					layout-align="center end" 
-					style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
+				<md-content md-component-id="pageWijzigWachtwoord" md-theme="login"	ng-show="(wijzigWachtwoord)" layout="row" layout-align="center end" style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
 				<div layout-gt-sm="column" id="inloggen">
 					<div class="inlogTitel wit">Wijzig wachtwoord</div>
 					<div style="height: 60px;">&nbsp;</div>
@@ -102,7 +78,6 @@
 						<label class="login">Herhaal uw wachtwoord</label>
 						<input class="login" type="password" ng-model="wachtwoord_new2">
 					</md-input-container>
-
 					<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleWijzigWachtwoord()"><span class="login">Wijzig wachtwoord</span></md-button>
 					<md-button class="md-accent md-hue-1" style="width:100%;" ng-click="unishop.cancelWijzigWachtwoord()"><span class="loginLight">annuleren</span></md-button>
 					<div style="height: 60px;">&nbsp;</div>
@@ -110,7 +85,6 @@
 				</div>
 
 				</md-content>
-
 				<div ng-if="unishop.isHomeHidden()&&unishop.isLoginHidden()&&isBusy&&(!wijzigWachtwoord)" class="progress" layout="column" layout-align="center center">
 					<md-progress-circular md-mode="indeterminate" md-component-id="proIndetermined" md-diameter="96" ng-show="(isBusy)"></md-progress-circular>
 				</div>
