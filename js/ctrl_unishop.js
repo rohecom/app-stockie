@@ -1,9 +1,7 @@
 var UniApp = angular.module('unishopModule', [
-	'chart.js',
 	'ngResource',
 	'ngMaterial',
 	'mgcrea.pullToRefresh',
-	'ngCookies',
 	'barcode',
 	'LocalStorageModule'
 ]);
@@ -76,14 +74,12 @@ UniApp.controller('unishopController',
 		$http,
 		$mdDialog,
 		$location,
-		$cookies,
 		localStorageService,
 		$sce
 	) {
 		// Check if localStorage is supported
 		this.isLocalStorageSupported = false;
 		if (localStorageService.isSupported) {
-			console.info('localStorage is a yes!');
 			this.isLocalStorageSupported = true;
 		}
 
@@ -114,11 +110,8 @@ UniApp.controller('unishopController',
 		}
 
 		function updateLocalStorage() {
-			// schrijf cookies; cookies zijn 1 maand geldig
 			var now = new Date();
 			var expireDate = new Date(now.getFullYear(), now.getMonth() + 1, now.getDate());
-			console.log('now', now);
-			console.log('expireDate', expireDate);
 
 			localStorageService.set('unishopGebruikersID', $scope.gebruikersID);
 			localStorageService.set('unishopDataset', $scope.dataset);
@@ -128,21 +121,6 @@ UniApp.controller('unishopController',
 			localStorageService.set('unishopFullName', $scope.gebruikersnaam);
 			localStorageService.set('unishopDealerType', $scope.dealertype);
 			localStorageService.set('expandAttributen', iif($scope.expandAttributen, 1, 0));
-		}
-
-		function updateCookies() {
-			// schrijf cookies; cookies zijn 1 maand geldig
-			var now = new Date();
-			var expireDate = new Date(now.getFullYear(), now.getMonth() + 1, now.getDate());
-
-			$cookies.put('unishopGebruikersID', $scope.gebruikersID, { 'expires': expireDate });
-			$cookies.put('unishopDataset', $scope.dataset, { 'expires': expireDate });
-			$cookies.put('unishopCompanyName', $scope.bedrijfsnaam, { 'expires': expireDate });
-			$cookies.put('unishopUserName', $scope.inlognaam, { 'expires': expireDate });
-			$cookies.put('unishopPassword', $scope.wachtwoord, { 'expires': expireDate });
-			$cookies.put('unishopFullName', $scope.gebruikersnaam, { 'expires': expireDate });
-			$cookies.put('unishopDealerType', $scope.dealertype, { 'expires': expireDate });
-			$cookies.put('expandAttributen', iif($scope.expandAttributen, 1, 0), { 'expires': expireDate });
 		}
 
 		$scope.showAlert = function (title, message, ev) {
@@ -179,24 +157,16 @@ UniApp.controller('unishopController',
 		$scope.inlogValideren = false;
 		$scope.wijzigWachtwoord = false;
 		$scope.gebruikersID = '';
-		//if ($cookies.get('unishopGebruikersID') != null) {
-		//	$scope.gebruikersID = $cookies.get('unishopGebruikersID');
-		//};
+
 		if (localStorageService.get('unishopGebruikersID')) {
 			$scope.gebruikersID = localStorageService.get('unishopGebruikersID');
 		};
 		
 		$scope.inlognaam = '';
-		//if ($cookies.get('unishopUserName') != null) {
-		//	$scope.inlognaam = $cookies.get('unishopUserName');
-		//};
 		if (localStorageService.get('unishopUserName')) {
 			$scope.inlognaam = localStorageService.get('unishopUserName');
 		};		
 		$scope.wachtwoord = '';
-		//if ($cookies.get('unishopPassword') != null) {
-		//	$scope.wachtwoord = $cookies.get('unishopPassword');
-		//};
 		if (localStorageService.get('unishopPassword')) {
 			$scope.unishopPassword = localStorageService.get('unishopPassword');
 		};		
@@ -214,9 +184,7 @@ UniApp.controller('unishopController',
 		$scope.artVoorraadResultaten = [];
 		$scope.expandVoorraad = false;
 		$scope.expandAttributen = false;
-		//if ($cookies.get('expandAttributen') != null) {
-		//	$scope.expandAttributen = ($cookies.get('expandAttributen') == 1);
-		//};
+
 		if (localStorageService.get('expandAttributen')) {
 			$scope.expandAttributen = (localStorageService.get('expandAttributen') == 1);
 		};		
@@ -224,30 +192,22 @@ UniApp.controller('unishopController',
 		$scope.clusterArtEnkelOpVoorraad = false;
 
 		$scope.dataset = '';
-		//if ($cookies.get('unishopDataset') != null) {
-		//	$scope.dataset = $cookies.get('unishopDataset');
-		//};
+
 		if (localStorageService.get('unishopDataset')) {
 			$scope.unishopDataset = localStorageService.get('unishopDataset');
 		};		
 		$scope.bedrijfsnaam = '';
-		//if ($cookies.get('unishopCompanyName') != null) {
-		//	$scope.bedrijfsnaam = $cookies.get('unishopCompanyName');
-		//};
+
 		if (localStorageService.get('unishopCompanyName')) {
 			$scope.unishopCompanyName = localStorageService.get('unishopCompanyName');
 		};			
 		$scope.gebruikersnaam = '';
-		//if ($cookies.get('unishopFullName') != null) {
-		//	$scope.gebruikersnaam = $cookies.get('unishopFullName');
-		//};
+
 		if (localStorageService.get('unishopFullName')) {
 			$scope.unishopFullName = localStorageService.get('unishopFullName');
 		};		
 		$scope.dealertype = -1;   // -1 = onbekend, 0 = motordealer, 1 = mobiele recreatie, 2 = watersport 3 = transportlogistiek
-		//if ($cookies.get('unishopDealerType') != null) {
-		//	$scope.dealertype = $cookies.get('unishopDealerType');
-		//};
+
 		if (localStorageService.get('unishopDealerType')) {
 			$scope.unishopDealerType = localStorageService.get('unishopDealerType');
 		};
@@ -308,8 +268,6 @@ UniApp.controller('unishopController',
 			AHttp.success(function (response) {
 				$scope.ingelogd = true;
 				$scope.inlogValideren = false;
-				// schrijf cookies weer weg zodat de expire period bijgewerkt wordt
-				// updateCookies();
 				updateLocalStorage();
 				// standaard actie hier:
 				var appScope = angular.element(document.getElementById('appController')).scope();
@@ -388,7 +346,6 @@ UniApp.controller('unishopController',
 			AHttp.success(function (response) {
 
 				$scope.wachtwoord = response.details.password;  // encoded versie van het wachtwoord
-				// updateCookies();
 				updateLocalStorage();
 				$scope.showAlert('Wachtwoord is gewijzigd', '');
 			});
@@ -458,7 +415,6 @@ UniApp.controller('unishopController',
 				$scope.gebruikersID = response.details.usercode;
 				$scope.inlognaam = response.details.username;
 				$scope.wachtwoord = response.details.password;  // encoded versie van het wachtwoord
-				// updateCookies();
 				updateLocalStorage();
 
 				// $scope.showAlert('Inloggen geslaagd', 'Welkom ' + JSON.stringify(response.details));
@@ -493,15 +449,14 @@ UniApp.controller('unishopController',
 
 			$scope.isBusy = false;
 			$scope.ingelogd = false;
-			$scope.gebruikersID = '';
-			$scope.inlognaam = '';
-			$scope.wachtwoord = '';
-			$scope.dataset = '';
+			// $scope.gebruikersID = '';
+			// $scope.inlognaam = '';
+			// $scope.wachtwoord = '';
+			// $scope.dataset = '';
 			$scope.bedrijfsnaam = 'Unishopbedrijf';
-			$scope.gebruikersnaam = '';
+			// $scope.gebruikersnaam = '';
 			$scope.dealertype = -1;   // -1 = onbekend, 0 = motordealer, 1 = mobiele recreatie, 2 = watersport 3 = transportlogistiek
 
-			// updateCookies();
 			// updateLocalStorage();
 		};
 
@@ -839,7 +794,6 @@ UniApp.controller('unishopController',
 
 		this.toggleExpandAttributen = function () {
 			$scope.expandAttributen = !$scope.expandAttributen;
-			// updateCookies();
 			updateLocalStorage();
 		}
 

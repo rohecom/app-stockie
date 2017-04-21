@@ -11,148 +11,26 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700' rel='stylesheet' type='text/css'>
 	<meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; img-src 'self' data: *; style-src 'self' 'unsafe-inline' *">
 	<link rel="apple-touch-icon" sizes="152x152" href="img/appicon.png">
-	<!-- iPad retina portrait startup image -->
-	<link href="img/startup1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" rel="apple-touch-startup-image">
-	<!-- iPad retina landscape startup image -->
-	<link href="img/startup1496x2048.png"
-		media="(device-width: 768px) and (device-height: 1024px)
-				 and (-webkit-device-pixel-ratio: 2)
-				 and (orientation: landscape)"
-		rel="apple-touch-startup-image">
-	<!-- iPad non-retina portrait startup image -->
-	<link href="img/startup768x1004.png"
-		media="(device-width: 768px) and (device-height: 1024px)
-				 and (-webkit-device-pixel-ratio: 1)
-				 and (orientation: portrait)"
-		rel="apple-touch-startup-image">
-	<!-- iPad non-retina landscape startup image -->
-	<link href="img/startup748x1024.png"
-		media="(device-width: 768px) and (device-height: 1024px)
-				 and (-webkit-device-pixel-ratio: 1)
-				 and (orientation: landscape)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone 6 Plus portrait startup image -->
-	<link href="img/startup1242x2148.png"
-		media="(device-width: 414px) and (device-height: 736px)
-				 and (-webkit-device-pixel-ratio: 3)
-				 and (orientation: portrait)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone 6 Plus landscape startup image -->
-	<link href="img/startup1182x2208.png"
-		media="(device-width: 414px) and (device-height: 736px)
-				 and (-webkit-device-pixel-ratio: 3)
-				 and (orientation: landscape)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone 6 startup image -->
-	<link href="img/startup750x1294.png"
-		media="(device-width: 375px) and (device-height: 667px)
-				 and (-webkit-device-pixel-ratio: 2)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone 5 startup image -->
-	<link href="img/startup640x1096.png"
-		media="(device-width: 320px) and (device-height: 568px)
-				 and (-webkit-device-pixel-ratio: 2)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone < 5 retina startup image -->
-	<link href="img/startup640x920.png"
-		media="(device-width: 320px) and (device-height: 480px)
-				 and (-webkit-device-pixel-ratio: 2)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone < 5 non-retina startup image -->
-	<link href="img/startup320x460.png"
-		media="(device-width: 320px) and (device-height: 480px)
-				 and (-webkit-device-pixel-ratio: 1)"
-		rel="apple-touch-startup-image">
-
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
 	<link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
 	<link rel="stylesheet" href="bower_components/angular-pull-to-refresh/dist/angular-pull-to-refresh.min.css">
 	<link rel="stylesheet" href="css/app.css">
-
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
 	<script src="bower_components/angular-material/angular-material.min.js"></script>
 	<script src="bower_components/angular-messages/angular-messages.min.js"></script>
-	<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 	<script src="bower_components/angular-i18n/angular-locale_nl-nl.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.min.js"></script>
-	<script src="bower_components/Chart.js/Chart.js"></script>
-	<script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 	<script src="bower_components/angular-pull-to-refresh/dist/angular-pull-to-refresh.min.js"></script>
 	<script src="bower_components/moment/moment.js"></script>	
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
-	<!--
-	<script src="bower_components/quagga/dist/quagga.min.js"></script>	
-	-->
 	<script src="bower_components/JsBarcode/dist/JsBarcode.all.min.js"></script>
 	<script src="bower_components/angular-barcode/dist/angular-barcode.min.js"></script>
-	
 	<script src="js/generic.js?v=1"></script>
 	<script src="js/ctrl_unishop.js?v=1"></script>
-
-	<script>
-	Chart.defaults.global.colours = [
-		{ // blue
-			fillColor: "rgba(101, 209, 219,0.2)",
-			strokeColor: "rgba(101, 209, 219,1)",
-			pointColor: "rgba(101, 209, 219,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(101, 209, 219,0.8)"
-		},
-		{ // light grey
-			fillColor: "rgba(101, 215, 153,0.2)",
-			strokeColor: "rgba(101, 215, 153,1)",
-			pointColor: "rgba(101, 215, 153,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(101, 215, 153,0.8)"
-		},
-		{ // red
-			fillColor: "rgba(255, 205, 100,0.2)",
-			strokeColor: "rgba(255, 205, 100,1)",
-			pointColor: "rgba(255, 205, 100,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(255, 205, 100,0.8)"
-		},
-		{ // green
-			fillColor: "rgba(254, 146, 44,0.2)",
-			strokeColor: "rgba(254, 146, 44,1)",
-			pointColor: "rgba(254, 146, 44,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(254, 146, 44,0.8)"
-		},
-		{ // yellow
-			fillColor: "rgba(253, 177, 161,0.2)",
-			strokeColor: "rgba(253, 177, 161,1)",
-			pointColor: "rgba(253, 177, 161,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(253, 177, 161,0.8)"
-		},
-		{ // grey
-			fillColor: "rgba(6, 83, 129,0.2)",
-			strokeColor: "rgba(6, 83, 129,1)",
-			pointColor: "rgba(6, 83, 129,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(6, 83, 129,0.8)"
-		},
-		{ // dark grey
-			fillColor: "rgba(52, 178, 228,0.2)",
-			strokeColor: "rgba(52, 178, 228,1)",
-			pointColor: "rgba(52, 178, 228,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(52, 178, 228,1)"
-		}
-	];	
-	</script>
-
+</head>
 <body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl">
 
 	<md-content id="mainContent" pull-to-refresh="pullCtrl.onPullReload()">
@@ -267,7 +145,7 @@
 						
 						<md-toolbar class="md-theme-light" layout="row" ng-show="unishop.isLoginHidden()">
 							<div class="md-toolbar-tools">
-							<md-button ng-click="toggleMenuLinks()" class="md-icon-button">
+							<md-button ng-click="toggleMenuLinks()" class="md-icon-button" aria-label="Toggle Menu Links">
 								<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
 							</md-button>
 							<span>
