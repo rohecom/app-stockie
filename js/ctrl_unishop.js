@@ -191,14 +191,14 @@ UniApp.controller('unishopController',
 		//	$scope.inlognaam = $cookies.get('unishopUserName');
 		//};
 		if (localStorageService.get('unishopUserName')) {
-			$scope.gebruikersID = localStorageService.get('unishopUserName');
+			$scope.unishopUserName = localStorageService.get('unishopUserName');
 		};		
 		$scope.wachtwoord = '';
 		//if ($cookies.get('unishopPassword') != null) {
 		//	$scope.wachtwoord = $cookies.get('unishopPassword');
 		//};
 		if (localStorageService.get('unishopPassword')) {
-			$scope.gebruikersID = localStorageService.get('unishopPassword');
+			$scope.unishopPassword = localStorageService.get('unishopPassword');
 		};		
 		$scope.wachtwoord_old = '';
 		$scope.wachtwoord_new = '';
