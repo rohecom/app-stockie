@@ -11,6 +11,16 @@ UniApp.filter('trustAsHtml', ['$sce', function ($sce) {
   }
 }]);
 
+UniApp.directive('focusMe', function ($timeout) {
+	return {
+		link: function (scope, element, attrs) {
+			$timeout(function () {
+				element[0].focus();
+			}, 750);
+		}
+	};
+});
+
 UniApp.directive('myEnter', function () {
 	return function (scope, element, attrs) {
 		element.bind("keydown keypress", function (event) {
@@ -167,7 +177,7 @@ UniApp.controller('unishopController',
 		};		
 		$scope.wachtwoord = '';
 		if (localStorageService.get('unishopPassword')) {
-			$scope.unishopPassword = localStorageService.get('unishopPassword');
+			$scope.wachtwoord = localStorageService.get('unishopPassword');
 		};		
 		$scope.wachtwoord_old = '';
 		$scope.wachtwoord_new = '';
