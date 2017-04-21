@@ -463,6 +463,71 @@ UniApp.controller('unishopController',
 			// updateLocalStorage();
 		};
 
+		/* Start quick find customers */
+		this.quickFindCustomers = function () {
+			console.log('In quickFindCustomers with query: ' + $scope.zoekCust);
+
+			$scope.isBusy = true;
+			// $scope.zoekCust = query;
+			$scope.relatiesResultaten = [];
+
+			var AUrl = $scope.API_URL + '/customers/quickfind/' + encodeURI($scope.zoekCust) + '/25';   // zoek 25 relaties
+
+			var req = {
+				url: AUrl,
+				method: 'POST',
+				headers: {
+					'Content-Type': undefined,
+					'dataset': $scope.dataset,
+					'username': $scope.inlognaam,
+					'password': $scope.wachtwoord
+				}, data: {	},
+				params: {
+					'dataset': $scope.dataset,
+					'username': $scope.inlognaam,
+					'password': $scope.wachtwoord
+				}
+			};
+
+			$http.post(req.url, req.data, req)
+			.then(
+				// success
+				function (response) {
+					$scope.isBusy = false;
+
+					$scope.relatiesResultaten = [];
+					//console.log('==================================');
+					//console.log(response.data);
+					//console.log('==================================');
+					
+					for (var i = 0; i < response.data.customers.length; i++) {
+						$scope.relatiesResultaten.push(response.data.customers[i]);
+					}
+					
+				},
+
+				// error
+				function (response) {
+					var errortext = 'Fout customers ophalen';
+					var errortextSub = '';
+					if (response != null) {
+						if (response.data != null) {
+							if (response.data.Error != null) {
+								if (response.data.Error.ErrorText != null) {
+									errortextSub = response.data.Error.ErrorText;
+								}
+							}
+						}
+					}
+
+					$scope.isBusy = false;
+					$scope.showAlert(errortext, errortextSub);
+				}
+			);
+
+		}
+		/* End quick find customers */
+
 		this.handleClusterArt = function (prod) {
 			var AUrl = $scope.API_URL + '/products/clustered/' + encodeURI(prod.ProductNr.replace('/', '//')) + '/' + encodeURI(prod.SuCodeAlt);
 
@@ -726,6 +791,9 @@ UniApp.controller('unishopController',
 			$scope.attribuutArtResultaten = [];
 			$scope.artVoorraadResultaten = [];
 
+			$scope.zoekCust = '';
+			$scope.relatiesResultaten = [];
+
 			$http.post(req.url, req.data, req).then
 				(
 				// success
@@ -866,6 +934,15 @@ UniApp.controller('unishopController',
 					// $log.debug("menuLinks is gesloten");
 				});
 		}
+
+		this.openItem2 = function () {
+			$scope.mainTitle = 'Relaties';
+			$scope.activePage = 'pageItem2';
+			$mdSidenav('menuLinks').close()
+				.then(function () {
+					// $log.debug("menuLinks is gesloten");
+				});
+		}		
 
 		this.resetFoutResponse = function () {
 			$scope.foutResponse = '';
