@@ -2,7 +2,6 @@ var UniApp = angular.module('unishopModule', [
 	'ngResource',
 	'ngMaterial',
 	'mgcrea.pullToRefresh',
-	'barcode',
 	'LocalStorageModule'
 ]);
 
@@ -383,7 +382,6 @@ UniApp.controller('unishopController',
 				return false;
 			}
 
-			// todo: busy spinner
 			$scope.isBusy = true;
 			$scope.ingelogd = false;
 			$scope.dataset = '';
@@ -405,7 +403,6 @@ UniApp.controller('unishopController',
 			var AHttp = $http(req);
 
 			AHttp.success(function (response) {
-
 				$scope.isBusy = false;
 				$scope.ingelogd = true;
 				$scope.dataset = response.details.dataset;
@@ -451,7 +448,7 @@ UniApp.controller('unishopController',
 			$scope.ingelogd = false;
 			// $scope.gebruikersID = '';
 			// $scope.inlognaam = '';
-			// $scope.wachtwoord = '';
+			$scope.wachtwoord = '';
 			// $scope.dataset = '';
 			$scope.bedrijfsnaam = 'Unishopbedrijf';
 			// $scope.gebruikersnaam = '';
@@ -517,7 +514,8 @@ UniApp.controller('unishopController',
 
 					$scope.isBusy = false;
 					$scope.showAlert(errortext, errortextSub);
-				});
+				}
+			);
 
 			return true;
 		};
@@ -565,8 +563,8 @@ UniApp.controller('unishopController',
 			$scope.isBusy = true;
 			$scope.attribuutArtResultaten = [];
 
-			$http.post(req.url, req.data, req).then
-				(
+			$http.post(req.url, req.data, req)
+			.then(
 				// success
 				function (response) {
 
@@ -594,7 +592,7 @@ UniApp.controller('unishopController',
 					$scope.isBusy = false;
 					$scope.showAlert(errortext, errortextSub);
 				}
-				);
+			);
 
 			return true;
 		};
@@ -629,11 +627,10 @@ UniApp.controller('unishopController',
 			$scope.artVoorraadResultaten = [];
 			$scope._handleArtVoorraadID = prod.ProductNr + prod.SuCodeAlt;
 
-			$http.post(req.url, req.data, req).then
-				(
+			$http.post(req.url, req.data, req)
+			.then(
 				// success
 				function (response) {
-
 					$scope.isVoorraadBusy = false;
 					// is het het antwoord op het laatste verzoek?
 					if (
@@ -664,13 +661,12 @@ UniApp.controller('unishopController',
 					$scope.isVoorraadBusy = false;
 					$scope.showAlert(errortext, errortextSub);
 				}
-				);
+			);
 
 			return true;
 		}
 
 		this.toonProd = function (prod) {
-			//alert(prod.Name);
 			$scope.zoekArtSelected = prod;
 			if (prod.ClusterSize > 1) {
 				// haal cluster op
@@ -778,7 +774,6 @@ UniApp.controller('unishopController',
 		};
 
 		this.toggleExpandProd = function (prod) {
-
 			var idx = $scope.zoekArtExpanded.indexOf(prod);
 			if (idx == -1) {
 				$scope.zoekArtExpanded.push(prod);
@@ -802,7 +797,6 @@ UniApp.controller('unishopController',
 		}
 
 		this.sluitProd = function () {
-
 			$scope.zoekArtSelected = null;
 			$scope.clusterArtResultaten = [];
 			$scope.attribuutArtResultaten = [];
@@ -892,29 +886,6 @@ UniApp.controller('unishopController',
 					orientation: "landscape"
 				});
 			}.bind(this), false);
-		}
-
-		this.barcodeProcessed = function (boxes, box) {
-			// er is een barcode foto behandeld. boxes is een array met areas. box is een optionele area van de gedetecteerde barcode
-			$scope.zoekArt = '';
-			$scope.zoekArtResultaten = [];
-
-			if (!box) {
-				$scope.foutResponse = 'geen barcode gedetecteerd, probeer opnieuw';
-				$scope.$apply();
-				window.setTimeout(function () {
-					$scope.foutResponse = '';
-					$scope.$apply();
-				}, 4000);
-			}
-		}
-
-		this.barcodeDetected = function (code) {
-			// er is een barcode gevonden
-
-			$scope.zoekArt = code;
-			this.handleZoekArt();
-			//$scope.showAlert('Zoek', code);
 		}
 
 		document.getElementById('mainContent').style.visibility = 'visible';

@@ -26,8 +26,10 @@
 	<script src="bower_components/moment/moment.js"></script>	
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+	<!--
 	<script src="bower_components/JsBarcode/dist/JsBarcode.all.min.js"></script>
 	<script src="bower_components/angular-barcode/dist/angular-barcode.min.js"></script>
+	-->
 	<script src="js/generic.js?v=1"></script>
 	<script src="js/ctrl_unishop.js?v=1"></script>
 </head>
@@ -51,26 +53,21 @@
 					ng-show="(!unishop.isLoginHidden()) && (isLoaded) && (!inlogValideren)" 
 					layout="row" 
 					layout-align="center end" 
-					style="
-						 width:vw; 
-						 height:100vh; 
-						 background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);
-						"
-				>
+					style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
 					<div layout-gt-sm="column" id="inloggen">
 						<div class="inlogTitel wit">UniShop Voorraad</div>
 						<div style="height: 60px;">&nbsp;</div>
 						<md-input-container class="md-block login" flex-gt-sm>
-						<label class="login">Uw Unishop gebruikers ID</label>
-						<input class="login" ng-model="gebruikersID" my-enter="unishop.handleLogin()">
+							<label class="login">Uw Unishop gebruikers ID</label>
+							<input class="login" ng-model="gebruikersID" my-enter="unishop.handleLogin()">
 						</md-input-container>
 						<md-input-container class="md-block login" flex-gt-sm>
-						<label class="login">Uw inlognaam</label>
-						<input class="login" ng-model="inlognaam"	my-enter="unishop.handleLogin()">
+							<label class="login">Uw inlognaam</label>
+							<input class="login" ng-model="inlognaam"	my-enter="unishop.handleLogin()">
 						</md-input-container>
 						<md-input-container class="md-block login" flex-gt-sm>
-						<label class="login">Uw wachtwoord</label>
-						<input class="login" type="password" ng-model="wachtwoord" my-enter="unishop.handleLogin()">
+							<label class="login">Uw wachtwoord</label>
+							<input class="login" type="password" ng-model="wachtwoord" my-enter="unishop.handleLogin()">
 						</md-input-container>
 
 						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()" ng-disabled="(isBusy)">
@@ -89,26 +86,21 @@
 					ng-show="(wijzigWachtwoord)" 
 					layout="row" 
 					layout-align="center end" 
-					style="
-						 width:vw; 
-						 height:100vh; 
-						 background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);
-						"
-				>
+					style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
 				<div layout-gt-sm="column" id="inloggen">
 					<div class="inlogTitel wit">Wijzig wachtwoord</div>
 					<div style="height: 60px;">&nbsp;</div>
 					<md-input-container class="md-block login" flex-gt-sm>
-					<label class="login">Uw huidige wachtwoord</label>
-					<input class="login" type="password" ng-model="wachtwoord_old">
+						<label class="login">Uw huidige wachtwoord</label>
+						<input class="login" type="password" ng-model="wachtwoord_old">
 					</md-input-container>
 					<md-input-container class="md-block login" flex-gt-sm>
-					<label class="login">Uw nieuwe wachtwoord</label>
-					<input class="login" type="password" ng-model="wachtwoord_new">
+						<label class="login">Uw nieuwe wachtwoord</label>
+						<input class="login" type="password" ng-model="wachtwoord_new">
 					</md-input-container>
 					<md-input-container class="md-block login" flex-gt-sm>
-					<label class="login">Herhaal uw wachtwoord</label>
-					<input class="login" type="password" ng-model="wachtwoord_new2">
+						<label class="login">Herhaal uw wachtwoord</label>
+						<input class="login" type="password" ng-model="wachtwoord_new2">
 					</md-input-container>
 
 					<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleWijzigWachtwoord()"><span class="login">Wijzig wachtwoord</span></md-button>
@@ -119,63 +111,28 @@
 
 				</md-content>
 
-				<div
-				 ng-if="unishop.isHomeHidden()&&unishop.isLoginHidden()&&isBusy&&(!wijzigWachtwoord)" 
-				 class="progress"
-				 layout="column" layout-align="center center"
-				>
-				<md-progress-circular 
-					md-mode="indeterminate" 
-					md-component-id="proIndetermined" 
-					md-diameter="96"
-					ng-show="(isBusy)"
-				>
-				</md-progress-circular>
-
+				<div ng-if="unishop.isHomeHidden()&&unishop.isLoginHidden()&&isBusy&&(!wijzigWachtwoord)" class="progress" layout="column" layout-align="center center">
+					<md-progress-circular md-mode="indeterminate" md-component-id="proIndetermined" md-diameter="96" ng-show="(isBusy)"></md-progress-circular>
 				</div>
 
-				<md-content class="mainPane"
-							ng-show="(unishop.isLoginHidden())&&
-											 (!wijzigWachtwoord)&&
-											 (1==1)
-											"
-				>
-
-					<md-content>
-						
+				<md-content class="mainPane" ng-show="(unishop.isLoginHidden())&&(!wijzigWachtwoord)&&(1==1)">
+					<md-content>			
 						<md-toolbar class="md-theme-light" layout="row" ng-show="unishop.isLoginHidden()">
 							<div class="md-toolbar-tools">
-							<md-button ng-click="toggleMenuLinks()" class="md-icon-button" aria-label="Toggle Menu Links">
-								<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-							</md-button>
-							<span>
-									{{mainTitle}} 
-							</span>
-
+								<md-button ng-click="toggleMenuLinks()" class="md-icon-button" aria-label="Toggle Menu Links">
+									<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+								</md-button>
+								<span>{{mainTitle}}</span>
 							</div>
 						</md-toolbar>
 
 						<div id="contentblok">
-
-							<md-content md-component-id="pageHome"
-										ng-show="unishop.isActivePage('home')"
-										class="homePane">
-
-								<md-content 
-									md-component-id="panelZoekArt" 
-									layout="column" 
-									ng-show="(zoekArtSelected == null)"
-								>
-									<md-content 
-										md-component-id="panelZoekArtInput" 
-										layout="column" 
-										layout-align="center center"
-										style="padding-top: 60px;"
-									>
-
+							<md-content md-component-id="pageHome" ng-show="unishop.isActivePage('home')" class="homePane">
+								<md-content md-component-id="panelZoekArt" layout="column" ng-show="(zoekArtSelected == null)">
+									<md-content md-component-id="panelZoekArtInput" layout="column" layout-align="center center" style="padding-top: 60px;">
 										<md-input-container id="zoekTekstContainer" class="md-block login" flex style="width:60%;">
 											<label>Artikelnummer / omschrijving</label>
-											<input id="zoekTekst" ng-model="zoekArt"	my-enter="unishop.handleZoekArt()" focus-me="true" focus-on="newBarcodeFound">
+											<input id="zoekTekst" ng-model="zoekArt" my-enter="unishop.handleZoekArt()" focus-me="true" focus-on="newBarcodeFound">
 											<script type="text/javascript">
 												function resetZoekArt() {
 													var appScope = angular.element(document.getElementById('appController')).scope();
@@ -187,11 +144,7 @@
 											</svg>
 										</md-input-container>
 										<div>
-											<a href id="start_zoeken" 
-													class="button zoekbutton" 
-													ng-click="unishop.handleZoekArt()" 
-													click-on="newBarcodeFound">start zoeken
-											</a>
+											<a href id="start_zoeken" class="button zoekbutton" ng-click="unishop.handleZoekArt()" click-on="newBarcodeFound">start zoeken</a>
 										</div>
 										<div class="controls">
 											<script>
@@ -203,25 +156,16 @@
 												});
 											})
 											</script>
-
 											<p>
 												<a href="#" id="scan">
-													<md-icon class="labelfile" 
-															 id="labelfile" 
-															 style="width: 100px; height: 100px;" 
-															 md-svg-icon="img/icons/barcode.svg">
-													</md-icon>
+													<md-icon class="labelfile" id="labelfile" style="width: 100px; height: 100px;" md-svg-icon="img/icons/barcode.svg"></md-icon>
 												</a>
 											</p>
 										</div>
-
 									</md-content>
 
 									<md-content>
-										<md-list class="md-dense" 
-											ng-show="(zoekArtResultaten.length > 0)"
-											flex
-										>
+										<md-list class="md-dense" ng-show="(zoekArtResultaten.length > 0)" flex>
 											<md-subheader class="md-no-sticky" ng-show="zoekArtResultaten.length!=1">{{zoekArtResultaten.length}} zoekresultaten</md-subheader>
 											<md-list-item class="md-3-line" ng-repeat="prod in zoekArtResultaten" ng-click="unishop.toonProd(prod)" style="background-color: {{(($index % 2 != 0) ? '' : '#fafafa')}};">
 												<img ng-src="{{API_URL + '/products/MediaContent/' + prod.ProductNr.replace('/', '//') + '/' + prod.SuCodeAlt + '/60' + '?dataset=' + dataset + '&username=' + inlognaam + '&password=' + wachtwoord}}" class="md-avatar" alt="{{prod.ProductNr}}" />
@@ -242,19 +186,13 @@
 										</md-list>
 
 										<div layout="column" layout-align="center center" ng-show="isBusy">
-											<md-progress-circular 
-													md-mode="indeterminate" 
-													md-component-id="proCluster" 
-													md-diameter="96">
-											</md-progress-circular>
+											<md-progress-circular md-mode="indeterminate" md-component-id="proCluster" md-diameter="96"></md-progress-circular>
 										</div>
 									</md-content>
 								</md-content>
 
 								<md-content 
-									md-component-id="panelOpenArt" 
-									layout="column" 
-									ng-show="(zoekArtSelected != null)">
+									md-component-id="panelOpenArt" layout="column" ng-show="(zoekArtSelected != null)">
 									<md-toolbar md-scroll-shrink class="md-hue-2">
 										<div class="md-toolbar-tools" ng-click="unishop.sluitProd()">
 											<md-button class="md-icon-button" aria-label="terug">
@@ -274,7 +212,6 @@
 												<div class="md-list-item-text" layout="column">
 													<div layout="row">
 														<div flex>
-															<!-- todo: foto bug in webservice -->
 															<img class="transformable" ng-class="{'small':isSmall, 'big':!isSmall}" ng-click="isSmall=!isSmall" ng-src="{{API_URL + '/products/MediaContent/' + zoekArtSelected.ProductNr.replace('/', '//') + '/' + zoekArtSelected.SuCodeAlt + '/210' + '?dataset=' + dataset + '&username=' + inlognaam + '&password=' + wachtwoord}}" alt="{{zoekArtSelected.ProductNr}}"/>
 														</div>
 														<span flex></span>
@@ -343,7 +280,6 @@
 															<div layout="row">
 																<div class="staticRowCaption">Opmerking</div>
 																<div class="staticRowData" flex ng-if="(!expandRemark)" ng-click="unishop.toggleExpandRemark()" ng-bind-html="zoekArtSelected.Remark.substring(0,94) | trustAsHtml">
-																	
 																	<span ng-show="zoekArtSelected.Remark.length>94">
 																	...													
 																	</span>
@@ -404,33 +340,14 @@
 												</tr>
 												<tbody ng-repeat="prod in clusterArtResultaten" ng-if="((!clusterArtEnkelOpVoorraad) || (clusterArtEnkelOpVoorraad && (prod.Stock > 0)))">
 													<tr style="background-color: {{(($index % 2 == 0) ? '' : '#fafafa')}};">
-														<td style="width: 20px">
-															<img src="img/icons/arrow-right.svg" 
-																 style="width: 12px; height: 12px;" 
-																 ng-click="unishop.toggleExpandProd(prod)">
-														</td>
-														<td style="width: 80px" 
-															ng-click="unishop.toonProd(prod)">
-															{{prod.Color.substring(0, 10)}}
-														</td>
-														<td id="rechts" style="width: 80px" 
-															ng-click="unishop.toonProd(prod)">
-															{{prod.Size.substring(0, 10)}}
-														</td>
-														<td id="rechts" 
-															class="vrrd {{(prod.Stock > 0 ? 'metvoorraad' : 'zondervoorraad')}}" 
-															ng-click="unishop.toonProd(prod)">
+														<td style="width: 20px"><img src="img/icons/arrow-right.svg" style="width: 12px; height: 12px;" ng-click="unishop.toggleExpandProd(prod)"></td>
+														<td style="width: 80px" ng-click="unishop.toonProd(prod)">{{prod.Color.substring(0, 10)}}</td>
+														<td id="rechts" style="width: 80px" ng-click="unishop.toonProd(prod)">{{prod.Size.substring(0, 10)}}</td>
+														<td id="rechts" class="vrrd {{(prod.Stock > 0 ? 'metvoorraad' : 'zondervoorraad')}}" ng-click="unishop.toonProd(prod)">
 															{{prod.Stock}} {{(prod.Stock == 1 ? "stuk" : (prod.Stock == 0 ? "" : "stuks"))}}
 														</td>
-														<td id="rechts" 
-															ng-click="unishop.toonProd(prod)" 
-															ng-if="!prod.DiscountProduct">
-															{{(prod.RetailPrice * ((100+prod.VatRate) / 100)) | currency:"&euro;":2}}
-														</td>
-														<td id="rechts" 
-															class="groen" 
-															ng-click="unishop.toonProd(prod)" 
-															ng-if="prod.DiscountProduct">
+														<td id="rechts" ng-click="unishop.toonProd(prod)" ng-if="!prod.DiscountProduct">{{(prod.RetailPrice * ((100+prod.VatRate) / 100)) | currency:"&euro;":2}}</td>
+														<td id="rechts" class="groen" ng-click="unishop.toonProd(prod)" ng-if="prod.DiscountProduct">
 															{{prod.DiscountProduct == true ? (prod.RetailPriceAfterDiscount * ((100+prod.VatRate) / 100)) : "-" | currency:"&euro;":2}}
 														</td>
 													</tr>
@@ -450,21 +367,13 @@
 											</table>
 
 											<div layout="column" layout-align="center center" ng-show="isBusy">
-												<md-progress-circular 
-														md-mode="indeterminate" 
-														md-component-id="proCluster" 
-														md-diameter="96">
-												</md-progress-circular>
+												<md-progress-circular md-mode="indeterminate" md-component-id="proCluster" md-diameter="96"></md-progress-circular>
 											</div>
 										</md-list>
 									</md-subheader>
 								</md-content>
 							</md-content>
-							<md-content md-component-id="pageItem1" 
-									ng-show="!unishop.isActivePage('home')"
-									class="subPane">
-								bestellijst
-							</md-content>
+							<md-content md-component-id="pageItem1" ng-show="!unishop.isActivePage('home')"	class="subPane">bestellijst</md-content>
 						</div>
 					</md-content>
 				</md-content>
@@ -509,15 +418,8 @@
 
 	</md-content>
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="barcodescanner.js"></script>
-		<!--<script src="js/fastclick.js"></script>
-		<script>
-		if ('addEventListener' in document) {
-			document.addEventListener('DOMContentLoaded', function() {
-				FastClick.attach(document.body);
-			}, false);
-		}			
-		</script>-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="barcodescanner.js"></script>
+
 </body>
 </html>
