@@ -191,7 +191,7 @@ UniApp.controller('unishopController',
 		//	$scope.inlognaam = $cookies.get('unishopUserName');
 		//};
 		if (localStorageService.get('unishopUserName')) {
-			$scope.unishopUserName = localStorageService.get('unishopUserName');
+			$scope.inlognaam = localStorageService.get('unishopUserName');
 		};		
 		$scope.wachtwoord = '';
 		//if ($cookies.get('unishopPassword') != null) {
