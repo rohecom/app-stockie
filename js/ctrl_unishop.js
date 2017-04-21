@@ -193,23 +193,29 @@ UniApp.controller('unishopController',
 		$scope.dataset = '';
 
 		if (localStorageService.get('unishopDataset')) {
-			$scope.unishopDataset = localStorageService.get('unishopDataset');
+			$scope.dataset = localStorageService.get('unishopDataset');
 		};		
 		$scope.bedrijfsnaam = '';
 
 		if (localStorageService.get('unishopCompanyName')) {
-			$scope.unishopCompanyName = localStorageService.get('unishopCompanyName');
+			$scope.bedrijfsnaam = localStorageService.get('unishopCompanyName');
 		};			
 		$scope.gebruikersnaam = '';
 
 		if (localStorageService.get('unishopFullName')) {
-			$scope.unishopFullName = localStorageService.get('unishopFullName');
+			$scope.gebruikersnaam = localStorageService.get('unishopFullName');
 		};		
 		$scope.dealertype = -1;   // -1 = onbekend, 0 = motordealer, 1 = mobiele recreatie, 2 = watersport 3 = transportlogistiek
 
 		if (localStorageService.get('unishopDealerType')) {
-			$scope.unishopDealerType = localStorageService.get('unishopDealerType');
+			$scope.dealertype = localStorageService.get('unishopDealerType');
 		};
+
+		if ($scope.inlognaam && $scope.wachtwoord) {
+			$scope.ingelogd = true;
+			$scope.inlogValideren = false;
+		}
+
 		// add public more declarations below
 		this.isMobilePlatform = function () {
 			return isMobile.any();
