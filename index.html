@@ -43,15 +43,15 @@
 						<div style="height: 60px;">&nbsp;</div>
 						<md-input-container class="md-block login" flex-gt-sm>
 							<label class="login">Uw Unishop gebruikers ID</label>
-							<input class="login" ng-model="gebruikersID" my-enter="unishop.handleLogin()">
+							<input class="login" ng-model="gebruikersID">
 						</md-input-container>
 						<md-input-container class="md-block login" flex-gt-sm>
 							<label class="login">Uw inlognaam</label>
-							<input class="login" ng-model="inlognaam" my-enter="unishop.handleLogin()">
+							<input class="login" ng-model="inlognaam">
 						</md-input-container>
 						<md-input-container class="md-block login" flex-gt-sm>
 							<label class="login">Uw wachtwoord</label>
-							<input class="login" type="password" ng-model="wachtwoord" my-enter="unishop.handleLogin()">
+							<input class="login" type="password" ng-model="wachtwoord">
 						</md-input-container>
 						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()" ng-disabled="(isBusy)">
 							<span class="login" ng-show="(!isBusy)">Inloggen</span>
