@@ -428,29 +428,31 @@
 									</div>
 								</md-toolbar>
 								
-								<md-content md-component-id="panelCustomer" layout="column" style="padding-top:40px;padding-left: 15px;padding-right: 15px;">
+								<md-content md-component-id="panelCustomer" layout="column" style="padding-top:40px;padding-left:15px;padding-right:15px;">
 									<md-content>
-										<table width="100%" ng-show="relatieResultaat&&!isBusy" cellspacing="0" cellpadding="0">
+										<table width="100%" ng-show="relatieResultaat&&!isBusy" cellspacing="2" cellpadding="2">
 											<tbody>
 												<tr ng-if="relatieResultaat.CompanyName"><th>Bedrijfsnaam</th><td>{{ relatieResultaat.CompanyName }}</td></tr>
 												<tr><th>Naam</th><td>{{ relatieResultaat.DisplayName }}</td></tr>
 												<tr><th>Adres</th><td>{{ relatieResultaat.Address }}</td></tr>
 												<tr><th>Postcode</th><td>{{ relatieResultaat.PostalCode }}</td></tr>
+												<tr><th>Woonplaats</th><td>{{ relatieResultaat.City }}</td></tr>
 												<tr><th>E-mail</th><td>{{ relatieResultaat.Email }}</td></tr>
-												<tr ng-if="{{ relatieResultaat.Phone }}"><th>Telefoon</th><td>{{ relatieResultaat.Phone }}</td></tr>
-												<tr ng-if="{{ relatieResultaat.PhoneCell }}"><th>Mobiel</th><td>{{ relatieResultaat.PhoneCell }}</td></tr>
-												<tr ng-if="{{ relatieResultaat.PhoneHome }}"><th>Telefoon prive</th><td>{{ relatieResultaat.PhoneHome }}</td></tr>
-												<tr ng-if="{{ relatieResultaat.PhoneWork }}"><th>Telefoon werk</th><td>{{ relatieResultaat.PhoneWork }}</td></tr>
+												<tr ng-if="relatieResultaat.Phone"><th>Telefoon</th><td>{{ relatieResultaat.Phone }}</td></tr>
+												<tr ng-if="relatieResultaat.PhoneCell"><th>Mobiel</th><td>{{ relatieResultaat.PhoneCell }}</td></tr>
+												<tr ng-if="relatieResultaat.PhoneHome"><th>Telefoon prive</th><td>{{ relatieResultaat.PhoneHome }}</td></tr>
+												<tr ng-if="relatieResultaat.PhoneWork"><th>Telefoon werk</th><td>{{ relatieResultaat.PhoneWork }}</td></tr>
 												<!--<tr><th>Heeft Spaarpunten</th><td>{{ relatieResultaat.SavesLoyaltyPoints }}</td></tr>-->
 												<tr><th>Debiteurnummer</th><td>{{ relatieResultaat.DebtorNumber }}</td></tr>
 											</tbody>
-										</table>									
-									</md-content>
-								</md-content>
+										</table>	
 
-								<div layout="column" layout-align="center center" ng-show="isBusy">
-									<md-progress-circular md-mode="indeterminate" md-component-id="proCluster" md-diameter="96"></md-progress-circular>
-								</div>								
+										<div layout="column" layout-align="center center" ng-show="isBusy">
+											<md-progress-circular md-mode="indeterminate" md-component-id="proCluster" md-diameter="96"></md-progress-circular>
+										</div>	
+
+									</md-content>
+								</md-content>							
 
 							</md-content>
 							<!-- Eind relatie content -->							
