@@ -463,6 +463,68 @@ UniApp.controller('unishopController',
 			// updateLocalStorage();
 		};
 
+		this.getCustomerDetails = function (customer) {
+			/* console.log('In getCustomerDetails with customer id: ' + customer.ID); */
+			/* $scope.showAlert('Api call', 'customer with id: ' + customer.ID); */
+
+			$scope.isBusy = true;
+			// $scope.zoekCust = query;
+			$scope.relatieResultaat = [];
+
+			var AUrl = $scope.API_URL + '/customers/id/' + encodeURI(customer.ID);
+
+			var req = {
+				url: AUrl,
+				method: 'POST',
+				headers: {
+					'Content-Type': undefined,
+					'dataset': $scope.dataset,
+					'username': $scope.inlognaam,
+					'password': $scope.wachtwoord
+				}, data: {	},
+				params: {
+					'dataset': $scope.dataset,
+					'username': $scope.inlognaam,
+					'password': $scope.wachtwoord
+				}
+			};
+
+			$http.post(req.url, req.data, req)
+			.then(
+				// success
+				function (response) {
+					$scope.isBusy = false;
+
+					$scope.relatieResultaat = [];
+					console.log('====== relatieResultaat ====');
+					console.log(response.data);
+					console.log('====== relatieResultaat ====');
+					
+					$scope.relatieResultaat = response.data.customer;
+					console.log('$scope.relatieResultaat', $scope.relatieResultaat);
+				},
+
+				// error
+				function (response) {
+					var errortext = 'Fout customer ophalen';
+					var errortextSub = '';
+					if (response != null) {
+						if (response.data != null) {
+							if (response.data.Error != null) {
+								if (response.data.Error.ErrorText != null) {
+									errortextSub = response.data.Error.ErrorText;
+								}
+							}
+						}
+					}
+
+					$scope.isBusy = false;
+					$scope.showAlert(errortext, errortextSub);
+				}
+			);
+
+		}
+
 		/* Start quick find customers */
 		this.quickFindCustomers = function () {
 			console.log('In quickFindCustomers with query: ' + $scope.zoekCust);
@@ -496,9 +558,9 @@ UniApp.controller('unishopController',
 					$scope.isBusy = false;
 
 					$scope.relatiesResultaten = [];
-					//console.log('==================================');
-					//console.log(response.data);
-					//console.log('==================================');
+					console.log('====== relatiesResultaten ====');
+					console.log(response.data);
+					console.log('====== relatiesResultaten ====');
 					
 					for (var i = 0; i < response.data.customers.length; i++) {
 						$scope.relatiesResultaten.push(response.data.customers[i]);
@@ -793,6 +855,7 @@ UniApp.controller('unishopController',
 
 			$scope.zoekCust = '';
 			$scope.relatiesResultaten = [];
+			$scope.relatieResultaat = [];
 
 			$http.post(req.url, req.data, req).then
 				(
@@ -918,6 +981,10 @@ UniApp.controller('unishopController',
 		}
 
 		this.openHome = function () {
+
+			$scope.zoekCust = '';
+			$scope.relatiesResultaten = [];
+
 			$scope.mainTitle = 'Voorraad';
 			$scope.activePage = 'home';
 			$mdSidenav('menuLinks').close()
@@ -935,14 +1002,25 @@ UniApp.controller('unishopController',
 				});
 		}
 
-		this.openItem2 = function () {
+		this.pageCustomers = function () {
 			$scope.mainTitle = 'Relaties';
-			$scope.activePage = 'pageItem2';
+			$scope.activePage = 'pageCustomers';
 			$mdSidenav('menuLinks').close()
 				.then(function () {
 					// $log.debug("menuLinks is gesloten");
 				});
-		}		
+		}
+
+		this.openPageCustomer = function (relatie) {
+			/* alert('opening page customer'); */
+			$scope.mainTitle = 'Relatie';
+			$scope.activePage = 'pageCustomer';
+			this.getCustomerDetails(relatie)
+			$mdSidenav('menuLinks').close()
+				.then(function () {
+					// $log.debug("menuLinks is gesloten");
+				});
+		}				
 
 		this.resetFoutResponse = function () {
 			$scope.foutResponse = '';
