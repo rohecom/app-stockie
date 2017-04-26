@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "nl.rohecom.stockie"
-        version   = "3.3.6">
+        version   = "3.3.7">
     <name>UniShop App</name>
     <description>UniShop App</description>
 
@@ -118,5 +118,12 @@
     </config-file>
 	</platform>
 	 
+	 <gap:config-file platform="ios" parent="NSCameraUsageDescription" overwrite="true">
+   <string>We are using the Camera for scanning barcodes..</string>
+</gap:config-file>
+
+<gap:config-file platform="ios" parent="NSCalendarsUsageDescription " overwrite="true">
+   <string>We are using the Calendar for availability</string>
+</gap:config-file>
 
 </widget>
