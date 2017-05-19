@@ -38,6 +38,7 @@
 			</md-content>
 			<md-content ng-show="unishop.isMobilePlatform()">
 				<md-content md-component-id="pageLogin" md-theme="login" ng-show="(!unishop.isLoginHidden()) && (isLoaded) && (!inlogValideren)" layout="row" layout-align="center end" style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
+					<form handle-phone-submit>
 					<div layout-gt-sm="column" id="inloggen">
 						<div class="inlogTitel wit">UniShop Voorraad</div>
 						<div style="height: 60px;">&nbsp;</div>
@@ -60,6 +61,7 @@
 						<div style="height: 60px;">&nbsp;</div>
 						<div class="inlogFooter">&copy;&nbsp;Rohecom B.V.</div>
 					</div>
+					</form>
 				</md-content>
 
 				<md-content md-component-id="pageWijzigWachtwoord" md-theme="login"	ng-show="(wijzigWachtwoord)" layout="row" layout-align="center end" style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
@@ -118,7 +120,7 @@
 											</svg>
 										</md-input-container>
 										<div>
-											<a href id="start_zoeken" class="button zoekbutton" ng-click="unishop.handleZoekArt()" click-on="newBarcodeFound">start zoeken</a>
+											<button ng-disabled="isBusy" type="button" id="start_zoeken" class="button zoekbutton" ng-click="unishop.handleZoekArt()" click-on="newBarcodeFound">start zoeken!</button>
 										</div>
 										<div class="controls">
 											<script>

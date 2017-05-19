@@ -60,7 +60,7 @@ UniApp.config(function ($httpProvider, $mdThemingProvider, localStorageServicePr
 		.primaryPalette('indigo')
 		.accentPalette('orange');
 
-	localStorageServiceProvider.setPrefix('stockie');
+	localStorageServiceProvider.setPrefix('stockie');	
 });
 
 UniApp.controller('unishopController',
@@ -842,7 +842,8 @@ UniApp.controller('unishopController',
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
-				}
+				},
+				timeout: 20000
 			};
 
 			$scope.isBusy = true;
@@ -889,14 +890,22 @@ UniApp.controller('unishopController',
 				},
 
 				// error
-				function (response) {
-					var errortext = 'Fout zoeken';
-					var errortextSub = '';
-					if (response != null) {
-						if (response.data != null) {
-							if (response.data.Error != null) {
-								if (response.data.Error.ErrorText != null) {
-									errortextSub = response.data.Error.ErrorText;
+				function (response, status, header, config) {
+					//console.log('response', response);
+					//console.log('status', status);
+					//console.log('config', config);
+					if (response.status === -1) {
+						var errortext = 'Zoeken duurt te lang';
+					    var errortextSub = 'Verfijn uw zoekopdracht';
+					} else {
+						var errortext = 'Fout zoeken';
+						var errortextSub = '';
+						if (response != null) {
+							if (response.data != null) {
+								if (response.data.Error != null) {
+									if (response.data.Error.ErrorText != null) {
+										errortextSub = response.data.Error.ErrorText;
+									}
 								}
 							}
 						}
