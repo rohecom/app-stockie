@@ -9,7 +9,12 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700' rel='stylesheet' type='text/css'>
-	<meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; img-src 'self' data: *; style-src 'self' 'unsafe-inline' *">
+	<!--<meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; img-src 'self' data: *; style-src 'self' 'unsafe-inline' *">-->
+	<meta http-equiv="Content-Security-Policy" 
+          content="default-src *; 
+                   style-src 'self' 'unsafe-inline' 'unsafe-eval'; 
+                   script-src 'self' 'unsafe-inline' 'unsafe-eval';">
+
 	<link rel="apple-touch-icon" sizes="152x152" href="img/appicon.png">
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"/>
 	<link rel="stylesheet" href="bower_components/angular-pull-to-refresh/dist/angular-pull-to-refresh.min.css">
@@ -28,7 +33,7 @@
 	<script src="js/generic.js?v=2"></script>
 	<script src="js/ctrl_unishop.js?v=2"></script>
 </head>
-<body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl" ng-csp>
+<body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl">
 	<md-content id="mainContent" pull-to-refresh="pullCtrl.onPullReload()">
 		<div id="appController" ng-controller="unishopController as unishop">
 			<md-content ng-show="!unishop.isMobilePlatform()">
