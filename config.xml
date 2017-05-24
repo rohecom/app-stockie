@@ -24,7 +24,7 @@
 	<variable name="CALENDARS_USAGE_DESCRIPTION" value="Show available dates" />
 	</plugin>
     <gap:plugin name="cordova-plugin-whitelist" source="npm">
-    <!-->
+    <!--
     <plugin name="cordova-plugin-whitelist" spec="1.3.2">
 	<variable name="CALENDARS_USAGE_DESCRIPTION" value="Show available dates" />
 	</plugin>-->
