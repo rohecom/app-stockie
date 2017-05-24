@@ -812,6 +812,17 @@ UniApp.controller('unishopController',
 		}
 
 		this.handleZoekArt = function () {
+
+			var root = 'https://jsonplaceholder.typicode.com';
+			$scope.status_zoeken_extern = '';
+
+			$.ajax({
+			url: root + '/posts/1',
+			method: 'GET'
+			}).then(function(data) {
+				console.log(data);
+				$scope.status_zoeken_extern = 'extern werkt';
+			});			
 			
 			var zoekveld = document.getElementById('zoekTekst');
 			zoekveld.blur();
