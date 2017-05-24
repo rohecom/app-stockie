@@ -812,7 +812,7 @@ UniApp.controller('unishopController',
 		}
 
 		this.handleZoekArt = function () {
-
+			$.ajaxSetup({ cache: false });
 			var root = 'https://jsonplaceholder.typicode.com';
 			$scope.status_zoeken_extern = '';
 
@@ -857,7 +857,8 @@ UniApp.controller('unishopController',
 					//'callback': 'JSON_CALLBACK',
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
-					'password': $scope.wachtwoord
+					'password': $scope.wachtwoord,
+					'foobar': new Date().getTime()
 				},
 				timeout: 20000
 			};
