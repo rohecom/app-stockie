@@ -812,6 +812,11 @@ UniApp.controller('unishopController',
 		}
 
 		this.handleZoekArt = function () {
+			
+			var zoekveld = document.getElementById('zoekTekst');
+			zoekveld.blur();
+
+			$scope.status_zoeken = 'start met zoeken';
 
 			if ($scope.zoekArt == '') {
 				$scope.showAlert('Zoek artikel', 'Geen zoekterm opgegeven.');
@@ -858,11 +863,12 @@ UniApp.controller('unishopController',
 			$scope.relatiesResultaten = [];
 			$scope.relatieResultaat = [];
 
+			$scope.status_zoeken = 'start ajax call naar api';
 			$http.post(req.url, req.data, req).then
 				(
 				// success
 				function (response) {
-
+					$scope.status_zoeken = 'start ajax success';
 					$scope.isBusy = false;
 
 					$scope.zoekArtResultaten = [];
@@ -878,6 +884,7 @@ UniApp.controller('unishopController',
 					}
 
 					if ($scope.zoekArtResultaten.length == 0) {
+						$scope.status_zoeken = 'niets gevonden...probeer een nieuwe zoekopdracht';
 						$scope.foutResponse = 'niets gevonden...probeer een nieuwe zoekopdracht';
 						// todo: hier alertje niets gevonden
 						$scope.showAlert('Niets gevonden.', 'Probeer een nieuwe zoekopdracht');
@@ -887,10 +894,13 @@ UniApp.controller('unishopController',
 						}, 4000);
 					}
 
+					$scope.status_zoeken = 'done';
+
 				},
 
 				// error
 				function (response, status, header, config) {
+					$scope.status_zoeken = 'error vanuit de api';
 					//console.log('response', response);
 					//console.log('status', status);
 					//console.log('config', config);
@@ -915,7 +925,7 @@ UniApp.controller('unishopController',
 					$scope.showAlert(errortext, errortextSub);
 				}
 				);
-
+			
 			return true;
 		};
 
