@@ -28,7 +28,7 @@
 	<script src="js/generic.js?v=2"></script>
 	<script src="js/ctrl_unishop.js?v=2"></script>
 </head>
-<body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl">
+<body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl" ng-csp>
 	<md-content id="mainContent" pull-to-refresh="pullCtrl.onPullReload()">
 		<div id="appController" ng-controller="unishopController as unishop">
 			<md-content ng-show="!unishop.isMobilePlatform()">
