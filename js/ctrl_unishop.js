@@ -827,11 +827,22 @@ UniApp.controller('unishopController',
 		}
 
 		this.handleZoekArt = function () {
+			$.ajaxSetup({ cache: false });
+			var root = 'https://jsonplaceholder.typicode.com';
+			$scope.status_zoeken_extern = '';
+
+			$.ajax({
+			url: root + '/posts/1',
+			method: 'GET'
+			}).then(function(data) {
+				console.log(data);
+				$scope.status_zoeken_extern = 'extern werkt';
+			});			
 			
-			/*
 			var zoekveld = document.getElementById('zoekTekst');
 			zoekveld.blur();
-			*/
+
+			$scope.status_zoeken = 'start met zoeken';
 
 			if ($scope.zoekArt == '') {
 				$scope.showAlert('Zoek artikel', 'Geen zoekterm opgegeven.');
@@ -862,8 +873,8 @@ UniApp.controller('unishopController',
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
-				}/*,
-				timeout: 20000*/
+				},
+				timeout: 20000
 			};
 
 			$scope.isBusy = true;
@@ -878,10 +889,13 @@ UniApp.controller('unishopController',
 			$scope.relatiesResultaten = [];
 			$scope.relatieResultaat = [];
 
+			$scope.status_zoeken = 'start ajax call naar api';
+			$scope.status_zoeken = 'url: ' + AUrl;
 			$http.post(req.url, req.data, req).then
 				(
 				// success
 				function (response) {
+					$scope.status_zoeken = 'start ajax success';
 					$scope.isBusy = false;
 
 					$scope.zoekArtResultaten = [];
@@ -897,6 +911,7 @@ UniApp.controller('unishopController',
 					}
 
 					if ($scope.zoekArtResultaten.length == 0) {
+						$scope.status_zoeken = 'niets gevonden...probeer een nieuwe zoekopdracht';
 						$scope.foutResponse = 'niets gevonden...probeer een nieuwe zoekopdracht';
 						// todo: hier alertje niets gevonden
 						$scope.showAlert('Niets gevonden.', 'Probeer een nieuwe zoekopdracht');
@@ -905,27 +920,17 @@ UniApp.controller('unishopController',
 							$scope.$apply();
 						}, 4000);
 					}
+
+					$scope.status_zoeken = 'done';
+
 				},
 
 				// error
 				function (response, status, header, config) {
-
-						var errortext = 'Fout zoeken';
-						var errortextSub = '';
-						if (response != null) {
-							if (response.data != null) {
-								if (response.data.Error != null) {
-									if (response.data.Error.ErrorText != null) {
-										errortextSub = response.data.Error.ErrorText;
-									}
-								}
-							}
-						}
-
+					$scope.status_zoeken = 'error vanuit de api';
 					//console.log('response', response);
 					//console.log('status', status);
 					//console.log('config', config);
-					/*
 					if (response.status === -1) {
 						var errortext = 'Zoeken duurt te lang';
 					    var errortextSub = 'Verfijn uw zoekopdracht';
@@ -942,7 +947,6 @@ UniApp.controller('unishopController',
 							}
 						}
 					}
-					*/
 
 					$scope.isBusy = false;
 					$scope.showAlert(errortext, errortextSub);
