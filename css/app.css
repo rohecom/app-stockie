@@ -1,68 +1,350 @@
 /* app css stylesheet */
 
-body {  font-family: 'Roboto', sans-serif; font-size: 10pt; font-weight: 400; }
-th { text-align: left; }
-#rechts { text-align: right; }
-#links { text-align: left; }
-#midden { text-align: center; }
-img, a, a.link, a.visited, a.active { border: none; outline: none; }
-a.phone:link, a.phone:visited, a.phone:hover, a.phone:active { color: #A0A0A0; text-decoration: none; }
-#inloggen { margin: auto; width: 75%; height: 80%; border: 0px solid #E0E0E0; padding: 10px; }
-.inlogTitel { font-weight: 100; font-size: 24pt; text-align: center; width:100%; }
-.inlogFooter { font-weight: 100; font-size: 10pt; color: #E0E0E0; text-align: center; width:100%; }
-.subPane { min-height: 100vh; max-height: 100vh; -webkit-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; -moz-transition   : 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; -ms-transition    : 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; -o-transition     : 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; transition        : 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; opacity: 1; }
-.subPane.ng-hide { -webkit-transform: scaleY(0); -moz-transform: scaleY(0); -ms-transform: scaleY(0); -o-transform: scaleY(0); transform: scaleY(0); }
-.mainPane { min-height: 100vh; max-height: 100vh; opacity: 1; }
-.mainPane.ng-hide { opacity: 0; }
-md-menu-item.toolbar { height: 20px; min-height: 20px; background: orange; }
-md-input-container.login .md-input.login { border-color: white !important; }
-input.login { color: white !important; }
-label.login { color: white !important; }
-.login.ng-scope { color: #FFFFFF; text-transform: none; }
-.loginLight.ng-scope { color: #FFFFFF; text-transform: none; font-weight: 100; font-size: 9pt; }
-.gray { background:#E0E0E0; }
-.wit { color: #FFFFFF; }
-.grijs { color: #A0A0A0; }
-.rood { color: #F48062; }
-.groen{ color: #48830d; }
-td.prodDetails { padding: 0px; }
-td { vertical-align: text-top; }
-td.vrrd { width: 70px; color: #ffffff; font-weight: bold; border-radius: 4px; text-align: center; vertical-align: middle; }
-td.vrrd.metvoorraad { /*background-color: #48830d;*/ color: #48830d; }
-td.vrrd.zondervoorraad { /*background-color: #F48062;*/ border-color: #E0E0E0; border-width: 1px; /*border-style: solid;*/ color: #A0A0A0; }
-.blauw { color: #3EB2E0; }
-.zwart { color: #202020; }
-.md-subheader { font-weight: 400; }
-#md-subheader-inner { padding: 0px; }
-.discountdate { font-size: 7pt; }
-div.callout { height: 80px; width: 85%; float: left; }
-div.callout { background-color: #444; background-image: -moz-linear-gradient(top, #444, #444); position: relative; color: #ccc; padding: 10px; border-radius: 3px; box-shadow: 0px 0px 20px #999; margin: 25px; margin-top: 10px; min-height: 50px; border: 1px solid #333; text-shadow: 0 0 1px #000; /*box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;*/ }
-.callout::before { content: ""; width: 0px; height: 0px; border: 0.8em solid transparent; position: absolute; }
-.callout.top::before { left: 45%; bottom: -20px; border-top: 10px solid #444; }
-.callout.bottom::before { left: 45%; top: -20px; border-bottom: 10px solid #444; }
-.callout.left::before { right: -20px; top: 40%; border-left: 10px solid #444; }
-.callout.right::before { left: -20px; top: 40%; border-right: 10px solid #444; }
-.callout.top-left::before { left: 7px; bottom: -20px; border-top: 10px solid #444; }
-.callout.top-right::before { right: 7px; bottom: -20px; border-top: 10px solid #444; }
-.prijsGroot {  font-weight: 400; font-size: 20pt; text-align: center; }
-.prijsMiddel { font-weight: 400; font-size: 15pt; text-align: center; }
-.prijsKlein { font-weight: 300; font-size: 12pt; text-align: center; }
-.small { font-size: 9pt; color: #A0A0A0; }
-.xsmall { font-size: 8pt; }
-.voorraad { font-size: 10pt; color: #303030; }
-fieldset { border-style: none; }
-.staticRow { height: 20px; max-height: 20px; }
-.staticRowCaption {	width:90px; }
-.staticRowData { color: #606060; }
-.offset { position: absolute; left: 100px; }
-.button { background-color: #2196F3; border: none; color: white; /* padding: 7px 24px; */ padding: 16px 49px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; border-radius: 4px; }
-.zoekbutton { position: relative; top: -25px; cursor: pointer; }
-.transformable { -webkit-transition: height 100ms linear; -moz-transition: height 100ms linear; -o-transition: height 100ms linear; -ms-transition: height 100ms linear; transition: height 100ms linear; }
-.small { width:60px; }
-.big { width: min(210, calc(100vw - 170px); }
-.even { background-color: #808080; }
-.oneven { background-color: #FFFFFF; }
-.alertText { font-size: 16pt; font-weight: 600; padding: 30px; }
-@media only screen and (max-width: 959px) and (min-width: 0) and (orientation: portrait) { .md-theme-light .md-toolbar-tools { height: 68px; max-height: 68px; /* padding-top: 12px; */ } }
+html {}
 
+body { 
+	font-family: 'Roboto', sans-serif; 
+	font-size: 10pt; 
+	font-weight: 400; 
+}
 
+th {
+	text-align: left;
+}
+
+@media only screen and (max-width: 959px) and (min-width: 0) and (orientation: portrait) {
+	.md-theme-light .md-toolbar-tools {
+		height: 68px;
+		max-height: 68px;
+		padding-top: 12px;
+	}
+}
+
+#rechts {
+	text-align: right;
+}
+
+#links {
+	text-align: left;
+}
+
+#midden {
+	text-align: center;
+}
+
+img, a, a.link, a.visited, a.active {
+	border: none;
+	outline: none;
+}
+
+a.phone:link, a.phone:visited, a.phone:hover, a.phone:active {
+		color: #A0A0A0;
+		text-decoration: none;
+}
+
+#inloggen { 
+	margin: auto;
+	width: 75%;
+	height: 80%;
+	border: 0px solid #E0E0E0;
+	padding: 10px; 
+}
+
+.inlogTitel {
+	font-weight: 100; font-size: 24pt; 
+	text-align: center; 
+	width:100%;
+}
+
+.inlogFooter {
+	font-weight: 100; font-size: 10pt; color: #E0E0E0; 
+	text-align: center; 
+	width:100%;
+}
+
+.subPane {
+	min-height: 100vh;
+	max-height: 100vh;
+	-webkit-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-moz-transition   : 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-ms-transition    : 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-o-transition     : 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	transition        : 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	opacity: 1;
+}
+.subPane.ng-hide {
+	-webkit-transform: scaleY(0);
+	-moz-transform: scaleY(0);
+	-ms-transform: scaleY(0);
+	-o-transform: scaleY(0);
+	transform: scaleY(0);
+	}
+
+.mainPane {
+	min-height: 100vh;
+	max-height: 100vh;
+	opacity: 1;
+}
+
+.mainPane.ng-hide {
+	 opacity: 0;
+}
+
+md-menu-item.toolbar { height: 20px; min-height: 20px; background:orange;}
+
+md-input-container.login .md-input.login{
+	border-color: white !important;
+}
+input.login {
+	color: white !important;
+}
+
+label.login {
+	color: white !important;
+}
+
+.login.ng-scope {
+	color: #FFFFFF;
+	text-transform: none;
+}
+.loginLight.ng-scope {
+	color: #FFFFFF;
+	text-transform: none;
+	font-weight: 100;
+	font-size: 9pt;
+}
+
+.gray { 
+	background:#E0E0E0; 
+}
+
+.wit {
+	color: #FFFFFF;
+}
+
+.grijs {
+	color: #A0A0A0;
+}
+
+.rood {
+	color: #F48062;
+}
+
+.groen{
+	color: #48830d;
+}
+
+td.prodDetails {
+	padding: 0px;
+}
+
+td {
+	vertical-align: text-top;
+}
+
+td.vrrd{
+	width: 70px;
+	color: #ffffff;
+	font-weight: bold;
+	border-radius: 4px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+td.vrrd.metvoorraad{
+	/*background-color: #48830d;*/
+	color: #48830d;
+}
+
+td.vrrd.zondervoorraad{
+	/*background-color: #F48062;*/
+	border-color: #E0E0E0;
+	border-width: 1px;
+	/*border-style: solid;*/
+	color: #A0A0A0;
+}
+
+.blauw {
+	color: #3EB2E0;
+}
+
+.zwart {
+	color: #202020;
+}
+
+.md-subheader {
+	font-weight: 400;
+}
+
+#md-subheader-inner {
+	padding: 0px;
+}
+
+.discountdate {
+	font-size: 7pt;
+}
+
+div.callout {
+	height: 80px;
+	width: 85%;
+	float: left;
+}
+
+div.callout {
+	background-color: #444;
+	background-image: -moz-linear-gradient(top, #444, #444);
+	position: relative;
+	color: #ccc;
+	padding: 10px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 20px #999;
+	margin: 25px;
+	margin-top: 10px;
+	min-height: 50px;
+	border: 1px solid #333;
+	text-shadow: 0 0 1px #000;
+	
+	/*box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;*/
+}
+
+.callout::before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	border: 0.8em solid transparent;
+	position: absolute;
+}
+
+.callout.top::before {
+	left: 45%;
+	bottom: -20px;
+	border-top: 10px solid #444;
+}
+
+.callout.bottom::before {
+	left: 45%;
+	top: -20px;
+	border-bottom: 10px solid #444;
+}
+
+.callout.left::before {
+	right: -20px;
+	top: 40%;
+	border-left: 10px solid #444;
+}
+
+.callout.right::before {
+	left: -20px;
+	top: 40%;
+	border-right: 10px solid #444;
+}
+
+.callout.top-left::before {
+	left: 7px;
+	bottom: -20px;
+	border-top: 10px solid #444;
+}
+
+.callout.top-right::before {
+	right: 7px;
+	bottom: -20px;
+	border-top: 10px solid #444;
+}
+
+.prijsGroot {
+	font-weight: 400; font-size: 20pt; 
+	text-align: center; 
+}
+
+.prijsMiddel {
+	font-weight: 400; font-size: 15pt; 
+	text-align: center; 
+}
+
+.prijsKlein {
+	font-weight: 300; font-size: 12pt; 
+	text-align: center; 
+}
+
+.small {
+	font-size: 9pt;
+	color: #A0A0A0;
+}
+
+.xsmall {
+	font-size: 8pt;
+}
+
+.voorraad {
+	font-size: 10pt;
+	color: #303030;
+}
+
+fieldset {
+	border-style: none;
+}
+
+.staticRow {
+	height: 20px;
+	max-height: 20px;
+}
+
+.staticRowCaption {
+	width:90px;
+}
+
+.staticRowData {
+	color: #606060;
+}
+
+.offset {
+	position: absolute;
+	left: 100px;
+}
+
+.button {
+	background-color: #2196F3;
+	border: none;
+	color: white;
+	padding: 7px 24px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	border-radius: 4px;
+}
+
+.zoekbutton {
+	position: relative;
+	top: -25px;
+}
+
+.transformable {
+    -webkit-transition: height 100ms linear;
+    -moz-transition: height 100ms linear;
+    -o-transition: height 100ms linear;
+    -ms-transition: height 100ms linear;
+    transition: height 100ms linear;
+}
+
+.small {
+    width:60px;
+}
+
+.big {
+    width: min(210, calc(100vw - 170px);
+}
+
+.even {
+	background-color: #808080;
+}
+
+.oneven {
+	background-color: #FFFFFF;
+}
+
+.alertText {
+	font-size: 16pt;
+	font-weight: 600;
+	padding: 30px;
+}
