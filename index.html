@@ -1,243 +1,83 @@
 <!doctype html>
-
-<html lang="en" manifest="unishop.manifest" ng-app="unishopModule">
+<html lang="nl" manifest="unishop.manifest" ng-app="unishopModule">
 <head>
 	<title>UniShop Voorraad</title>
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />	
-
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
 	<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700' rel='stylesheet' type='text/css'>
-	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-
+	<meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; img-src 'self' data: *; style-src 'self' 'unsafe-inline' *">
 	<link rel="apple-touch-icon" sizes="152x152" href="img/appicon.png">
-
-	<!-- iPad retina portrait startup image -->
-	<link href="img/startup1536x2008.png"
-		media="(device-width: 768px) and (device-height: 1024px)
-				 and (-webkit-device-pixel-ratio: 2)
-				 and (orientation: portrait)"
-		rel="apple-touch-startup-image">
-	<!-- iPad retina landscape startup image -->
-	<link href="img/startup1496x2048.png"
-		media="(device-width: 768px) and (device-height: 1024px)
-				 and (-webkit-device-pixel-ratio: 2)
-				 and (orientation: landscape)"
-		rel="apple-touch-startup-image">
-	<!-- iPad non-retina portrait startup image -->
-	<link href="img/startup768x1004.png"
-		media="(device-width: 768px) and (device-height: 1024px)
-				 and (-webkit-device-pixel-ratio: 1)
-				 and (orientation: portrait)"
-		rel="apple-touch-startup-image">
-	<!-- iPad non-retina landscape startup image -->
-	<link href="img/startup748x1024.png"
-		media="(device-width: 768px) and (device-height: 1024px)
-				 and (-webkit-device-pixel-ratio: 1)
-				 and (orientation: landscape)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone 6 Plus portrait startup image -->
-	<link href="img/startup1242x2148.png"
-		media="(device-width: 414px) and (device-height: 736px)
-				 and (-webkit-device-pixel-ratio: 3)
-				 and (orientation: portrait)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone 6 Plus landscape startup image -->
-	<link href="img/startup1182x2208.png"
-		media="(device-width: 414px) and (device-height: 736px)
-				 and (-webkit-device-pixel-ratio: 3)
-				 and (orientation: landscape)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone 6 startup image -->
-	<link href="img/startup750x1294.png"
-		media="(device-width: 375px) and (device-height: 667px)
-				 and (-webkit-device-pixel-ratio: 2)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone 5 startup image -->
-	<link href="img/startup640x1096.png"
-		media="(device-width: 320px) and (device-height: 568px)
-				 and (-webkit-device-pixel-ratio: 2)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone < 5 retina startup image -->
-	<link href="img/startup640x920.png"
-		media="(device-width: 320px) and (device-height: 480px)
-				 and (-webkit-device-pixel-ratio: 2)"
-		rel="apple-touch-startup-image">
-	<!-- iPhone < 5 non-retina startup image -->
-	<link href="img/startup320x460.png"
-		media="(device-width: 320px) and (device-height: 480px)
-				 and (-webkit-device-pixel-ratio: 1)"
-		rel="apple-touch-startup-image">
-
-	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
-	<link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"/>
 	<link rel="stylesheet" href="bower_components/angular-pull-to-refresh/dist/angular-pull-to-refresh.min.css">
 	<link rel="stylesheet" href="css/app.css">
-
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
 	<script src="bower_components/angular-material/angular-material.min.js"></script>
 	<script src="bower_components/angular-messages/angular-messages.min.js"></script>
-	<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 	<script src="bower_components/angular-i18n/angular-locale_nl-nl.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.min.js"></script>
-	<script src="bower_components/Chart.js/Chart.js"></script>
-	<script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 	<script src="bower_components/angular-pull-to-refresh/dist/angular-pull-to-refresh.min.js"></script>
-	<script src="bower_components/moment/moment.js"></script>	
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>	
-	<script src="bower_components/quagga/dist/quagga.min.js"></script>	
-	<script src="bower_components/JsBarcode/dist/JsBarcode.all.min.js"></script>
-	<script src="bower_components/angular-barcode/dist/angular-barcode.min.js"></script>
-	<script src="js/generic.js?v=1"></script>
-	<script src="js/ctrl_unishop.js?v=1"></script>
-
-	<script>
-	Chart.defaults.global.colours = [
-		{ // blue
-			fillColor: "rgba(101, 209, 219,0.2)",
-			strokeColor: "rgba(101, 209, 219,1)",
-			pointColor: "rgba(101, 209, 219,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(101, 209, 219,0.8)"
-		},
-		{ // light grey
-			fillColor: "rgba(101, 215, 153,0.2)",
-			strokeColor: "rgba(101, 215, 153,1)",
-			pointColor: "rgba(101, 215, 153,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(101, 215, 153,0.8)"
-		},
-		{ // red
-			fillColor: "rgba(255, 205, 100,0.2)",
-			strokeColor: "rgba(255, 205, 100,1)",
-			pointColor: "rgba(255, 205, 100,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(255, 205, 100,0.8)"
-		},
-		{ // green
-			fillColor: "rgba(254, 146, 44,0.2)",
-			strokeColor: "rgba(254, 146, 44,1)",
-			pointColor: "rgba(254, 146, 44,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(254, 146, 44,0.8)"
-		},
-		{ // yellow
-			fillColor: "rgba(253, 177, 161,0.2)",
-			strokeColor: "rgba(253, 177, 161,1)",
-			pointColor: "rgba(253, 177, 161,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(253, 177, 161,0.8)"
-		},
-		{ // grey
-			fillColor: "rgba(6, 83, 129,0.2)",
-			strokeColor: "rgba(6, 83, 129,1)",
-			pointColor: "rgba(6, 83, 129,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(6, 83, 129,0.8)"
-		},
-		{ // dark grey
-			fillColor: "rgba(52, 178, 228,0.2)",
-			strokeColor: "rgba(52, 178, 228,1)",
-			pointColor: "rgba(52, 178, 228,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(52, 178, 228,1)"
-		}
-	];	
-	</script>
-
+	<script src="bower_components/moment/min/moment.min.js"></script>	
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+	<script src="js/generic.js?v=2"></script>
+	<script src="js/ctrl_unishop.js?v=2"></script>
+</head>
 <body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl">
-
 	<md-content id="mainContent" pull-to-refresh="pullCtrl.onPullReload()">
-
 		<div id="appController" ng-controller="unishopController as unishop">
-
-			<script src="js/quagga_file_input.js"></script>
-
 			<md-content ng-show="!unishop.isMobilePlatform()">
 				<div layout="column" layout-align="center center">
 					<span class="alertText">Deze app is bedoeld om op een mobiel apparaat uit te voeren</span>
 				</div>
 			</md-content>
-
 			<md-content ng-show="unishop.isMobilePlatform()">
-
-				<md-content 
-					md-component-id="pageLogin" 
-					md-theme="login"
-					ng-show="(!unishop.isLoginHidden()) && (isLoaded) && (!inlogValideren)" 
-					layout="row" 
-					layout-align="center end" 
-					style="
-						 width:vw; 
-						 height:100vh; 
-						 background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);
-						"
-				>
+				<md-content md-component-id="pageLogin" md-theme="login" ng-show="(!unishop.isLoginHidden()) && (isLoaded) && (!inlogValideren)" layout="row" layout-align="center end" style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
 					<div layout-gt-sm="column" id="inloggen">
 						<div class="inlogTitel wit">UniShop Voorraad</div>
 						<div style="height: 60px;">&nbsp;</div>
 						<md-input-container class="md-block login" flex-gt-sm>
-						<label class="login">Uw Unishop gebruikers ID</label>
-						<input class="login" ng-model="gebruikersID"	my-enter="unishop.handleLogin()">
+							<label class="login">Uw Unishop gebruikers ID</label>
+							<input class="login" ng-model="gebruikersID">
 						</md-input-container>
 						<md-input-container class="md-block login" flex-gt-sm>
-						<label class="login">Uw inlognaam</label>
-						<input class="login" ng-model="inlognaam"	my-enter="unishop.handleLogin()">
+							<label class="login">Uw inlognaam</label>
+							<input class="login" ng-model="inlognaam">
 						</md-input-container>
 						<md-input-container class="md-block login" flex-gt-sm>
-						<label class="login">Uw wachtwoord</label>
-						<input class="login" type="password" ng-model="wachtwoord" my-enter="unishop.handleLogin()">
+							<label class="login">Uw wachtwoord</label>
+							<input class="login" type="password" ng-model="wachtwoord">
 						</md-input-container>
-
-						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()"><span class="login">Inloggen</span></md-button>
+						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleLogin()" ng-disabled="(isBusy)">
+							<span class="login" ng-show="(!isBusy)">Inloggen</span>
+							<span class="login" ng-show="(isBusy)">Bezig met inloggen, ogenblik...</span>
+						</md-button>
 						<div style="height: 60px;">&nbsp;</div>
 						<div class="inlogFooter">&copy;&nbsp;Rohecom B.V.</div>
 					</div>
-
 				</md-content>
 
-				<md-content 
-					md-component-id="pageWijzigWachtwoord" 
-					md-theme="login"
-					ng-show="(wijzigWachtwoord)" 
-					layout="row" 
-					layout-align="center end" 
-					style="
-						 width:vw; 
-						 height:100vh; 
-						 background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);
-						"
-				>
+				<md-content md-component-id="pageWijzigWachtwoord" md-theme="login"	ng-show="(wijzigWachtwoord)" layout="row" layout-align="center end" style="width:vw; height:100vh; background: linear-gradient(135deg, rgba(0,103,206,1) 0%,rgba(0,89,178,1) 100%);">
 				<div layout-gt-sm="column" id="inloggen">
 					<div class="inlogTitel wit">Wijzig wachtwoord</div>
 					<div style="height: 60px;">&nbsp;</div>
 					<md-input-container class="md-block login" flex-gt-sm>
-					<label class="login">Uw huidige wachtwoord</label>
-					<input class="login" type="password" ng-model="wachtwoord_old">
+						<label class="login">Uw huidige wachtwoord</label>
+						<input class="login" type="password" ng-model="wachtwoord_old">
 					</md-input-container>
 					<md-input-container class="md-block login" flex-gt-sm>
-					<label class="login">Uw nieuwe wachtwoord</label>
-					<input class="login" type="password" ng-model="wachtwoord_new">
+						<label class="login">Uw nieuwe wachtwoord</label>
+						<input class="login" type="password" ng-model="wachtwoord_new">
 					</md-input-container>
 					<md-input-container class="md-block login" flex-gt-sm>
-					<label class="login">Herhaal uw wachtwoord</label>
-					<input class="login" type="password" ng-model="wachtwoord_new2">
+						<label class="login">Herhaal uw wachtwoord</label>
+						<input class="login" type="password" ng-model="wachtwoord_new2">
 					</md-input-container>
-
 					<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleWijzigWachtwoord()"><span class="login">Wijzig wachtwoord</span></md-button>
 					<md-button class="md-accent md-hue-1" style="width:100%;" ng-click="unishop.cancelWijzigWachtwoord()"><span class="loginLight">annuleren</span></md-button>
 					<div style="height: 60px;">&nbsp;</div>
@@ -245,103 +85,61 @@
 				</div>
 
 				</md-content>
-
-				<div
-				 ng-if="unishop.isHomeHidden()&&unishop.isLoginHidden()&&isBusy&&(!wijzigWachtwoord)" 
-				 class="progress"
-				 layout="column" layout-align="center center"
-				>
-				<md-progress-circular 
-					md-mode="indeterminate" 
-					md-component-id="proIndetermined" 
-					md-diameter="96"
-					ng-show="(isBusy)"
-				>
-				</md-progress-circular>
-
+				<div ng-if="unishop.isHomeHidden()&&unishop.isLoginHidden()&&isBusy&&(!wijzigWachtwoord)" class="progress" layout="column" layout-align="center center">
+					<md-progress-circular md-mode="indeterminate" md-component-id="proIndetermined" md-diameter="96" ng-show="(isBusy)"></md-progress-circular>
 				</div>
 
-				<md-content class="mainPane"
-							ng-show="(unishop.isLoginHidden())&&
-											 (!wijzigWachtwoord)&&
-											 (1==1)
-											"
-				>
-
-					<md-content>
-						
+				<md-content class="mainPane" ng-show="(unishop.isLoginHidden())&&(!wijzigWachtwoord)&&(1==1)">
+					<md-content>			
 						<md-toolbar class="md-theme-light" layout="row" ng-show="unishop.isLoginHidden()">
 							<div class="md-toolbar-tools">
-							<md-button ng-click="toggleMenuLinks()" class="md-icon-button">
-								<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-							</md-button>
-							<span>
-									{{mainTitle}} 
-							</span>
-
+								<md-button ng-click="toggleMenuLinks()" class="md-icon-button" aria-label="Toggle Menu Links">
+									<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+								</md-button>
+								<span>{{mainTitle}}</span>
 							</div>
 						</md-toolbar>
 
 						<div id="contentblok">
-
-							<md-content md-component-id="pageHome"
-										ng-show="unishop.isActivePage('home')"
-										class="homePane">
-
-								<md-content 
-									md-component-id="panelZoekArt" 
-									layout="column" 
-									ng-show="(zoekArtSelected == null)"
-								>
-									<md-content 
-										md-component-id="panelZoekArtInput" 
-										layout="column" 
-										layout-align="center center"
-										style="padding-top: 30px;"
-									>
-
+							<md-content md-component-id="pageHome" ng-show="unishop.isActivePage('home')" class="homePane">
+								<md-content md-component-id="panelZoekArt" layout="column" ng-show="(zoekArtSelected == null)">
+									<md-content md-component-id="panelZoekArtInput" layout="column" layout-align="center center" style="padding-top: 60px;">
 										<md-input-container id="zoekTekstContainer" class="md-block login" flex style="width:60%;">
 											<label>Artikelnummer / omschrijving</label>
-											<input id="zoekTekst" ng-model="zoekArt"	my-enter="unishop.handleZoekArt()" focus-me="true">
+											<input id="zoekTekst" ng-model="zoekArt" my-enter="unishop.handleZoekArt()" focus-me="true" focus-on="newBarcodeFound">
 											<script type="text/javascript">
 												function resetZoekArt() {
 													var appScope = angular.element(document.getElementById('appController')).scope();
 													appScope.unishop.resetZoekArt();
 												}
 											</script>
-											<svg onclick="resetZoekArt()" style="width:12px; height: 12px; position: absolute; top: 15px; left: calc(100% + 2px);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-												<image x="0" y="0" height="12" width="12" xlink:href="img/icons/close.svg"></image>
+											<svg onclick="resetZoekArt()" style="width:24px; height: 24px; position: absolute; top: 15px; left: calc(100% + 2px);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<image x="0" y="0" height="24" width="24" xlink:href="img/icons/close.svg"></image>
 											</svg>
 										</md-input-container>
 										<div>
-											<button class="button zoekbutton" ng-click="unishop.handleZoekArt()">start zoeken</button>
+											<a href id="start_zoeken" class="button zoekbutton" ng-click="unishop.handleZoekArt()" click-on="newBarcodeFound">start zoeken</a>
 										</div>
 										<div class="controls">
 											<script>
 											$(function() {
 												var appScope = angular.element(document.getElementById('appController')).scope();
-												$("#labelfile").click(function() {
+												$("#scan").click(function() {
 													appScope.unishop.resetFoutResponse();
-													$("#fileBarcode").trigger('click');
+													appScope.unishop.newBarcodeScanner();
 												});
 											})
 											</script>
-											<fieldset class="input-group">
-												<input type="file" accept="image/*;capture=camera" id="fileBarcode" name="fileBarcode" style="display:none;"/>
-												<center>
-													<md-icon class="labelfile" id="labelfile" style="width:48px; height:48px;" md-svg-icon="img/icons/barcode.svg"></md-icon><br/>
-													<span class="xsmall rood">{{foutResponse}}</span>
-												</center>
-											</fieldset>
+											<p>
+												<a href="#" id="scan">
+													<md-icon class="labelfile" id="labelfile" style="width: 100px; height: 100px;" md-svg-icon="img/icons/barcode.svg"></md-icon>
+												</a>
+											</p>
 										</div>
-
 									</md-content>
 
 									<md-content>
-										<md-list class="md-dense" 
-											ng-show="(zoekArtResultaten.length > 0)"
-											flex
-										>
+										<md-list class="md-dense" ng-show="(zoekArtResultaten.length > 0)" flex>
 											<md-subheader class="md-no-sticky" ng-show="zoekArtResultaten.length!=1">{{zoekArtResultaten.length}} zoekresultaten</md-subheader>
 											<md-list-item class="md-3-line" ng-repeat="prod in zoekArtResultaten" ng-click="unishop.toonProd(prod)" style="background-color: {{(($index % 2 != 0) ? '' : '#fafafa')}};">
 												<img ng-src="{{API_URL + '/products/MediaContent/' + prod.ProductNr.replace('/', '//') + '/' + prod.SuCodeAlt + '/60' + '?dataset=' + dataset + '&username=' + inlognaam + '&password=' + wachtwoord}}" class="md-avatar" alt="{{prod.ProductNr}}" />
@@ -349,7 +147,7 @@
 													<h3>{{prod.Name.substring(0,22)}}<span ng-show="prod.Name.length>22">...</span></h3>
 													<h4>{{prod.ProductNr}}</h4>
 													<p ng-show="((prod.Size + prod.color) != '')">
-														<span ng-show="(prod.Color != '')">Kleur: {{prod.Color}}</span> <span ng-show="(prod.Size != '')">Maat: {{prod.Size}}</span>
+														<span ng-show="(prod.Color != '')">Kleur: <strong>{{prod.Color}}</strong></span> <span ng-show="(prod.Size != '')">Maat: <strong>{{prod.Size}}</strong></span>
 													 </p>
 													<p ng-show="prod.Stock > 0">{{prod.Stock}} in voorraad</p>
 													<p ng-show="prod.Stock <= 0">geen voorraad</p>
@@ -362,27 +160,18 @@
 										</md-list>
 
 										<div layout="column" layout-align="center center" ng-show="isBusy">
-											<md-progress-circular 
-													md-mode="indeterminate" 
-													md-component-id="proCluster" 
-													md-diameter="96"
-											>
-											</md-progress-circular>
+											<md-progress-circular md-mode="indeterminate" md-component-id="proCluster" md-diameter="96"></md-progress-circular>
 										</div>
 									</md-content>
 								</md-content>
 
 								<md-content 
-									md-component-id="panelOpenArt" 
-									layout="column" 
-									ng-show="(zoekArtSelected != null)"
-								>
+									md-component-id="panelOpenArt" layout="column" ng-show="(zoekArtSelected != null)">
 									<md-toolbar md-scroll-shrink class="md-hue-2">
 										<div class="md-toolbar-tools" ng-click="unishop.sluitProd()">
 											<md-button class="md-icon-button" aria-label="terug">
 												<md-icon md-svg-icon="img/icons/arrow-left.svg"></md-icon>
 											</md-button>
-
 											<h2><span>{{(zoekArtSelected.ClusterName == "" ? zoekArtSelected.Name : zoekArtSelected.ClusterName)}}</span></h2>
 											<span flex></span>
 											<md-button class="md-icon-button" aria-label="menu" ng-show="false">
@@ -464,32 +253,28 @@
 														<div flex>
 															<div layout="row">
 																<div class="staticRowCaption">Opmerking</div>
-																<div class="staticRowData" flex ng-if="(!expandRemark)" ng-click="unishop.toggleExpandRemark()" >
-																	{{zoekArtSelected.Remark.substring(0,94)}}
+																<div class="staticRowData" flex ng-if="(!expandRemark)" ng-click="unishop.toggleExpandRemark()" ng-bind-html="zoekArtSelected.Remark.substring(0,94) | trustAsHtml">
 																	<span ng-show="zoekArtSelected.Remark.length>94">
 																	...													
 																	</span>
 																	<img src="img/icons/arrow-right.svg" style="width: 12px; height: 12px;" ng-show="zoekArtSelected.Remark.length > 75">
 																</div>
-																<div class="staticRowData" flex ng-if="(expandRemark)" ng-click="unishop.toggleExpandRemark()">
-																	{{zoekArtSelected.Remark}}
+																<div class="staticRowData" flex ng-if="(expandRemark)" ng-click="unishop.toggleExpandRemark()" ng-bind-html="zoekArtSelected.Remark | trustAsHtml">
+																	
 																</div>
 															</div>
 														</div>
 													</div>
 
 													<div style="padding-top: 10px;">
-
 														<barcode type="ean" string="{{zoekArtSelected.Barcode}}" options="unishop.barcodeOptions" ng-if="zoekArtSelected.Barcode.length==13"></barcode>
-
 													</div>
 
 													<div layout="column" style="padding-top: 10px; padding-bottom: 10px;">
 														<div ng-show="(isVoorraadBusy)" style="width: 40px;">
 															<md-progress-linear 
 																md-mode="indeterminate" 
-																md-component-id="proVrdIndetermined" 
-															>
+																md-component-id="proVrdIndetermined">
 															</md-progress-linear>
 														</div>
 
@@ -529,21 +314,13 @@
 												</tr>
 												<tbody ng-repeat="prod in clusterArtResultaten" ng-if="((!clusterArtEnkelOpVoorraad) || (clusterArtEnkelOpVoorraad && (prod.Stock > 0)))">
 													<tr style="background-color: {{(($index % 2 == 0) ? '' : '#fafafa')}};">
-														<td style="width: 20px">
-															<img src="img/icons/arrow-right.svg" style="width: 12px; height: 12px;" ng-click="unishop.toggleExpandProd(prod)">
-														</td>
-														<td style="width: 80px" ng-click="unishop.toonProd(prod)">
-															{{prod.Color.substring(0, 10)}}
-														</td>
-														<td id="rechts" style="width: 80px" ng-click="unishop.toonProd(prod)">
-															{{prod.Size.substring(0, 10)}}
-														</td>
+														<td style="width: 20px"><img src="img/icons/arrow-right.svg" style="width: 12px; height: 12px;" ng-click="unishop.toggleExpandProd(prod)"></td>
+														<td style="width: 80px" ng-click="unishop.toonProd(prod)">{{prod.Color.substring(0, 10)}}</td>
+														<td id="rechts" style="width: 80px" ng-click="unishop.toonProd(prod)">{{prod.Size.substring(0, 10)}}</td>
 														<td id="rechts" class="vrrd {{(prod.Stock > 0 ? 'metvoorraad' : 'zondervoorraad')}}" ng-click="unishop.toonProd(prod)">
 															{{prod.Stock}} {{(prod.Stock == 1 ? "stuk" : (prod.Stock == 0 ? "" : "stuks"))}}
 														</td>
-														<td id="rechts" ng-click="unishop.toonProd(prod)" ng-if="!prod.DiscountProduct">
-															{{(prod.RetailPrice * ((100+prod.VatRate) / 100)) | currency:"&euro;":2}}
-														</td>
+														<td id="rechts" ng-click="unishop.toonProd(prod)" ng-if="!prod.DiscountProduct">{{(prod.RetailPrice * ((100+prod.VatRate) / 100)) | currency:"&euro;":2}}</td>
 														<td id="rechts" class="groen" ng-click="unishop.toonProd(prod)" ng-if="prod.DiscountProduct">
 															{{prod.DiscountProduct == true ? (prod.RetailPriceAfterDiscount * ((100+prod.VatRate) / 100)) : "-" | currency:"&euro;":2}}
 														</td>
@@ -564,35 +341,91 @@
 											</table>
 
 											<div layout="column" layout-align="center center" ng-show="isBusy">
-												<md-progress-circular 
-														md-mode="indeterminate" 
-														md-component-id="proCluster" 
-														md-diameter="96"
-												>
-												</md-progress-circular>
+												<md-progress-circular md-mode="indeterminate" md-component-id="proCluster" md-diameter="96"></md-progress-circular>
 											</div>
-
 										</md-list>
 									</md-subheader>
+								</md-content>
+							</md-content>
+							<!--<md-content md-component-id="pageItem1" ng-show="!unishop.isActivePage('home')"	class="subPane">bestellijst</md-content>-->
 
+							<!-- Start relaties content -->
+							<md-content md-component-id="pageItem2" ng-show="!unishop.isActivePage('home')"	class="subPane">
+
+								<md-toolbar md-scroll-shrink class="md-hue-2">
+									<div class="md-toolbar-tools" ng-click="unishop.openHome()">
+										<md-button class="md-icon-button" aria-label="terug">
+											<md-icon md-svg-icon="img/icons/arrow-left.svg"></md-icon>
+										</md-button>
+										<h2><span>Zoek relaties</span></h2>
+										<span flex></span>
+										<md-button class="md-icon-button" aria-label="menu" ng-show="false">
+											<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+										</md-button>
+									</div>
+								</md-toolbar>
+								
+								<md-content md-component-id="panelCustArt" layout="column" ng-show="(zoekArtSelected == null)">
+									<md-content md-component-id="panelCustomerInput" layout="column" layout-align="center center" style="padding-top: 60px;">
+										<md-input-container id="zoekCustomerContainer" class="md-block" flex style="width:60%;">
+											<label>Relatie</label>
+											<input id="zoekCustomer" ng-model="zoekCust" my-enter="unishop.quickFindCustomers()">
+										</md-input-container>
+										<div>
+											<a href id="start_zoeken" class="button zoekbutton" ng-click="unishop.quickFindCustomers()">start zoeken</a>
+										</div>
+									</md-content>
+
+									<md-content>
+										<!-- table view
+										<table width="100%" cellspacing="3" cellpadding="3" ng-show="relatiesResultaten.length > 0">
+											<tr>
+												<th>Naam</th>
+												<th>&nbsp</th>
+											</tr>
+											<tbody ng-repeat="relatie in relatiesResultaten">
+												<tr style="background-color: {{(($index % 2 == 0) ? '' : '#fafafa')}};">
+													<td>{{ relatie.DisplayName }}</td>
+													<td><a href="#">details</td>
+												</tr>
+											</tbody>
+										</table>
+										-->
+
+										<!-- list view -->
+
+										<md-list class="md-dense" ng-show="(relatiesResultaten.length > 0)" flex>
+											<md-subheader class="md-no-sticky" ng-show="relatiesResultaten.length!=1">{{relatiesResultaten.length}} zoekresultaten</md-subheader>
+											<md-list-item class="md-3-line" ng-repeat="relatie in relatiesResultaten" style="background-color: {{(($index % 2 != 0) ? '' : '#fafafa')}};">
+
+												<div class="md-list-item-text" layout="column" style="flex: 2;">
+													<h3>{{ relatie.DisplayName }}</h3>
+													<h4>{{ relatie.Address }}</h4>
+													<p style="font-size: 12px;">{{ relatie.PostalCode }} {{ relatie.City }}</p>
+												</div>
+												<div flex></div>
+												<div>
+													<div class="prijsKlein" style="margin-top: 33px; margin-right: 5px; cursor: pointer;">
+														
+														<a href="javascript:void(0)"><img src="img/icons/arrow-right.svg" style="width: 16px; height: 16px;"><a/>
+													</div>
+												</div>												
+											</md-list-item>
+										</md-list>
+
+										<!-- list view -->
+
+										<div layout="column" layout-align="center center" ng-show="isBusy">
+											<md-progress-circular md-mode="indeterminate" md-component-id="proCluster" md-diameter="96"></md-progress-circular>
+										</div>
+									</md-content>
 								</md-content>
 
 							</md-content>
-
-
-							<md-content md-component-id="pageItem1" 
-									ng-show="!unishop.isActivePage('home')"
-									class="subPane"
-							>
-
-								bestellijst
-
-							</md-content>
+							<!-- Eind relaties content -->
 
 						</div>
-
 					</md-content>
-
 				</md-content>
 
 				<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="menuLinks">
@@ -617,6 +450,16 @@
 							</div>
 							<md-divider ng-if="!$last"></md-divider>
 						</md-list-item>
+
+						<!-- Relaties -->
+						<md-list-item class="md-1-line" ng-click="unishop.openItem2()" ng-disabled="!unishop.isLoginHidden()" ng-show="true">
+							<div class="md-list-item-text">
+								<h3><md-icon class="menuicon" md-svg-icon="img/icons/contacts.svg"></md-icon>&nbsp;&nbsp;Relaties</h3>
+							</div>
+							<md-divider ng-if="!$last"></md-divider>
+						</md-list-item>
+						<!-- Relaties -->
+
 					</md-content>
 
 					<md-content style="position:absolute; bottom:10px; width:100%;" ng-disabled="!unishop.isLoginHidden()">
@@ -635,12 +478,8 @@
 
 	</md-content>
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="barcodescanner.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="barcodescanner.js"></script>
 
 </body>
 </html>
