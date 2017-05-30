@@ -161,10 +161,11 @@ UniApp.controller('unishopController',
 
 		// add public and generic declarations 
 		$scope.mainTitle = 'Voorraad';
+		$scope.foutResponse = '';
 		$scope.activePage = 'home';
 
 		$scope.isLoaded = false;
-		$scope.HeeftData = false;
+		// $scope.HeeftData = false;
 		$scope.isBusy = false;
 		$scope.isVoorraadBusy = false;
 		$scope.ingelogd = false;
