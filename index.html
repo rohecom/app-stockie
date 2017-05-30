@@ -122,6 +122,7 @@
 										</md-input-container>
 										<div>
 											<button ng-disabled="isBusy" type="button" id="start_zoeken" class="button zoekbutton" ng-click="unishop.handleZoekArt()" click-on="newBarcodeFound">start zoeken!</button>
+											<pre ng-repeat="(key, val) in this">{{key}} = {{val|json}}</pre>
 										</div>
 										<div class="controls">
 											<script>
