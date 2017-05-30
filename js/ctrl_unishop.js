@@ -580,7 +580,7 @@ UniApp.controller('unishopController',
 					for (var i = 0; i < response.data.customers.length; i++) {
 						$scope.relatiesResultaten.push(response.data.customers[i]);
 					}
-					
+
 				},
 
 				// error
@@ -601,7 +601,6 @@ UniApp.controller('unishopController',
 					$scope.showAlert(errortext, errortextSub);
 				}
 			);
-
 		}
 		/* End quick find customers */
 
@@ -827,45 +826,8 @@ UniApp.controller('unishopController',
 		}
 
 		this.handleZoekArt = function () {
-			
-			var zoekveld = document.getElementById('zoekTekst');
-			zoekveld.blur();
-
-			$scope.status_zoeken = 'start met zoeken';
-
-			if ($scope.zoekArt == '') {
-				$scope.showAlert('Zoek artikel', 'Geen zoekterm opgegeven.');
-				return false;
-			}
 
 			$scope.foutResponse = '';
-
-			var AUrl = $scope.API_URL + '/products/find/' + encodeURI($scope.zoekArt) + '/25';   // zoek 2 artikelen
-
-			var req = {
-				url: AUrl,
-				method: 'POST',
-				headers:
-				{
-					'Content-Type': undefined,
-					'dataset': $scope.dataset,
-					'username': $scope.inlognaam,
-					'password': $scope.wachtwoord
-				},
-				data:
-				{
-
-				},
-				params:
-				{
-					//'callback': 'JSON_CALLBACK',
-					'dataset': $scope.dataset,
-					'username': $scope.inlognaam,
-					'password': $scope.wachtwoord
-				}/*,
-				timeout: 20000000*/
-			};
-
 			$scope.isBusy = true;
 			$scope.zoekArtResultaten = [];
 			$scope.zoekArtExpanded = [];
@@ -874,17 +836,29 @@ UniApp.controller('unishopController',
 			$scope.attribuutArtResultaten = [];
 			$scope.artVoorraadResultaten = [];
 
-			$scope.zoekCust = '';
-			$scope.relatiesResultaten = [];
-			$scope.relatieResultaat = [];
+			var AUrl = $scope.API_URL + '/products/find/' + encodeURI($scope.zoekArt) + '/25';   // zoek 25 artikelen
 
-			$scope.status_zoeken = 'start ajax call naar api';
-			$scope.status_zoeken = 'url: ' + AUrl;
-			$http.post(req.url, req.data, req).then
-				(
+			var req = {
+				url: AUrl,
+				method: 'POST',
+				headers: {
+					'Content-Type': undefined,
+					'dataset': $scope.dataset,
+					'username': $scope.inlognaam,
+					'password': $scope.wachtwoord
+				},
+				data: { },
+				params: {
+					'dataset': $scope.dataset,
+					'username': $scope.inlognaam,
+					'password': $scope.wachtwoord
+				}
+			};
+
+			$http.post(req.url, req.data, req)
+			.then(
 				// success
 				function (response) {
-					$scope.status_zoeken = 'start ajax success';
 					$scope.isBusy = false;
 
 					$scope.zoekArtResultaten = [];
@@ -892,6 +866,7 @@ UniApp.controller('unishopController',
 						$scope.zoekArtResultaten.push(response.data.products[i]);
 					}
 
+					/*
 					if ($scope.zoekArtResultaten.length == 1) {
 						var appScope = angular.element(document.getElementById('appController')).scope();
 						if (appScope) {
@@ -910,8 +885,7 @@ UniApp.controller('unishopController',
 							$scope.$apply();
 						}, 4000);
 					}
-
-					$scope.status_zoeken = 'done';
+					*/
 
 				},
 
@@ -933,9 +907,8 @@ UniApp.controller('unishopController',
 					$scope.showAlert(errortext, errortextSub);
 				}
 			);
-			
 			// return true;
-		};
+		}
 
 		this.toggleExpandProd = function (prod) {
 			var idx = $scope.zoekArtExpanded.indexOf(prod);
