@@ -476,7 +476,7 @@ UniApp.controller('unishopController',
 			// $scope.gebruikersnaam = '';
 			$scope.dealertype = -1;   // -1 = onbekend, 0 = motordealer, 1 = mobiele recreatie, 2 = watersport 3 = transportlogistiek
 
-			// updateLocalStorage();
+			updateLocalStorage();
 		};
 
 		this.getCustomerDetails = function (customer) {
