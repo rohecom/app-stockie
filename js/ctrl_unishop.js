@@ -903,11 +903,18 @@ UniApp.controller('unishopController',
 						}
 					}
 
+					$scope.foutResponse = '';
 					$scope.isBusy = false;
+					$scope.zoekArtResultaten = [];
+					$scope.zoekArtExpanded = [];
+					$scope.zoekArtSelected = null;
+					$scope.clusterArtResultaten = [];
+					$scope.attribuutArtResultaten = [];
+					$scope.artVoorraadResultaten = [];
+
 					$scope.showAlert(errortext, errortextSub);
 				}
 			);
-			// return true;
 		}
 
 		this.toggleExpandProd = function (prod) {
@@ -977,16 +984,18 @@ UniApp.controller('unishopController',
 
 		this.resetZoekArt = function () {
 			$scope.zoekArt = '';
+			$scope.isBusy = false;
 			$scope.$apply();
 		}
 
 		this.openHome = function () {
-
+			$scope.isBusy = false;
 			$scope.zoekCust = '';
 			$scope.relatiesResultaten = [];
 
 			$scope.mainTitle = 'Voorraad';
 			$scope.activePage = 'home';
+			$scope.$apply();
 			$mdSidenav('menuLinks').close()
 				.then(function () {
 					//$log.debug("menuLinks is gesloten");
@@ -1003,8 +1012,10 @@ UniApp.controller('unishopController',
 		}
 
 		this.pageCustomers = function () {
+			$scope.isBusy = false;
 			$scope.mainTitle = 'Relaties';
 			$scope.activePage = 'pageCustomers';
+			$scope.$apply();
 			$mdSidenav('menuLinks').close()
 				.then(function () {
 					// $log.debug("menuLinks is gesloten");
@@ -1013,8 +1024,10 @@ UniApp.controller('unishopController',
 
 		this.openPageCustomer = function (relatie) {
 			/* alert('opening page customer'); */
+			$scope.isBusy = false;
 			$scope.mainTitle = 'Relatie';
 			$scope.activePage = 'pageCustomer';
+			$scope.$apply();
 			this.getCustomerDetails(relatie)
 			$mdSidenav('menuLinks').close()
 				.then(function () {
