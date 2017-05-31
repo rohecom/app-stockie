@@ -49,12 +49,11 @@
     <engine name="ios" spec="~4.3.1" />
 
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="orientation" value="default" />
     <preference name="webviewbounce" value="false" />
 
     <!-- all platforms -->
     <preference name="phonegap-version" value="cli-6.5.0" />
-    <preference name="orientation" value="landscape" />
+    <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
 
     <!-- iOS only -->
