@@ -8,7 +8,7 @@
   src: url('../fonts/roboto-latin.woff2') format('woff2');
 }
 
-body { font-family: 'Roboto', sans-serif; font-size: 10pt; font-weight: 400; }
+body { font-family: 'Roboto', sans-serif; font-size: 10pt; font-weight: 400; -webkit-touch-callout: none; -webkit-text-size-adjust: none; -webkit-user-select: none; user-select: none; }
 th { text-align: left; }
 #rechts { text-align: right; }
 #links { text-align: left; }
