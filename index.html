@@ -646,5 +646,12 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="barcodescanner.js"></script>
+	<script>
+	$(document).on('deviceready', function () {
+		if (window.device && parseFloat(window.device.version) >= 7.0) {
+			$('body').addClass('iOS7');
+		}
+	});		
+	</script>
 </body>
 </html>
