@@ -142,7 +142,7 @@
 												}
 											</script>
 											<svg onclick="resetZoekArt()" 
-												 style="padding: 2em; display: inline-block; width:24px; height: 24px; position: absolute; top: -20px; left: calc(100% + 2px);" xmlns="http://www.w3.org/2000/svg"
+												 style="padding: 2em; display: inline-block; width:24px; height: 24px; position: absolute; top: -17px; left: calc(100% + -20px);" xmlns="http://www.w3.org/2000/svg"
 											 	 xmlns:xlink="http://www.w3.org/1999/xlink">
 												<image x="0" y="0" height="24" width="24" xlink:href="img/icons/close.svg"></image>
 											</svg>
@@ -650,6 +650,7 @@
 	$(document).ready(function() {
 		document.addEventListener("deviceready", function() {
 			window.StatusBar && window.StatusBar.hide();
+			console.log(device.cordova);
 		});			
 	});
 	</script>

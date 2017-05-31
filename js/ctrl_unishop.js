@@ -318,27 +318,67 @@ UniApp.controller('unishopController',
 
 		this.handleWijzigWachtwoord = function () {
 			if ($scope.wachtwoord_old == '') {
-				$scope.showAlert('Vul uw huidige wachtwoord in.', '');
+				// $scope.showAlert('Vul uw huidige wachtwoord in.', '');
+
+				navigator.notification.alert(
+					'Vul uw huidige wachtwoord in.',
+					null,
+					'Wachtwoord',
+					'Ok'
+				);
+
 				return false;
 			}
 
 			if ($scope.wachtwoord_new == '') {
-				$scope.showAlert('Vul uw nieuwe wachtwoord in.', '');
+				// $scope.showAlert('Vul uw nieuwe wachtwoord in.', '');
+
+				navigator.notification.alert(
+					'Vul uw nieuwe wachtwoord in.',
+					null,
+					'Wachtwoord',
+					'Ok'
+				);
+
 				return false;
 			}
 
 			if ($scope.wachtwoord_new.length < 6) {
-				$scope.showAlert('Uw wachtwoord moet minimaal 6 tekens bevatten.', '');
+				// $scope.showAlert('Uw wachtwoord moet minimaal 6 tekens bevatten.', '');
+
+				navigator.notification.alert(
+					'Uw wachtwoord moet minimaal 6 tekens bevatten.',
+					null,
+					'Wachtwoord',
+					'Ok'
+				);
+
 				return false;
 			}
 
 			if ($scope.wachtwoord_new2 == '') {
-				$scope.showAlert('Vul uw herhaalde wachtwoord in.', '');
+				// $scope.showAlert('Vul uw herhaalde wachtwoord in.', '');
+
+				navigator.notification.alert(
+					'Vul uw herhaalde wachtwoord in.',
+					null,
+					'Wachtwoord',
+					'Ok'
+				);
+
 				return false;
 			}
 
 			if ($scope.wachtwoord_new != $scope.wachtwoord_new2) {
-				$scope.showAlert('Uw herhaalde wachtwoord komt niet overeen.', 'Het wachtwoord is hoofdlettergevoelig.');
+				// $scope.showAlert('Uw herhaalde wachtwoord komt niet overeen.', 'Het wachtwoord is hoofdlettergevoelig.');
+
+				navigator.notification.alert(
+					'Uw herhaalde wachtwoord komt niet overeen. Let op, het wachtwoord is hoofdlettergevoelig.',
+					null,
+					'Wachtwoord',
+					'Ok'
+				);
+
 				return false;
 			}
 
@@ -358,7 +398,15 @@ UniApp.controller('unishopController',
 
 				$scope.wachtwoord = response.details.password;  // encoded versie van het wachtwoord
 				updateLocalStorage();
-				$scope.showAlert('Wachtwoord is gewijzigd', '');
+				// $scope.showAlert('Wachtwoord is gewijzigd', '');
+
+				navigator.notification.alert(
+					'Wachtwoord is gewijzigd.',
+					null,
+					'Wachtwoord',
+					'Ok'
+				);
+
 			});
 
 			AHttp.error(function (response) {
@@ -371,7 +419,15 @@ UniApp.controller('unishopController',
 						}
 					}
 				}
-				$scope.showAlert(errortext, errortextSub);
+				// $scope.showAlert(errortext, errortextSub);
+
+				navigator.notification.alert(
+					errortext,
+					null,
+					errortextSub,
+					'Ok'
+				);
+
 			});
 
 			$scope.wijzigWachtwoord = false;
@@ -380,17 +436,41 @@ UniApp.controller('unishopController',
 
 		this.handleLogin = function () {
 			if ($scope.gebruikersID == '') {
-				$scope.showAlert('Inloggen', 'Geen gebruikers ID ingevuld.');
+				// $scope.showAlert('Inloggen', 'Geen gebruikers ID ingevuld.');
+
+				navigator.notification.alert(
+					'Geen gebruikers ID ingevuld.',
+					null,
+					'Inloggen',
+					'Ok'
+				);
+
 				return false;
 			}
 
 			if ($scope.inlognaam == '') {
-				$scope.showAlert('Inloggen', 'Geen inlognaam ingevuld.');
+				// $scope.showAlert('Inloggen', 'Geen inlognaam ingevuld.');
+
+				navigator.notification.alert(
+					'Geen inlognaam ingevuld.',
+					null,
+					'Inloggen',
+					'Ok'
+				);
+
 				return false;
 			}
 
 			if ($scope.wachtwoord == '') {
-				$scope.showAlert('Inloggen', 'Geen wachtwoord ingevuld.');
+				// $scope.showAlert('Inloggen', 'Geen wachtwoord ingevuld.');
+
+				navigator.notification.alert(
+					'Geen wachtwoord ingevuld.',
+					null,
+					'Inloggen',
+					'Ok'
+				);
+
 				return false;
 			}
 
@@ -444,7 +524,15 @@ UniApp.controller('unishopController',
 						}
 					}
 				}
-				$scope.showAlert(errortext, errortextSub);
+				// $scope.showAlert(errortext, errortextSub);
+
+				navigator.notification.alert(
+					errortext,
+					null,
+					errortextSub,
+					'Ok'
+				);
+
 			});
 
 			return true;
@@ -525,7 +613,14 @@ UniApp.controller('unishopController',
 					}
 
 					$scope.isBusy = false;
-					$scope.showAlert(errortext, errortextSub);
+					// $scope.showAlert(errortext, errortextSub);
+
+					navigator.notification.alert(
+						errortext,
+						null,
+						errortextSub,
+						'Ok'
+					);					
 				}
 			);
 
@@ -588,7 +683,14 @@ UniApp.controller('unishopController',
 					}
 
 					$scope.isBusy = false;
-					$scope.showAlert(errortext, errortextSub);
+					// $scope.showAlert(errortext, errortextSub);
+
+					navigator.notification.alert(
+						errortext,
+						null,
+						errortextSub,
+						'Ok'
+					);					
 				}
 			);
 		}
@@ -644,7 +746,14 @@ UniApp.controller('unishopController',
 					}
 
 					$scope.isBusy = false;
-					$scope.showAlert(errortext, errortextSub);
+					// $scope.showAlert(errortext, errortextSub);
+
+					navigator.notification.alert(
+						errortext,
+						null,
+						errortextSub,
+						'Ok'
+					);					
 				}
 			);
 
@@ -713,7 +822,14 @@ UniApp.controller('unishopController',
 					}
 
 					$scope.isBusy = false;
-					$scope.showAlert(errortext, errortextSub);
+					// $scope.showAlert(errortext, errortextSub);
+
+					navigator.notification.alert(
+						errortext,
+						null,
+						errortextSub,
+						'Ok'
+					);					
 				}
 			);
 
@@ -777,7 +893,14 @@ UniApp.controller('unishopController',
 					}
 
 					$scope.isVoorraadBusy = false;
-					$scope.showAlert(errortext, errortextSub);
+					// $scope.showAlert(errortext, errortextSub);
+
+					navigator.notification.alert(
+						errortext,
+						null,
+						errortextSub,
+						'Ok'
+					);					
 				}
 			);
 
@@ -803,9 +926,9 @@ UniApp.controller('unishopController',
 
 			if ($scope.zoekArt === '') {
 				navigator.notification.alert(
-					'Zoek artikel',
-					null,
 					'Geen zoekterm opgegeven.',
+					null,
+					'Zoek artikel',
 					'Ok'
 				);
 
@@ -862,7 +985,16 @@ UniApp.controller('unishopController',
 					if ($scope.zoekArtResultaten.length == 0) {
 						$scope.status_zoeken = 'niets gevonden...probeer een nieuwe zoekopdracht';
 						$scope.foutResponse = 'niets gevonden...probeer een nieuwe zoekopdracht';
-						$scope.showAlert('Niets gevonden.', 'Probeer een nieuwe zoekopdracht');
+						// $scope.showAlert('Niets gevonden.', 'Probeer een nieuwe zoekopdracht');
+
+						navigator.notification.alert(
+							'Probeer een nieuwe zoekopdracht.',
+							null,
+							'Niets gevonden.',
+							'Ok'
+						);
+
+
 						window.setTimeout(function () {
 							$scope.foutResponse = '';
 							$scope.isBusy = false;
@@ -895,9 +1027,9 @@ UniApp.controller('unishopController',
 					$scope.artVoorraadResultaten = [];
 
 					navigator.notification.alert(
-						errortext,
-						null,
 						errortextSub,
+						null,
+						errortext,
 						'Ok'
 					);					
 
@@ -970,9 +1102,16 @@ UniApp.controller('unishopController',
 		}
 
 		this.resetZoekArt = function () {
-			$scope.zoekArt = '';
+			$scope.foutResponse = '';
 			$scope.isBusy = false;
+			$scope.zoekArt = '';
 			$scope.zoekCust = '';
+			$scope.zoekArtResultaten = [];
+			$scope.zoekArtExpanded = [];
+			$scope.zoekArtSelected = null;
+			$scope.clusterArtResultaten = [];
+			$scope.attribuutArtResultaten = [];
+			$scope.artVoorraadResultaten = [];
 			$scope.relatiesResultaten = [];
 			$scope.$apply();
 		}
