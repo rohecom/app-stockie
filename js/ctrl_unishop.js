@@ -6,9 +6,9 @@ var UniApp = angular.module('unishopModule', [
 ]);
 
 UniApp.filter('trustAsHtml', ['$sce', function ($sce) {
-  return function(htmlCode){
-    return $sce.trustAsHtml(htmlCode);
-  }
+	return function(htmlCode) {
+    	return $sce.trustAsHtml(htmlCode);
+  	}
 }]);
 
 UniApp.directive('myEnter', function () {
@@ -62,7 +62,7 @@ UniApp.config(function ($httpProvider, $mdThemingProvider, localStorageServicePr
 
 	localStorageServiceProvider.setPrefix('stockie');	
 
-  	//initialize get if not there
+  	// initialize get if not there
     if (!$httpProvider.defaults.headers.get) {
         $httpProvider.defaults.headers.get = {};    
     }    
@@ -107,7 +107,7 @@ UniApp.controller('unishopController',
 
 		function zoekJSONNaam(obj, ANaam) {
 			for (var i = 0; i < obj.length; i++) {
-				if (obj[i].Name == ANaam) {
+				if (obj[i].Name === ANaam) {
 					return obj[i];
 				}
 			}
@@ -269,8 +269,7 @@ UniApp.controller('unishopController',
 			var req = {
 				url: AUrl,
 				method: 'POST',
-				headers:
-				{
+				headers: {
 					'Content-Type': undefined
 				},
 				data: { usercode: $scope.gebruikersID, username: $scope.inlognaam, password: $scope.wachtwoord }
@@ -293,8 +292,7 @@ UniApp.controller('unishopController',
 				$scope.wachtwoord = '';
 				$scope.ingelogd = false;
 				$scope.inlogValideren = false;
-			}
-			);
+			});
 		};
 
 		this.isLoginHidden = function () {
@@ -504,12 +502,12 @@ UniApp.controller('unishopController',
 					$scope.isBusy = false;
 
 					$scope.relatieResultaat = [];
-					console.log('====== relatieResultaat ====');
-					console.log(response.data);
-					console.log('====== relatieResultaat ====');
+					// console.log('====== relatieResultaat ====');
+					// console.log(response.data);
+					// console.log('====== relatieResultaat ====');
 					
 					$scope.relatieResultaat = response.data.customer;
-					console.log('$scope.relatieResultaat', $scope.relatieResultaat);
+					// console.log('$scope.relatieResultaat', $scope.relatieResultaat);
 				},
 
 				// error
@@ -535,7 +533,7 @@ UniApp.controller('unishopController',
 
 		/* Start quick find customers */
 		this.quickFindCustomers = function () {
-			console.log('In quickFindCustomers with query: ' + $scope.zoekCust);
+			// console.log('In quickFindCustomers with query: ' + $scope.zoekCust);
 
 			$scope.isBusy = true;
 			// $scope.zoekCust = query;
@@ -551,7 +549,7 @@ UniApp.controller('unishopController',
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
-				}, data: {	},
+				}, data: { },
 				params: {
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
@@ -566,14 +564,13 @@ UniApp.controller('unishopController',
 					$scope.isBusy = false;
 
 					$scope.relatiesResultaten = [];
-					console.log('====== relatiesResultaten ====');
-					console.log(response.data);
-					console.log('====== relatiesResultaten ====');
+					// console.log('====== relatiesResultaten ====');
+					// console.log(response.data);
+					// console.log('====== relatiesResultaten ====');
 					
 					for (var i = 0; i < response.data.customers.length; i++) {
 						$scope.relatiesResultaten.push(response.data.customers[i]);
 					}
-
 				},
 
 				// error
@@ -603,20 +600,14 @@ UniApp.controller('unishopController',
 			var req = {
 				url: AUrl,
 				method: 'POST',
-				headers:
-				{
+				headers: {
 					'Content-Type': undefined,
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
 				},
-				data:
-				{
-
-				},
-				params:
-				{
-					// 'callback': 'JSON_CALLBACK',
+				data: { },
+				params: {
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
@@ -665,12 +656,10 @@ UniApp.controller('unishopController',
 				// J=1/N=2
 				if (attr.Value == '1') {
 					return 'ja';
-				}
-				else {
+				} else {
 					return 'nee';
 				}
-			}
-			else {
+			} else {
 				return attr.Value;
 			}
 		}
@@ -681,19 +670,14 @@ UniApp.controller('unishopController',
 			var req = {
 				url: AUrl,
 				method: 'POST',
-				headers:
-				{
+				headers: {
 					'Content-Type': undefined,
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
 				},
-				data:
-				{
-				},
-				params:
-				{
-					//'callback': 'JSON_CALLBACK',
+				data: {	},
+				params: {
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
@@ -707,7 +691,6 @@ UniApp.controller('unishopController',
 			.then(
 				// success
 				function (response) {
-
 					$scope.isBusy = false;
 					$scope.attribuutArtResultaten = [];
 					for (var i = 0; i < response.data.attributes.length; i++) {
@@ -744,19 +727,14 @@ UniApp.controller('unishopController',
 			var req = {
 				url: AUrl,
 				method: 'POST',
-				headers:
-				{
+				headers: {
 					'Content-Type': undefined,
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
 				},
-				data:
-				{
-				},
-				params:
-				{
-					//'callback': 'JSON_CALLBACK',
+				data: {	},
+				params: {
 					'dataset': $scope.dataset,
 					'username': $scope.inlognaam,
 					'password': $scope.wachtwoord
@@ -819,6 +797,9 @@ UniApp.controller('unishopController',
 		}
 
 		this.handleZoekArt = function () {
+
+			var zoekTekstElement = document.getElementById('zoekTekst');
+			zoekTekstElement.blur();
 
 			$scope.foutResponse = '';
 			$scope.isBusy = true;
@@ -943,8 +924,7 @@ UniApp.controller('unishopController',
 			if (isoStr) {
 				if (isoStr.substring(0, 10) == '1899-12-30') {
 					return '';
-				}
-				else {
+				} else {
 					return dateToDMY(isoDateStringToDate(isoStr), '-');
 				}
 			}
@@ -954,8 +934,7 @@ UniApp.controller('unishopController',
 			if (isoStr) {
 				if (isoStr.substring(0, 10) == '1899-12-30') {
 					return false;
-				}
-				else {
+				} else {
 					return true;
 				}
 			}
@@ -974,6 +953,8 @@ UniApp.controller('unishopController',
 		this.resetZoekArt = function () {
 			$scope.zoekArt = '';
 			$scope.isBusy = false;
+			$scope.zoekCust = '';
+			$scope.relatiesResultaten = [];
 			$scope.$apply();
 		}
 
@@ -981,34 +962,33 @@ UniApp.controller('unishopController',
 			$scope.isBusy = false;
 			$scope.zoekCust = '';
 			$scope.relatiesResultaten = [];
-
 			$scope.mainTitle = 'Voorraad';
 			$scope.activePage = 'home';
 			$scope.$apply();
 			$mdSidenav('menuLinks').close()
-				.then(function () {
-					// $log.debug("menuLinks is gesloten");
-				});
+			.then(function () {
+				// $log.debug("menuLinks is gesloten");
+			});
 		}
 
 		this.openItem1 = function () {
 			$scope.mainTitle = 'Mijn Item';
 			$scope.activePage = 'pageItem';
 			$mdSidenav('menuLinks').close()
-				.then(function () {
-					// $log.debug("menuLinks is gesloten");
-				});
+			.then(function () {
+				// $log.debug("menuLinks is gesloten");
+			});
 		}
 
 		this.pageCustomers = function () {
 			$scope.isBusy = false;
 			$scope.mainTitle = 'Relaties';
 			$scope.activePage = 'pageCustomers';
-			$scope.$apply();
+			// $scope.$apply();
 			$mdSidenav('menuLinks').close()
-				.then(function () {
-					// $log.debug("menuLinks is gesloten");
-				});
+			.then(function () {
+				// $log.debug("menuLinks is gesloten");
+			});
 		}
 
 		this.openPageCustomer = function (relatie) {
@@ -1016,12 +996,12 @@ UniApp.controller('unishopController',
 			$scope.isBusy = false;
 			$scope.mainTitle = 'Relatie';
 			$scope.activePage = 'pageCustomer';
-			$scope.$apply();
+			// $scope.$apply();
 			this.getCustomerDetails(relatie)
 			$mdSidenav('menuLinks').close()
-				.then(function () {
-					// $log.debug("menuLinks is gesloten");
-				});
+			.then(function () {
+				// $log.debug("menuLinks is gesloten");
+			});
 		}				
 
 		this.resetFoutResponse = function () {

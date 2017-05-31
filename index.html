@@ -93,8 +93,14 @@
 							<label class="login">Herhaal uw wachtwoord</label>
 							<input class="login" type="password" ng-model="wachtwoord_new2">
 						</md-input-container>
-						<md-button class="md-accent md-raised" style="width:100%; margin:0px; padding: 8px 6px" ng-click="unishop.handleWijzigWachtwoord()"><span class="login">Wijzig wachtwoord</span></md-button>
-						<md-button class="md-accent md-hue-1" style="width:100%;" ng-click="unishop.cancelWijzigWachtwoord()"><span class="loginLight">annuleren</span></md-button>
+						<md-button class="md-accent md-raised" 
+								   style="width:100%; margin:0px; padding: 8px 6px" 
+								   ng-click="unishop.handleWijzigWachtwoord()">
+							<span class="login">Wijzig wachtwoord</span>
+						</md-button>
+						<md-button class="md-accent md-hue-1" style="width:100%;" ng-click="unishop.cancelWijzigWachtwoord()">
+							<span class="loginLight">annuleren</span>
+						</md-button>
 						<div style="height: 60px;">&nbsp;</div>
 						<div class="inlogFooter">&copy;&nbsp;Rohecom B.V.</div>
 					</div>
@@ -136,7 +142,7 @@
 												}
 											</script>
 											<svg onclick="resetZoekArt()" 
-												 style="width:24px; height: 24px; position: absolute; top: 15px; left: calc(100% + 2px);" xmlns="http://www.w3.org/2000/svg"
+												 style="padding: 2em; display: inline-block; width:24px; height: 24px; position: absolute; top: -20px; left: calc(100% + 2px);" xmlns="http://www.w3.org/2000/svg"
 											 	 xmlns:xlink="http://www.w3.org/1999/xlink">
 												<image x="0" y="0" height="24" width="24" xlink:href="img/icons/close.svg"></image>
 											</svg>
@@ -158,7 +164,11 @@
 											</script>
 											<p>
 												<a href="#" id="scan">
-													<md-icon class="labelfile" id="labelfile" style="width: 100px; height: 100px;" md-svg-icon="img/icons/barcode.svg"></md-icon>
+													<md-icon class="labelfile" 
+															 id="labelfile" 
+															 style="width: 100px; height: 100px;" 
+															 md-svg-icon="img/icons/barcode.svg">
+													</md-icon>
 												</a>
 											</p>
 										</div>
@@ -166,28 +176,34 @@
 
 									<md-content>
 										<md-list class="md-dense" ng-show="(zoekArtResultaten.length > 0)" flex>
-											<md-subheader class="md-no-sticky" ng-show="zoekArtResultaten.length!=1">{{zoekArtResultaten.length}} zoekresultaten</md-subheader>
+											<md-subheader class="md-no-sticky" 
+														  ng-show="zoekArtResultaten.length!=1">
+												{{zoekArtResultaten.length}} zoekresultaten
+											</md-subheader>
 											<md-list-item class="md-3-line" 
 														  ng-repeat="prod in zoekArtResultaten" 
 														  ng-click="unishop.toonProd(prod)" 
 														  style="background-color: {{(($index % 2 != 0) ? '' : '#fafafa')}};">
 
-												<!--<img ng-src="{{API_URL + '/products/MediaContent/' + prod.ProductNr.replace('/', '//') + '/' + prod.SuCodeAlt + '/60' + '?dataset=' + dataset + '&username=' + inlognaam + '&password=' + wachtwoord}}" class="md-avatar" alt="{{prod.ProductNr}}" />-->
+												<img ng-src="{{API_URL + '/products/MediaContent/' + prod.ProductNr.replace('/', '//') + '/' + prod.SuCodeAlt + '/60' + '?dataset=' + dataset + '&username=' + inlognaam + '&password=' + wachtwoord}}" class="md-avatar" alt="{{prod.ProductNr}}" />
 
-												<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" class="md-avatar" alt="test">
+												<!--<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" class="md-avatar" alt="test">-->
 
 												<div class="md-list-item-text" layout="column">
 													<h3>{{prod.Name.substring(0,22)}}<span ng-show="prod.Name.length>22">...</span></h3>
 													<h4>{{prod.ProductNr}}</h4>
 													<p ng-show="((prod.Size + prod.color) != '')">
-														<span ng-show="(prod.Color != '')">Kleur: <strong>{{prod.Color}}</strong></span> <span ng-show="(prod.Size != '')">Maat: <strong>{{prod.Size}}</strong></span>
+														<span ng-show="(prod.Color != '')">Kleur: <strong>{{prod.Color}}</strong></span> 
+														<span ng-show="(prod.Size != '')">Maat: <strong>{{prod.Size}}</strong></span>
 													</p>
 													<p ng-show="prod.Stock > 0">{{prod.Stock}} in voorraad</p>
 													<p ng-show="prod.Stock <= 0">geen voorraad</p>
 												</div>
 												<div flex></div>
 												<div>
-													<div class="prijsKlein {{((prod.DiscountProduct) ? 'groen' : '')}}">{{(prod.RetailPriceAfterDiscount * ((100+prod.VatRate) / 100)) | currency:"&euro;":2}}</div>
+													<div class="prijsKlein {{((prod.DiscountProduct) ? 'groen' : '')}}">
+														{{(prod.RetailPriceAfterDiscount * ((100+prod.VatRate) / 100)) | currency:"&euro;":2}}
+													</div>
 												</div>
 											</md-list-item>
 										</md-list>
@@ -207,7 +223,11 @@
 											<md-button class="md-icon-button" aria-label="terug">
 												<md-icon md-svg-icon="img/icons/arrow-left.svg"></md-icon>
 											</md-button>
-											<h2><span>{{(zoekArtSelected.ClusterName == "" ? zoekArtSelected.Name : zoekArtSelected.ClusterName)}}</span></h2>
+											<h2>
+												<span>
+													{{(zoekArtSelected.ClusterName == "" ? zoekArtSelected.Name : zoekArtSelected.ClusterName)}}
+												</span>
+											</h2>
 											<span flex></span>
 											<md-button class="md-icon-button" aria-label="menu" ng-show="false">
 												<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
@@ -221,19 +241,32 @@
 												<div class="md-list-item-text" layout="column">
 													<div layout="row">
 														<div flex>
-															<img class="transformable" ng-class="{'small':isSmall, 'big':!isSmall}" ng-click="isSmall=!isSmall" ng-src="{{API_URL + '/products/MediaContent/' + zoekArtSelected.ProductNr.replace('/', '//') + '/' + zoekArtSelected.SuCodeAlt + '/210' + '?dataset=' + dataset + '&username=' + inlognaam + '&password=' + wachtwoord}}"
+															<img class="transformable" 
+																 ng-class="{'small':isSmall, 'big':!isSmall}" 
+																 ng-click="isSmall=!isSmall" 
+																 ng-src="{{API_URL + '/products/MediaContent/' + zoekArtSelected.ProductNr.replace('/', '//') + '/' + zoekArtSelected.SuCodeAlt + '/210' + '?dataset=' + dataset + '&username=' + inlognaam + '&password=' + wachtwoord}}"
 															 alt="{{zoekArtSelected.ProductNr}}" />
 														</div>
 														<span flex></span>
 														<div flex>
 															<div class="prijsGroot md-list-item-text" layout="column" ng-show="!zoekArtSelected.DiscountProduct">
 																<div class="prijsGroot md-list-item-text" layout="column" ng-show="!zoekArtSelected.DiscountProduct">
-																	<s class="grijs" style="font-size: 10pt; font-weight: 100;">&nbsp;</s><br/> {{(zoekArtSelected.RetailPriceAfterDiscount * ((100+zoekArtSelected.VatRate) / 100)) | currency:"&euro;":2}}<br/>
+																	<s class="grijs" style="font-size: 10pt; font-weight: 100;">&nbsp;</s>
+																	<br/> 
+																	{{(zoekArtSelected.RetailPriceAfterDiscount * ((100+zoekArtSelected.VatRate) / 100)) | currency:"&euro;":2}}
+																	<br/>
 																</div>
 															</div>
 															<div class="prijsGroot md-list-item-text groen" layout="column" ng-show="zoekArtSelected.DiscountProduct">
-																<s class="grijs" style="font-size: 10pt;">{{(zoekArtSelected.RetailPrice * ((100+zoekArtSelected.VatRate) / 100)) | currency:"&euro;":2}}</s><br/>																{{(zoekArtSelected.RetailPriceAfterDiscount * ((100+zoekArtSelected.VatRate) / 100)) | currency:"&euro;":2}}<br/>
-																<br/><span class="discountdate groen">{{unishop.discountPercentage(zoekArtSelected) | number:2 }}% <span ng-show="unishop.heeftDiscountDate(zoekArtSelected.DiscountEnds)">tot {{unishop.discountDate(zoekArtSelected.DiscountEnds)}}</span></span>
+																<s class="grijs" style="font-size: 10pt;">
+																	{{(zoekArtSelected.RetailPrice * ((100+zoekArtSelected.VatRate) / 100)) | currency:"&euro;":2}}
+																</s>
+																<br/>																{{(zoekArtSelected.RetailPriceAfterDiscount * ((100+zoekArtSelected.VatRate) / 100)) | currency:"&euro;":2}}<br/>
+																<br/>
+																<span class="discountdate groen">{{unishop.discountPercentage(zoekArtSelected) | number:2 }}% 
+																	<span ng-show="unishop.heeftDiscountDate(zoekArtSelected.DiscountEnds)">tot {{unishop.discountDate(zoekArtSelected.DiscountEnds)}}
+																	</span>
+																</span>
 															</div>
 														</div>
 													</div>
@@ -244,14 +277,20 @@
 																<div class="staticRowData" flex>
 																	<div ng-click="unishop.toggleExpandAttributen()">
 																		{{zoekArtSelected.ProductNr}}
-																		<img src="img/icons/plus.svg" style="width: 12px; height: 12px;" ng-show="(attribuutArtResultaten.length > 0) && (!expandAttributen)">
-																		<img src="img/icons/arrow-down.svg" style="width: 12px; height: 12px;" ng-show="(attribuutArtResultaten.length > 0) && (expandAttributen)">
+																		<img src="img/icons/plus.svg" 
+																			 style="width: 12px; height: 12px;" 
+																			 ng-show="(attribuutArtResultaten.length > 0) && (!expandAttributen)">
+																		<img src="img/icons/arrow-down.svg" 
+																			 style="width: 12px; height: 12px;" 
+																			 ng-show="(attribuutArtResultaten.length > 0) && (expandAttributen)">
 																	</div>
 																</div>
 															</div>
 														</div>
 
-														<div flex class="staticRow" ng-show="expandAttributen" ng-repeat="attr in attribuutArtResultaten">
+														<div flex class="staticRow" 
+																  ng-show="expandAttributen" 
+																  ng-repeat="attr in attribuutArtResultaten">
 															<div layout="row">
 																<div class="staticRowCaption">{{attr.Name.substring(0,12)}}</div>
 																<div class="staticRowData" flex>{{unishop.AttribuutWaarde(attr)}}</div>
@@ -280,41 +319,61 @@
 															<div layout="row">
 																<div class="staticRowCaption">Leverancier</div>
 																<div class="staticRowData" flex>{{zoekArtSelected.Supplier}}<br/>
-																	<span class="small" ng-show="zoekArtSelected.SupplierPhone.length > 0"><a class="phone" href="tel:{{zoekArtSelected.SupplierPhone}}">{{zoekArtSelected.SupplierPhone}}</a></span>
+																	<span class="small" ng-show="zoekArtSelected.SupplierPhone.length > 0">
+																		<a class="phone" href="tel:{{zoekArtSelected.SupplierPhone}}">{{zoekArtSelected.SupplierPhone}}</a>
+																	</span>
 																</div>
 															</div>
 														</div>
 														<div flex>
 															<div layout="row">
 																<div class="staticRowCaption">Opmerking</div>
-																<div class="staticRowData" flex ng-if="(!expandRemark)" ng-click="unishop.toggleExpandRemark()" ng-bind-html="zoekArtSelected.Remark.substring(0,94) | trustAsHtml">
-																	<span ng-show="zoekArtSelected.Remark.length>94">
-																	...													
-																	</span>
-																	<img src="img/icons/arrow-right.svg" style="width: 12px; height: 12px;" ng-show="zoekArtSelected.Remark.length > 75">
+																<div class="staticRowData" 
+																	 flex 
+																	 ng-if="(!expandRemark)" 
+																	 ng-click="unishop.toggleExpandRemark()" 
+																	 ng-bind-html="zoekArtSelected.Remark.substring(0,94) | trustAsHtml">
+																	<span ng-show="zoekArtSelected.Remark.length>94">...</span>
+																	<img src="img/icons/arrow-right.svg" 
+																		 style="width: 12px; height: 12px;" 
+																		 ng-show="zoekArtSelected.Remark.length > 75">
 																</div>
-																<div class="staticRowData" flex ng-if="(expandRemark)" ng-click="unishop.toggleExpandRemark()" ng-bind-html="zoekArtSelected.Remark | trustAsHtml">
-
+																<div class="staticRowData" 
+																	 flex 
+																	 ng-if="(expandRemark)" 
+																	 ng-click="unishop.toggleExpandRemark()" 
+																	 ng-bind-html="zoekArtSelected.Remark | trustAsHtml">
 																</div>
 															</div>
 														</div>
 													</div>
 
 													<div style="padding-top: 10px;">
-														<barcode type="ean" string="{{zoekArtSelected.Barcode}}" options="unishop.barcodeOptions" ng-if="zoekArtSelected.Barcode.length==13"></barcode>
+														<barcode type="ean" 
+																 string="{{zoekArtSelected.Barcode}}" 
+																 options="unishop.barcodeOptions" 
+																 ng-if="zoekArtSelected.Barcode.length==13">
+														</barcode>
 													</div>
 
 													<div layout="column" style="padding-top: 10px; padding-bottom: 10px;">
 														<div ng-show="(isVoorraadBusy)" style="width: 40px;">
-															<md-progress-linear md-mode="indeterminate" md-component-id="proVrdIndetermined">
+															<md-progress-linear md-mode="indeterminate" 
+																				md-component-id="proVrdIndetermined">
 															</md-progress-linear>
 														</div>
 
 														<div flex ng-repeat="vrrd in artVoorraadResultaten">
-															<div layout="row" class="voorraad" ng-click="unishop.toggleExpandVoorraad()">
+															<div layout="row" 
+																 class="voorraad" 
+																 ng-click="unishop.toggleExpandVoorraad()">
 																<div style="width: 16px;">
-																	<img src="img/icons/plus.svg" style="width: 12px; height: 12px;" ng-show="($index==0) && (artVoorraadResultaten.length > 1) && (!expandVoorraad)">
-																	<img src="img/icons/arrow-down.svg" style="width: 12px; height: 12px;" ng-show="($index==0) && (artVoorraadResultaten.length > 1) && (expandVoorraad)">
+																	<img src="img/icons/plus.svg" 
+																		 style="width: 12px; height: 12px;" 
+																		 ng-show="($index==0) && (artVoorraadResultaten.length > 1) && (!expandVoorraad)">
+																	<img src="img/icons/arrow-down.svg" 
+																		 style="width: 12px; height: 12px;" 
+																		 ng-show="($index==0) && (artVoorraadResultaten.length > 1) && (expandVoorraad)">
 																</div>
 																<div flex ng-show="(vrrd.StockLevel != 1)">
 																	{{vrrd.Remark}}
@@ -334,7 +393,9 @@
 											<table width="100%" ng-show="clusterArtResultaten.length > 0" cellspacing="0" cellpadding="0">
 												<tr>
 													<td colspan="5">
-														<md-switch ng-model="clusterArtEnkelOpVoorraad" aria-label="enkel op voorraad">Enkel op voorraad</md-switch>
+														<md-switch ng-model="clusterArtEnkelOpVoorraad" 
+																   aria-label="enkel op voorraad">Enkel op voorraad
+														</md-switch>
 													</td>
 												</tr>
 												<tr>
@@ -344,7 +405,8 @@
 													<th id="rechts">Voorraad</th>
 													<th id="rechts">Verkoopprijs</th>
 												</tr>
-												<tbody ng-repeat="prod in clusterArtResultaten" ng-if="((!clusterArtEnkelOpVoorraad) || (clusterArtEnkelOpVoorraad && (prod.Stock > 0)))">
+												<tbody ng-repeat="prod in clusterArtResultaten" 
+													   ng-if="((!clusterArtEnkelOpVoorraad) || (clusterArtEnkelOpVoorraad && (prod.Stock > 0)))">
 													<tr style="background-color: {{(($index % 2 == 0) ? '' : '#fafafa')}};">
 														<td style="width: 20px">
 															<img src="img/icons/arrow-right.svg" 
@@ -363,7 +425,8 @@
 														</td>
 														<td id="rechts" 
 															ng-click="unishop.toonProd(prod)" 
-															ng-if="!prod.DiscountProduct">{{(prod.RetailPrice * ((100+prod.VatRate) / 100)) | currency:"&euro;":2}}
+															ng-if="!prod.DiscountProduct">
+															{{(prod.RetailPrice * ((100+prod.VatRate) / 100)) | currency:"&euro;":2}}
 														</td>
 														<td id="rechts" 
 															class="groen" 
@@ -433,10 +496,13 @@
 									<md-content>
 										<!-- list view -->
 										<md-list class="md-dense" ng-show="(relatiesResultaten.length > 0)" flex>
-											<md-subheader class="md-no-sticky" ng-show="relatiesResultaten.length!=1">{{relatiesResultaten.length}} zoekresultaten</md-subheader>
-											<md-list-item class="md-3-line" ng-repeat="relatie in relatiesResultaten" style="background-color: {{(($index % 2 != 0) ? '' : '#fafafa')}};"
-											 ng-click="unishop.openPageCustomer(relatie)">
-
+											<md-subheader class="md-no-sticky" ng-show="relatiesResultaten.length!=1">
+												{{relatiesResultaten.length}} zoekresultaten
+											</md-subheader>
+											<md-list-item class="md-3-line" 
+														  ng-repeat="relatie in relatiesResultaten" 
+														  style="background-color: {{(($index % 2 != 0) ? '' : '#fafafa')}};"
+											 			  ng-click="unishop.openPageCustomer(relatie)">
 												<div class="md-list-item-text" layout="column" style="flex: 2;">
 													<h3>{{ relatie.DisplayName }}</h3>
 													<h4>{{ relatie.Address }}</h4>
@@ -445,7 +511,9 @@
 												<div flex></div>
 												<div>
 													<div style="margin-top: 33px; margin-right: 5px; cursor: pointer;">
-														<a href="javascript:void(0)"><img src="img/icons/arrow-right.svg" style="width: 16px; height: 16px;"><a/>
+														<a href="javascript:void(0)">
+															<img src="img/icons/arrow-right.svg" style="width: 16px; height: 16px;">
+														<a/>
 													</div>
 												</div>												
 											</md-list-item>
@@ -453,7 +521,10 @@
 										<!-- list view -->
 
 										<div layout="column" layout-align="center center" ng-show="isBusy">
-											<md-progress-circular md-mode="indeterminate" md-component-id="proCluster" md-diameter="96"></md-progress-circular>
+											<md-progress-circular md-mode="indeterminate" 
+																  md-component-id="proCluster" 
+																  md-diameter="96">
+											</md-progress-circular>
 										</div>
 									</md-content>
 								</md-content>
@@ -462,15 +533,20 @@
 							<!-- Eind relaties content -->
 
 							<!-- Start relatie content -->
-							<md-content md-component-id="pageCustomer" ng-show="!unishop.isActivePage('home') && unishop.isActivePage('pageCustomer');"	class="subPane">
-
+							<md-content md-component-id="pageCustomer" 
+									    ng-show="!unishop.isActivePage('home') && unishop.isActivePage('pageCustomer');"	
+										class="subPane">
 								<md-toolbar md-scroll-shrink class="md-hue-2">
 									<div class="md-toolbar-tools" ng-click="unishop.pageCustomers()">
 										<md-button class="md-icon-button" aria-label="terug">
 											<md-icon md-svg-icon="img/icons/arrow-left.svg"></md-icon>
 										</md-button>
-										<h2 ng-if="relatieResultaat.CompanyName"><span>Relatie {{ relatieResultaat.CompanyName }}</span></h2>
-										<h2 ng-if="relatieResultaat.Name&&!relatieResultaat.CompanyName"><span>Relatie {{ relatieResultaat.Name }}</span></h2>
+										<h2 ng-if="relatieResultaat.CompanyName">
+											<span>Relatie {{ relatieResultaat.CompanyName }}</span>
+										</h2>
+										<h2 ng-if="relatieResultaat.Name&&!relatieResultaat.CompanyName">
+											<span>Relatie {{ relatieResultaat.Name }}</span>
+										</h2>
 										<span flex></span>
 										<md-button class="md-icon-button" aria-label="menu" ng-show="false">
 											<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
@@ -478,11 +554,15 @@
 									</div>
 								</md-toolbar>
 								
-								<md-content md-component-id="panelCustomer" layout="column" style="padding-top:40px;padding-left:15px;padding-right:15px;">
+								<md-content md-component-id="panelCustomer" 
+											layout="column" 
+											style="padding-top:40px;padding-left:15px;padding-right:15px;">
 									<md-content>
 										<table width="100%" ng-show="relatieResultaat&&!isBusy" cellspacing="2" cellpadding="2">
 											<tbody>
-												<tr ng-if="relatieResultaat.CompanyName"><th>Bedrijfsnaam</th><td>{{ relatieResultaat.CompanyName }}</td></tr>
+												<tr ng-if="relatieResultaat.CompanyName">
+													<th>Bedrijfsnaam</th><td>{{ relatieResultaat.CompanyName }}</td>
+												</tr>
 												<tr><th>Naam</th><td>{{ relatieResultaat.DisplayName }}</td></tr>
 												<tr><th>Adres</th><td>{{ relatieResultaat.Address }}</td></tr>
 												<tr><th>Postcode</th><td>{{ relatieResultaat.PostalCode }}</td></tr>
@@ -498,7 +578,10 @@
 										</table>	
 
 										<div layout="column" layout-align="center center" ng-show="isBusy">
-											<md-progress-circular md-mode="indeterminate" md-component-id="proCluster" md-diameter="96"></md-progress-circular>
+											<md-progress-circular md-mode="indeterminate" 
+																  md-component-id="proCluster" 
+																  md-diameter="96">
+											</md-progress-circular>
 										</div>	
 
 									</md-content>
@@ -563,6 +646,5 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="barcodescanner.js"></script>
-
 </body>
 </html>
