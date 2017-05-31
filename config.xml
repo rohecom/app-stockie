@@ -29,7 +29,10 @@
     </plugin>
     <gap:config-file overwrite="true" parent="NSCameraUsageDescription" platform="ios">
         <string>Scan uw barcode</string>
-    </gap:config-file>  
+    </gap:config-file>
+    <plugin name="cordova-plugin-statusbar" spec="~2.2.3" />
+
+    <preference name="StatusBarOverlaysWebView" value="false" /> 
 
     <access origin="*" />
     <allow-intent href="http://*/*" />
