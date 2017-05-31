@@ -196,7 +196,7 @@ UniApp.controller('unishopController',
 		$scope.clusterArtResultaten = [];
 		$scope.attribuutArtResultaten = [];
 		$scope.artVoorraadResultaten = [];
-		$scope.expandVoorraad = false;
+		$scope.expandVoorraad = true;
 		$scope.expandAttributen = false;
 
 		if (localStorageService.get('expandAttributen')) {
