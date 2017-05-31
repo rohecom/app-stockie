@@ -15,7 +15,7 @@ th { text-align: left; }
 #midden { text-align: center; }
 img, a, a.link, a.visited, a.active { border: none; outline: none; }
 a.phone:link, a.phone:visited, a.phone:hover, a.phone:active { color: #a0a0a0; text-decoration: none; }
-#inloggen { margin: auto; width: 75%; height: 80%; border: 0px solid #e0e0e0; padding: 10px; }
+#inloggen { margin: auto; width: 90%; height: 100%; border: 0px solid #e0e0e0; padding: 10px; }
 .inlogTitel { font-weight: 100; font-size: 24pt; text-align: center; width:100%; }
 .inlogFooter { font-weight: 100; font-size: 10pt; color: #e0e0e0; text-align: center; width:100%; }
 .subPane { min-height: 100vh; max-height: 100vh; -webkit-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; -moz-transition   : 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; -ms-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; -o-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all; opacity: 1; }
@@ -63,8 +63,8 @@ fieldset { border-style: none; }
 .staticRowCaption {	width:90px; }
 .staticRowData { color: #606060; }
 .offset { position: absolute; left: 100px; }
-.button { background-color: #2196f3; border: none; color: white; padding: 16px 49px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; border-radius: 4px; }
-.zoekbutton { position: relative; top: -25px; cursor: pointer; }
+.button { background-color: #2196f3; border: none; color: white; padding: 16px 50px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px; border-radius: 4px; }
+.zoekbutton { position: relative; top: -10px; cursor: pointer; }
 .transformable { -webkit-transition: height 100ms linear; -moz-transition: height 100ms linear; -o-transition: height 100ms linear; -ms-transition: height 100ms linear; transition: height 100ms linear; }
 .small { width:60px; }
 .big { width: min(210, calc(100vw - 170px)); }
