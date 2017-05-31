@@ -1122,7 +1122,7 @@ UniApp.controller('unishopController',
 			$scope.relatiesResultaten = [];
 			$scope.mainTitle = 'Voorraad';
 			$scope.activePage = 'home';
-			$scope.$apply();
+			//$scope.$apply();
 			$mdSidenav('menuLinks').close()
 			.then(function () {
 				// $log.debug("menuLinks is gesloten");
@@ -1142,7 +1142,7 @@ UniApp.controller('unishopController',
 			$scope.isBusy = false;
 			$scope.mainTitle = 'Relaties';
 			$scope.activePage = 'pageCustomers';
-			// $scope.$apply();
+			//$scope.$apply();
 			$mdSidenav('menuLinks').close()
 			.then(function () {
 				// $log.debug("menuLinks is gesloten");
