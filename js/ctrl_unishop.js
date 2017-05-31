@@ -165,7 +165,6 @@ UniApp.controller('unishopController',
 		$scope.activePage = 'home';
 
 		$scope.isLoaded = false;
-		// $scope.HeeftData = false;
 		$scope.isBusy = false;
 		$scope.isVoorraadBusy = false;
 		$scope.ingelogd = false;
@@ -239,26 +238,19 @@ UniApp.controller('unishopController',
 
 		this.logResponseCode = function () {
 			if ($location.search().responsecode) {
-				// alert($location.search().responsecode);
 				var AUrl = $scope.API_URL + '/logtext/' + encodeURI('responsecode=' + $location.search().responsecode);
 
 				var req = {
 					url: AUrl,
 					method: 'POST',
-					headers:
-					{
+					headers: {
 						'Content-Type': undefined,
 						'dataset': $scope.dataset,
 						'username': $scope.inlognaam,
 						'password': $scope.wachtwoord
 					},
-					data:
-					{
-
-					},
-					params:
-					{
-						// 'callback': 'JSON_CALLBACK',
+					data: { },
+					params: {
 						'dataset': $scope.dataset,
 						'username': $scope.inlognaam,
 						'password': $scope.wachtwoord
@@ -867,7 +859,6 @@ UniApp.controller('unishopController',
 						$scope.zoekArtResultaten.push(response.data.products[i]);
 					}
 
-					/*
 					if ($scope.zoekArtResultaten.length == 1) {
 						var appScope = angular.element(document.getElementById('appController')).scope();
 						if (appScope) {
@@ -878,7 +869,6 @@ UniApp.controller('unishopController',
 					if ($scope.zoekArtResultaten.length == 0) {
 						$scope.status_zoeken = 'niets gevonden...probeer een nieuwe zoekopdracht';
 						$scope.foutResponse = 'niets gevonden...probeer een nieuwe zoekopdracht';
-						// todo: hier alertje niets gevonden
 						$scope.showAlert('Niets gevonden.', 'Probeer een nieuwe zoekopdracht');
 						window.setTimeout(function () {
 							$scope.foutResponse = '';
@@ -886,8 +876,6 @@ UniApp.controller('unishopController',
 							$scope.$apply();
 						}, 4000);
 					}
-					*/
-
 				},
 
 				// error
@@ -999,7 +987,7 @@ UniApp.controller('unishopController',
 			$scope.$apply();
 			$mdSidenav('menuLinks').close()
 				.then(function () {
-					//$log.debug("menuLinks is gesloten");
+					// $log.debug("menuLinks is gesloten");
 				});
 		}
 
