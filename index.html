@@ -30,7 +30,7 @@
 	<script src="js/ctrl_unishop.js?v=2"></script>
 </head>
 
-<body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl">
+<body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl" topmargin="10">
 	<md-content id="mainContent" pull-to-refresh="pullCtrl.onPullReload()">
 		<div id="appController" ng-controller="unishopController as unishop">
 			<md-content ng-show="!unishop.isMobilePlatform()">
@@ -594,7 +594,7 @@
 					</md-content>
 				</md-content>
 
-				<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="menuLinks">
+				<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="menuLinks" style="margin-top: 20px">
 
 					<md-content ng-controller="MenuLinksCtrl as mlCtrl" layout="column">
 						<md-toolbar class="md-theme-light" ng-click="mlCtrl.close()" >
