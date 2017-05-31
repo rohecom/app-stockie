@@ -801,6 +801,18 @@ UniApp.controller('unishopController',
 			var zoekTekstElement = document.getElementById('zoekTekst');
 			zoekTekstElement.blur();
 
+			if ($scope.zoekArt === '') {
+				navigator.notification.alert(
+					'Zoek artikel',
+					null,
+					'Geen zoekterm opgegeven.',
+					'Ok'
+				);
+
+				// $scope.showAlert('Zoek artikel', 'Geen zoekterm opgegeven.');
+				return false;
+			}
+
 			$scope.foutResponse = '';
 			$scope.isBusy = true;
 			$scope.zoekArtResultaten = [];
@@ -882,7 +894,14 @@ UniApp.controller('unishopController',
 					$scope.attribuutArtResultaten = [];
 					$scope.artVoorraadResultaten = [];
 
-					$scope.showAlert(errortext, errortextSub);
+					navigator.notification.alert(
+						errortext,
+						null,
+						errortextSub,
+						'Ok'
+					);					
+
+					// $scope.showAlert(errortext, errortextSub);
 				}
 			);
 		}
