@@ -1,6 +1,5 @@
 /* app css stylesheet */
-body {  font-family: 'Roboto', sans-serif; font-size: 10pt; font-weight: 400; }
-body.iOS7 { -webkit-transform: translate3d(0, 20px, 0); transform: translate3d(0, 20px, 0); }
+body {  font-family: 'Roboto', sans-serif; font-size: 10pt; font-weight: 400; padding-top: 20px; }
 th { text-align: left; }
 #rechts { text-align: right; }
 #links { text-align: left; }
@@ -64,5 +63,4 @@ fieldset { border-style: none; }
 .oneven { background-color: #FFFFFF; }
 .alertText { font-size: 16pt; font-weight: 600; padding: 30px; }
 @media only screen and (max-width: 959px) and (min-width: 0) and (orientation: portrait) { .md-theme-light .md-toolbar-tools { height: 68px; max-height: 68px; /* padding-top: 12px; */ } }
-
-
+md-sidenav { padding-top: 20px; }

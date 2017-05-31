@@ -30,7 +30,7 @@
 	<script src="js/ctrl_unishop.js?v=2"></script>
 </head>
 
-<body class="iOS7" ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl">
+<body ontouchstart="" ng-controller="PullToRefreshCtrl as pullCtrl">
 	<md-content id="mainContent" pull-to-refresh="pullCtrl.onPullReload()">
 		<div id="appController" ng-controller="unishopController as unishop">
 			<md-content ng-show="!unishop.isMobilePlatform()">
@@ -646,18 +646,5 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="barcodescanner.js"></script>
-	<script>
-	$(document).on('deviceready', function () {
-
-		var iOS7 = window.device 
-                && window.device.platform 
-                && window.device.platform.toLowerCase() == "ios"
-                && parseFloat(window.device.version) >= 7.0;
-
-		if (iOS7) {
-			$('body').addClass('iOS7');
-		}
-	});		
-	</script>
 </body>
 </html>
