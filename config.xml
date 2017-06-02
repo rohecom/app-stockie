@@ -47,6 +47,18 @@
             <string>We are using the camera to scan product barcodes</string>
         </config-file>
 	</platform>
+	
+	<platform name="ios">
+        <config-file parent="NSPhotoLibraryUsageDescription" target="*-Info.plist">
+            <string>Optional saving to file and barcode lookup</string>
+        </config-file>
+	</platform>
+
+	<platform name="android">
+        <config-file parent="NSPhotoLibraryUsageDescription" target="*-Info.plist">
+            <string>Optional saving to file and barcode lookup</string>
+        </config-file>
+	</platform>
     
     <access origin="*" />
     <allow-intent href="http://*/*" />
